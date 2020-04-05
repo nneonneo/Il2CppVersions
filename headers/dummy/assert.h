@@ -1,0 +1,1 @@
+#define ASSERT(x)

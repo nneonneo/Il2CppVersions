@@ -1,0 +1,9 @@
+- Install VS2015 and VS2017 C++ tools. *Uninstall* VS2019 C++ tools if you have them - otherwise certain versions will fail.
+- Download every installer from the Unity site (https://unity3d.com/get-unity/download/archive)
+    - Download the "Unity Editor 64-bit" for Windows.
+    - I extracted links using a text editor on the source of that page, and then downloaded all of them with aria2c.
+- Install 7-zip.
+- Edit extract.sh to update the paths to 7z.exe and your downloads.
+- Run extract.sh to extract il2cpp into each of the group directories
+- Edit Test.cs as you see fit; it just needs to be C# 4.0 compatible.
+- Run build_all.bat to build Test.cs into a DLL against every single version. These will go into the output/ directory, one per version.
