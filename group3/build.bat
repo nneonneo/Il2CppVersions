@@ -28,6 +28,12 @@ copy "%~dp0\MonoBleedingEdge\lib\mono\unityaot\mscorlib.dll" "%OUTDIR%\lib"
 @IF %ERRORLEVEL% NEQ 0 GOTO fail
 
 rd /s /q "%OUTDIR%\cache"
+mkdir "%OUTDIR%\cache"
+
+"%~dp0\il2cpp-%VERSION%\build\il2cpp.exe" --generatedcppdir "%OUTDIR%\il2cpp" --compile-cpp --platform=WindowsDesktop --architecture=x86 --outputpath "%OUTDIR%\libil2cpp-x86.dll" --dotnetprofile=unityaot --configuration=Release --cachedirectory="%OUTDIR%\cache" --libil2cpp-static
+@IF %ERRORLEVEL% NEQ 0 GOTO fail
+
+rd /s /q "%OUTDIR%\cache"
 exit /B 0
 
 :fail
