@@ -5,8 +5,8 @@ namespace Test1
 {
     public class SimpleClass : SimpleInterface
     {
-        SimpleStruct ss;
-        int i;
+        public SimpleStruct ss;
+        public int i;
 
         public static SimpleStruct StaticFunc(SimpleStruct ss) {
             Console.WriteLine(ss);
@@ -26,14 +26,14 @@ namespace Test1
         public event SimpleDelegate SimpleEvent;
         public int SimpleProperty {
             get { return 0; }
-            set { }
+            set { SimpleEvent(ss); }
         }
     }
 
     public struct SimpleStruct : SimpleInterface
     {
-        SimpleClass sc;
-        int i;
+        public SimpleClass sc;
+        public int i;
 
         public static SimpleStruct StaticFunc(SimpleStruct ss) {
             Console.WriteLine(ss);
@@ -67,7 +67,7 @@ namespace Test2
 
     public class GenericClass<T> : GenericInterface<T>
     {
-        T x;
+        public T x;
 
         public T func(T v) {
             return v;
@@ -80,11 +80,15 @@ namespace Test2
         public static T myMethod(T x) {
             return x;
         }
+
+        public virtual bool returnBool() {
+            return true;
+        }
     }
 
     public class DerivedGenericClass<T, T2> : GenericClass<T>, GenericInterface<T2>
     {
-        T2 t2;
+        public T2 t2;
         public T2 func(T2 v) {
             return t2;
         }
@@ -104,7 +108,7 @@ namespace Test2
 
     public struct GenericStruct<T> : GenericInterface<T> where T : struct
     {
-        T a;
+        public T a;
         public T func(T v) {
             throw new NotImplementedException();
         }
@@ -114,7 +118,7 @@ namespace Test2
         }
 
         public T? genericMethod2(T x) {
-            return (42 < 43) ? null : (T?)x;
+            return (new GenericClass<T>()).returnBool() ? null : (T?)x;
         }
 
         public static GenericStruct<T> ReturnStruct(T y) {
@@ -264,8 +268,8 @@ namespace TestVTables
 
         public interface IT3 : IT2, IT1
         {
-            void f2();
-            void f1();
+            new void f2();
+            new void f1();
         }
 
         public class WeirdLayout1
@@ -282,7 +286,7 @@ namespace TestVTables
 
         public struct TestStruct : TestInterface, TestInterface2, IT1, IT2
         {
-            int x;
+            public int x;
             public int overrideme() {
                 return 42 + x;
             }
@@ -306,7 +310,7 @@ namespace TestVTables
 
         public class TestClass : TestInterface, TestInterface3, IT3
         {
-            int x;
+            public int x;
             public virtual int overrideme() {
                 return 64 - x;
             }
@@ -326,7 +330,7 @@ namespace TestVTables
 
         public class TestClass2 : TestClass
         {
-            int y;
+            public int y;
             public override int overrideme() {
                 return 1 + y;
             }
@@ -342,7 +346,7 @@ namespace TestVTables
 
         public class TestGeneric<T> : ITestGeneric<T>
         {
-            T m_t;
+            public T m_t;
             public T[] arr;
             public int x;
             public TestGeneric(T[] arr) {
@@ -359,8 +363,8 @@ namespace TestVTables
 
         public class TestGeneric2<T1, T2> : TestGeneric<T2>
         {
-            T1 m_t1;
-            T2 m_t2;
+            public T1 m_t1;
+            public T2 m_t2;
             public TestGeneric2(T2[] t2) : base(t2) {
 
             }
@@ -378,7 +382,7 @@ namespace TestVTables
             return a.x + b.y + c.z;
         }
         public delegate void callit(int x);
-        callit monkey;
+        public callit monkey;
 
         public int doit(TestInterface ti, TestInterface2 ti2, TestInterface3 ti3) {
             return ti.overrideme() * 2 + ti2.overrideme2() + ti3.overrideme3();
@@ -434,6 +438,7 @@ namespace TestVTables
             callgeneric(x2, "foo");
             ITestGeneric<string> x3 = new TestGeneric2<int, string>(new string[] { "as", "de" });
             new WeirdLayout2().f = 3;
+            x3.genericFunc("bar");
         }
 
         // Update is called once per frame
