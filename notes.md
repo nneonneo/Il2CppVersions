@@ -262,11 +262,16 @@
     + `Il2CppImage.nameNoExt`
 - 2018.1.0:
     + `MethodInfo.{wrapper_type,is_marshaled_from_native}`
+    * `MethodInfo.declaring_type` => `MethodInfo.klass`
     * `Il2CppClass.byval_arg`: `Il2CppType*` => `Il2CppType`
     * `Il2CppClass.this_arg`: `Il2CppType*` => `Il2CppType`
     + `Il2CppClass.klass`
     * `AssemblyIndex Il2CppImage.assemblyIndex` => `Il2CppAssembly* Il2CppImage.assembly`
     + `Il2CppImage.dynamic`
+    * typedefs on everything (C compatibility?)
+    * `Il2CppAssemblyName` => `Il2CppAssemblyNameDefinition`
+    * `Il2CppAssembly` => `Il2CppAssemblyDefinition`
+    + `struct Il2CppAssembly`
 - 2018.2.0:
     + `Il2CppClass.initializationExceptionGCHandle`
     + `Il2CppClass.has_initialization_error`
