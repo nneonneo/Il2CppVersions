@@ -209,6 +209,7 @@
 - 5.3.1: First version to use a hash for disambiging types/methods instead of a simple counter
 - 5.3.2: Hash tweaked
 - 5.3.3: `Object` renamed to `Il2CppObject`
+- 5.3.5: MetadataCache::Register now takes three arguments (previously 2)
 - 5.3.6: Hash tweaked
 - 2017.1.0: Final parameter is now `RuntimeMethod` instead of `MethodInfo`
 - 2018.3.0: Static functions no longer carry zeroed `this` parameter
@@ -240,7 +241,8 @@
 - 5.4.4:
     + `Il2CppClass.genericRecursionDepth`
 - 5.5.0 (21 => 22):
-    + `Il2CppGlobalMetadataHeader.unresolvedVirtualCallParameter{Types/Ranges}`, adding `Il2CppCodeRegistration.unresolvedVirtualCallPointers`
+    + `Il2CppGlobalMetadataHeader.unresolvedVirtualCallParameter{Types/Ranges}`
+    + `Il2CppCodeRegistration.unresolvedVirtualCallPointers`
     * move `Il2CppClass.vtable` to the end as an array
     - `Il2CppClass.genericRecursionDepth`
 - 5.5.1:
@@ -276,7 +278,7 @@
 - 2018.2.0:
     + `Il2CppClass.initializationExceptionGCHandle`
     + `Il2CppClass.has_initialization_error`
-- 2018.3.0:
+- 2018.3.0 (24 => 24.1):
     - `Il2CppTypeDefinition.customAttributeIndex`
     - `Il2CppFieldDefinition.customAttributeIndex`
     - `Il2CppParameterDefinition.customAttributeIndex`
@@ -301,7 +303,7 @@
     + `Il2CppClass.naturalAligment`
 - 2018.4.18:
     + `Il2CppCodeRegistration.windowsRuntimeFactoryTable` (at the end)
-- 2019.1.0:
+- 2019.1.0 (24.1 => 24.2):
     - `Il2CppTypeDefinition.{rgctxStartIndex,rgctxCount}`
     - `Il2CppMethodDefinition.{methodIndex,invokerIndex,reversePInvokeWrapperIndex,rgctxStartIndex,rgctxCount}`
     - `Il2CppGlobalMetadataHeader.rgctxEntries`
