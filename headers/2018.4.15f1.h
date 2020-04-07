@@ -1198,7 +1198,7 @@ struct Il2CppArray {
     il2cpp_array_size_t max_length;
     /* vector must be 8-byte aligned.
        On 64-bit platforms, this happens naturally.
-       On 32-bit platforms, obj=8, bounds=4 and max_length=4 so it's also already aligned. */
+       On 32-bit platforms, sizeof(obj)=8, sizeof(bounds)=4 and sizeof(max_length)=4 so it's also already aligned. */
     void *vector[32];
 };
 struct Il2CppString {
