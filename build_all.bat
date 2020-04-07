@@ -194,4 +194,5 @@ call group5\build.bat 2019.3.4f1
 call group5\build.bat 2019.3.5f1
 call group5\build.bat 2019.3.6f1
 call group5\build.bat 2019.3.7f1
+call group5\build.bat 2019.3.8f1
 pause
