@@ -4,32 +4,33 @@
     5.3.0f4
     5.3.1f1
 19:
-    5.3.2f1
+    5.3.2f1 *
 20:
-    5.3.3f1
+    5.3.3f1 *
     5.3.4f1
 21:
-    5.3.5f1
-    5.3.6f1
-    5.3.7f1
+    5.3.5f1 *
+    5.3.6f1 * (MethodInfo** Il2CppClass.vtable => VirtualInvokeData* Il2CppClass.vtable)
+    5.3.7f1 * (int32_t* Il2CppMetadataRegistration.fieldOffsets => int32_t** Il2CppMetadataRegistration.fieldOffsets)
     5.3.8f2
-    5.4.0f3
-    5.4.1f1
+    5.4.0f3 * (int32_t** Il2CppMetadataRegistration.fieldOffsets => int32_t* Il2CppMetadataRegistration.fieldOffsets)
+    5.4.1f1 * (int32_t* Il2CppMetadataRegistration.fieldOffsets => int32_t** Il2CppMetadataRegistration.fieldOffsets)
+    5.4.2f2
     5.4.3f1
-    5.4.4f1
+    5.4.4f1 * (+ Il2CppClass.genericRecursionDepth)
     5.4.5f1
     5.4.6f3
 22:
-    5.5.0f3
-    5.5.1f1
+    5.5.0f3 *
+    5.5.1f1 * (+ Il2CppClass.genericRecursionDepth)
     5.5.2f1
-    5.5.3f1
+    5.5.3f1 * minor (reformatting)
     5.5.4f1
     5.5.5f1
     5.5.6f1
 23:
-    5.6.0f3
-    5.6.1f1
+    5.6.0f3 *
+    5.6.1f1 * minor (reformatting)
     5.6.2f1
     5.6.3f1
     5.6.4f1
@@ -37,21 +38,21 @@
     5.6.6f2
     5.6.7f1
 24:
-    2017.1.0f3
+    2017.1.0f3 *
     2017.1.1f1
     2017.1.2f1
-    2017.1.3f1
+    2017.1.3f1 * (+ Il2CppImage.nameNoExt)
     2017.1.4f1
     2017.1.5f1
-    2017.2.0f3
-    2017.2.1f1
+    2017.2.0f3 * (- Il2CppImage.nameNoExt, int32_t il2cpp_array_size_t => uintptr_t il2cpp_array_size_t)
+    2017.2.1f1 * (+ Il2CppImage.nameNoExt)
     2017.2.2f1
     2017.2.3f1
     2017.2.4f1
     2017.2.5f1
-    2017.3.0f3
+    2017.3.0f3 * minor
     2017.3.1f11
-    2017.4.1f1
+    2017.4.1f1 * minor
     2017.4.2f2
     2017.4.3f1
     2017.4.4f1
@@ -89,7 +90,7 @@
     2017.4.36f1
     2017.4.37f1
     2017.4.38f1
-    2018.1.0f2
+    2018.1.0f2 * (typedef everything for C compat, +MethodInfo.{wrapper_type,is_marshaled_from_native} (at end), Il2CppType* Il2CppClass.{byval_arg,this_arg} => Il2CppType Il2CppClass.{byval_arg,this_arg}, +Il2CppClass.klass, ...)
     2018.1.1f1
     2018.1.2f1
     2018.1.3f1
@@ -99,7 +100,7 @@
     2018.1.7f1
     2018.1.8f1
     2018.1.9f2
-    2018.2.0f2
+    2018.2.0f2 * (+Il2CppClass.initializationExceptionGCHandle, +Il2CppClass.has_initialization_error)
     2018.2.1f1
     2018.2.2f1
     2018.2.3f1
@@ -111,17 +112,18 @@
     2018.2.9f1
     2018.2.10f1
     2018.2.11f1
-    2018.2.12f1
+    2018.2.12f1 * minor
     2018.2.13f1
     2018.2.14f1
     2018.2.15f1
-    2018.2.16f1
+    2018.2.16f1 * minor
     2018.2.17f1
     2018.2.18f1
     2018.2.19f1
     2018.2.20f1
     2018.2.21f1
-    2018.3.0f2
+24.1:
+    2018.3.0f2 *
     2018.3.1f1
     2018.3.2f1
     2018.3.3f1
@@ -129,7 +131,7 @@
     2018.3.5f1
     2018.3.6f1
     2018.3.7f1
-    2018.3.8f1
+    2018.3.8f1 * (+Il2CppClass.naturalAlignment)
     2018.3.9f1
     2018.3.10f1
     2018.3.11f1
@@ -154,10 +156,11 @@
     2018.4.15f1
     2018.4.16f1
     2018.4.17f1
-    2018.4.18f1
+    2018.4.18f1 * (+Il2CppCodeRegistration.windowsRuntimeFactoryTable (at end))
     2018.4.19f1
     2018.4.20f1
-    2019.1.0f2
+24.2:
+    2019.1.0f2 *
     2019.1.1f1
     2019.1.2f1
     2019.1.3f1
@@ -172,7 +175,7 @@
     2019.1.12f1
     2019.1.13f1
     2019.1.14f1
-    2019.2.0f1
+    2019.2.0f1 * minor
     2019.2.1f1
     2019.2.2f1
     2019.2.3f1
@@ -194,14 +197,15 @@
     2019.2.19f1
     2019.2.20f1
     2019.2.21f1
-    2019.3.0f6
+    2019.3.0f6 * (Il2CppTokenIndexPair* Il2CppCodeGenModule.reversePInvokeWrapperIndices => Il2CppTokenIndexMethodTuple* Il2CppCodeGenModule.reversePInvokeWrapperIndices)
     2019.3.1f1
     2019.3.2f1
     2019.3.3f1
     2019.3.4f1
     2019.3.5f1
     2019.3.6f1
-    2019.3.7f1
+24.3: (provisional name)
+    2019.3.7f1 * (+Il2CppCodeRegistration.windowsRuntimeFactoryCount)
     2019.3.8f1
 
 ## Milestones
