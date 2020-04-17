@@ -133,6 +133,11 @@ def process_header(version, header):
     header = re.sub(r'\bTypeInfo\b', 'Il2CppClass', header)
     # Decompilation of array accesses only works properly when VLA arrays have nonzero length
     header = header.replace('vtable[0]', 'vtable[32]')
+    # Change all structs/enums/unions to use typedef for C compatibility
+    header = re.sub(r'(?m)^(struct|union|enum)\s+(\w+)\s*\{([^\}]+(?:union\s*\{[^\}]+\}[^\}]*)*)^\};',
+                    r'typedef \1 \2\n{\3} \2;', header)
+    # Change all forward declarations into typedefs too
+    header = re.sub(r'(?m)^struct(\s+)(\w+)\s*;', r'typedef struct\1\2 \2;', header)
     # Split the Il2CppClass structure into substructures so we can specialize certain fields
     # for e.g. vtable slot naming/typing
     m = re.search(r'struct\s+Il2CppClass\s*{\s*([^}]+)\n}(?:\s*Il2CppClass)?\s*;', header)

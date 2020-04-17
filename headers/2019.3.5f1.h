@@ -124,7 +124,7 @@ typedef void (*Il2CppProfileThreadFunc) (Il2CppProfiler *prof, unsigned long tid
 typedef const Il2CppNativeChar* (*Il2CppSetFindPlugInCallback)(const Il2CppNativeChar*);
 typedef void (*Il2CppLogCallback)(const char*);
 typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
-struct Il2CppManagedMemorySnapshot;
+typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
 typedef uintptr_t il2cpp_array_size_t;
 typedef void ( *SynchronizationContextCallback)(intptr_t arg);
 typedef uint32_t Il2CppMethodSlot;
@@ -234,7 +234,7 @@ static const RGCTXIndex kRGCTXIndexInvalid = -1;
 static const StringLiteralIndex kStringLiteralIndexInvalid = -1;
 static const InteropDataIndex kInteropDataIndexInvalid = -1;
 typedef uint32_t EncodedMethodIndex;
-enum Il2CppMetadataUsage
+typedef enum Il2CppMetadataUsage
 {
     kIl2CppMetadataUsageInvalid,
     kIl2CppMetadataUsageTypeInfo,
@@ -243,10 +243,10 @@ enum Il2CppMetadataUsage
     kIl2CppMetadataUsageFieldInfo,
     kIl2CppMetadataUsageStringLiteral,
     kIl2CppMetadataUsageMethodRef,
-};
-struct Il2CppImage;
-struct Il2CppType;
-struct Il2CppTypeDefinitionMetadata;
+} Il2CppMetadataUsage;
+typedef struct Il2CppImage Il2CppImage;
+typedef struct Il2CppType Il2CppType;
+typedef struct Il2CppTypeDefinitionMetadata Il2CppTypeDefinitionMetadata;
 typedef union Il2CppRGCTXDefinitionData
 {
     int32_t rgctxDataDummy;
@@ -521,9 +521,9 @@ typedef struct Il2CppGlobalMetadataHeader
     int32_t exportedTypeDefinitionsCount;
 } Il2CppGlobalMetadataHeader;
 #pragma pack(pop, p1)
-struct Il2CppClass;
-struct MethodInfo;
-struct Il2CppType;
+typedef struct Il2CppClass Il2CppClass;
+typedef struct MethodInfo MethodInfo;
+typedef struct Il2CppType Il2CppType;
 typedef struct Il2CppArrayType
 {
     const Il2CppType* etype;
@@ -801,17 +801,17 @@ typedef struct Il2CppStatStg
     uint32_t state;
     uint32_t reserved;
 } Il2CppStatStg;
-enum Il2CppWindowsRuntimeTypeKind
+typedef enum Il2CppWindowsRuntimeTypeKind
 {
     kTypeKindPrimitive = 0,
     kTypeKindMetadata,
     kTypeKindCustom
-};
-struct Il2CppWindowsRuntimeTypeName
+} Il2CppWindowsRuntimeTypeKind;
+typedef struct Il2CppWindowsRuntimeTypeName
 {
     Il2CppHString typeName;
     enum Il2CppWindowsRuntimeTypeKind typeKind;
-};
+} Il2CppWindowsRuntimeTypeName;
 typedef void (*PInvokeMarshalToNativeFunc)(void* managedStructure, void* marshaledStructure);
 typedef void (*PInvokeMarshalFromNativeFunc)(void* marshaledStructure, void* managedStructure);
 typedef void (*PInvokeMarshalCleanupFunc)(void* marshaledStructure);
@@ -949,11 +949,11 @@ typedef struct Il2CppDefaults
     Il2CppClass* uint64_shared_enum;
 } Il2CppDefaults;
 extern Il2CppDefaults il2cpp_defaults;
-struct Il2CppClass;
-struct MethodInfo;
-struct FieldInfo;
-struct Il2CppObject;
-struct MemberInfo;
+typedef struct Il2CppClass Il2CppClass;
+typedef struct MethodInfo MethodInfo;
+typedef struct FieldInfo FieldInfo;
+typedef struct Il2CppObject Il2CppObject;
+typedef struct MemberInfo MemberInfo;
 typedef struct CustomAttributesCache
 {
     int count;
