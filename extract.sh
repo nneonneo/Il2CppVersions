@@ -10,6 +10,9 @@ extract() {
   i=$1
   path=$2
   dst=$3
+  if [ -d "${dst}" ]; then
+    return
+  fi
   if [ -f "${path_to_UnitySetup}/UnitySetup64-$i.exe" ]; then
       echo Extracting $i...
       "${path_to_7zip}" x -bb0 -bd "`wslpath -w ${path_to_UnitySetup}`"/UnitySetup64-$i.exe "${path}" >/dev/null 2>&1
