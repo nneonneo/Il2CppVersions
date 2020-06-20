@@ -1,10 +1,18 @@
+### Start Configuration
+
+path_to_7zip="/mnt/c/Program Files/7-Zip/7z.exe"
+path_to_UnitySetup="/mnt/h/Unity"
+
+### End Configuration
+
+
 extract() {
   i=$1
   path=$2
   dst=$3
   echo $i
-  "/c/Program Files/7-Zip/7z.exe" x "D:/devel/unity/UnitySetup64-$i.exe" $path
-  mv $path $dst
+  "${path_to_7zip}" x "`wslpath -w ${path_to_UnitySetup}`"/UnitySetup64-$i.exe "${path}"
+  cp -r ${path} ${dst}
   rm -rf Editor
 }
 
