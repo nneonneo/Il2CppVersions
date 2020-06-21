@@ -51,7 +51,7 @@ done
 extract 2018.3.0f2 Editor/data/Mono group4/Mono
 extract 2018.3.0f2 Editor/data/MonoBleedingEdge group4/MonoBleedingEdge
 
-for i in 2019.3.0f6 2019.3.1f1 2019.3.2f1 2019.3.3f1 2019.3.4f1 2019.3.5f1 2019.3.6f1 2019.3.7f1 2019.3.8f1
+for i in 2019.3.0f6 2019.3.1f1 2019.3.2f1 2019.3.3f1 2019.3.4f1 2019.3.5f1 2019.3.6f1 2019.3.7f1 2019.3.8f1 2019.3.9f1 2019.3.10f1 2019.3.11f1 2019.3.12f1 2019.3.13f1 2019.3.14f1 2019.4.0f1 2019.4.1f1
 do
     extract $i Editor/data/il2cpp group5/il2cpp-$i
 done
