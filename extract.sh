@@ -18,6 +18,8 @@ extract() {
       "${path_to_7zip}" x -bb0 -bd "`wslpath -w ${path_to_UnitySetup}`"/UnitySetup64-$i.exe "${path}" >/dev/null 2>&1
       cp -r ${path} ${dst}
       rm -rf Editor
+  else
+    echo Unity $i missing, skipped
   fi
 }
 
