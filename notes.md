@@ -91,6 +91,8 @@
     2017.4.36f1
     2017.4.37f1
     2017.4.38f1
+    2017.4.39f1
+    2017.4.40f1
     2018.1.0f2 * (typedef everything for C compat, +MethodInfo.{wrapper_type,is_marshaled_from_native} (at end), Il2CppType* Il2CppClass.{byval_arg,this_arg} => Il2CppType Il2CppClass.{byval_arg,this_arg}, +Il2CppClass.klass, ...)
     2018.1.1f1
     2018.1.2f1
@@ -160,6 +162,10 @@
     2018.4.18f1 * (+Il2CppCodeRegistration.windowsRuntimeFactoryTable (at end))
     2018.4.19f1
     2018.4.20f1
+    2018.4.21f1
+    2018.4.22f1
+    2018.4.23f1
+    2018.4.24f1
 24.2:
     2019.1.0f2 *
     2019.1.1f1
@@ -214,8 +220,12 @@
     2019.3.12f1
     2019.3.13f1
     2019.3.14f1
+    2019.3.15f1
     2019.4.0f1
     2019.4.1f1
+    2019.4.2f1
+    2019.4.3f1
+    2019.4.4f1
 ```
 
 ## Milestones

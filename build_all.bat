@@ -81,6 +81,8 @@ call group2\build.bat 2017.4.35f1
 call group2\build.bat 2017.4.36f1
 call group2\build.bat 2017.4.37f1
 call group2\build.bat 2017.4.38f1
+call group2\build.bat 2017.4.39f1
+call group2\build.bat 2047.4.40f1
 call group2\build.bat 2018.1.0f2
 call group2\build.bat 2018.1.1f1
 call group2\build.bat 2018.1.2f1
@@ -149,6 +151,10 @@ call group4\build.bat 2018.4.17f1
 call group4\build.bat 2018.4.18f1
 call group4\build.bat 2018.4.19f1
 call group4\build.bat 2018.4.20f1
+call group4\build.bat 2018.4.21f1
+call group4\build.bat 2018.4.22f1
+call group4\build.bat 2018.4.23f1
+call group4\build.bat 2018.4.24f1
 call group4\build.bat 2019.1.0f2
 call group4\build.bat 2019.1.1f1
 call group4\build.bat 2019.1.2f1
@@ -201,6 +207,10 @@ call group5\build.bat 2019.3.11f1
 call group5\build.bat 2019.3.12f1
 call group5\build.bat 2019.3.13f1
 call group5\build.bat 2019.3.14f1
+call group5\build.bat 2019.3.15f1
 call group5\build.bat 2019.4.0f1
 call group5\build.bat 2019.4.1f1
+call group5\build.bat 2019.4.2f1
+call group5\build.bat 2019.4.3f1
+call group5\build.bat 2019.4.4f1
 pause
