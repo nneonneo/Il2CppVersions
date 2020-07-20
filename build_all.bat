@@ -82,7 +82,7 @@ call group2\build.bat 2017.4.36f1
 call group2\build.bat 2017.4.37f1
 call group2\build.bat 2017.4.38f1
 call group2\build.bat 2017.4.39f1
-call group2\build.bat 2047.4.40f1
+call group2\build.bat 2017.4.40f1
 call group2\build.bat 2018.1.0f2
 call group2\build.bat 2018.1.1f1
 call group2\build.bat 2018.1.2f1
