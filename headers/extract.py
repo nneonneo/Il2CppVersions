@@ -3,6 +3,7 @@ import glob
 import os
 import re
 import subprocess
+import shutil
 
 def parseversion(v):
     x = re.findall(r'^(\d+)\.(\d+)\.(\d+)([a-z])(\d+)$', v)
@@ -189,6 +190,9 @@ for dir in glob.glob('../group*/il2cpp-*'):
     header = subprocess.check_output(['cpp', '-P', '-I', 'dummy', '-I', dir, fn]).decode()
     header = process_header(version, header)
     open('%s.h' % version, 'w').write(header)
+
+    # Copy API function exports header
+    shutil.copyfile(os.path.join(dir, 'il2cpp-api-functions.h'), os.path.join('../api', '%s.h' % version))
 
     # Differences with MSVC are all minor and irrelevant (up to 2019.3.7):
     # - __attribute__((aligned(8)))  ==>  __declspec(align(8))
