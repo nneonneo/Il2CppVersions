@@ -1,3 +1,5 @@
+@echo off
+
 @if not [%1]==[] goto main
 @echo Usage: %0 ^<Version^>
 @exit /B 1
