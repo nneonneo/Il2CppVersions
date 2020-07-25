@@ -8,6 +8,7 @@ Currently, everything only works on Windows and builds only for Windows. I welco
 - Download every installer from the [Unity site](https://unity3d.com/get-unity/download/archive)
     - Download the "Unity Editor 64-bit" for Windows.
     - I extracted links using a text editor on the source of that page, and then downloaded all of them with aria2c.
+- For Unity 2020+, download the [Windows (IL2CPP) Target Support](https://beta.unity3d.com/download/2ab9c4179772/TargetSupportInstaller/UnitySetup-Windows-IL2CPP-Support-for-Editor-2020.1.0f1.exe) package to support builds for these Unity versions.
 - Install 7-zip.
 - Edit `extract.sh` to update the paths to 7z.exe and your downloads.
 - Run `extract.sh` to extract il2cpp into each of the group directories
