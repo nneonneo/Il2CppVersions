@@ -3,5 +3,6 @@
 /group*/il2cpp-*/
 /group*/Mono*/
 /group*/UnusedByteCodeStripper2/
+/group*/PlaybackEngines/
 /.vs
 /Editor/Data/il2cpp
