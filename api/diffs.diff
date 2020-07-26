@@ -1,14 +1,14 @@
---- 5.3.0f4.h	2020-07-19 20:23:20.846734000 +0200
-+++ 5.3.1f1.h	2020-07-19 20:23:20.889741400 +0200
+--- 5.3.0f4.h	2020-07-25 04:44:17.101453200 +0200
++++ 5.3.1f1.h	2020-07-25 04:44:17.134959300 +0200
 @@ -224,0 +225,2 @@
 +DO_API(void, il2cpp_set_find_plugin_callback, (Il2CppSetFindPlugInCallback method));
 +
---- 5.3.1f1.h	2020-07-19 20:23:20.889741400 +0200
-+++ 5.3.2f1.h	2020-07-19 20:23:20.934249200 +0200
+--- 5.3.1f1.h	2020-07-25 04:44:17.134959300 +0200
++++ 5.3.2f1.h	2020-07-25 04:44:17.167964800 +0200
 @@ -40,0 +41 @@
 +DO_API( TypeInfo*, il2cpp_class_get_nested_types, (TypeInfo *klass, void* *iter) );
---- 5.3.4f1.h	2020-07-19 20:23:21.024264400 +0200
-+++ 5.3.5f1.h	2020-07-19 20:23:21.084774600 +0200
+--- 5.3.4f1.h	2020-07-25 04:44:17.234976600 +0200
++++ 5.3.5f1.h	2020-07-25 04:44:17.270482900 +0200
 @@ -8,3 +8,3 @@
 -DO_API( Il2CppImage*, il2cpp_get_corlib, () );
 -DO_API( void, il2cpp_add_internal_call, (const char* name, methodPointerType method) );
@@ -173,8 +173,8 @@
 @@ -240 +243 @@
 -DO_API( const TypeInfo*, il2cpp_debug_local_get_type, (const Il2CppDebugLocalsInfo *info) );
 +DO_API( const Il2CppClass*, il2cpp_debug_local_get_type, (const Il2CppDebugLocalsInfo *info) );
---- 5.3.5f1.h	2020-07-19 20:23:21.084774600 +0200
-+++ 5.3.6f1.h	2020-07-19 20:23:21.128282500 +0200
+--- 5.3.5f1.h	2020-07-25 04:44:17.270482900 +0200
++++ 5.3.6f1.h	2020-07-25 04:44:17.306489000 +0200
 @@ -138,0 +139,2 @@
 +#if IL2CPP_ENABLE_PROFILER
 +
@@ -187,8 +187,8 @@
 @@ -189 +193 @@
 -DO_API( Il2CppString*, il2cpp_string_new_utf16, (const uint16_t *text, int32_t len) );
 +DO_API( Il2CppString*, il2cpp_string_new_utf16, (const Il2CppChar *text, int32_t len) );
---- 5.4.6f3.h	2020-07-19 20:23:21.529851600 +0200
-+++ 5.5.0f3.h	2020-07-19 20:23:21.574860000 +0200
+--- 5.4.6f3.h	2020-07-25 04:44:17.617043100 +0200
++++ 5.5.0f3.h	2020-07-25 04:44:17.651049200 +0200
 @@ -2,0 +3 @@
 +DO_API( void, il2cpp_init_utf16, (const Il2CppChar* domain_name) );
 @@ -6 +7,5 @@
@@ -203,22 +203,22 @@
 -// delegate
 -DO_API( Il2CppAsyncResult*, il2cpp_delegate_begin_invoke, (Il2CppDelegate* delegate, void** params, Il2CppDelegate* asyncCallback, Il2CppObject* state) );
 -DO_API( Il2CppObject*, il2cpp_delegate_end_invoke, (Il2CppAsyncResult* asyncResult, void **out_args) );
---- 5.5.6f1.h	2020-07-19 20:23:21.835905100 +0200
-+++ 5.6.0f3.h	2020-07-19 20:23:21.878412500 +0200
+--- 5.5.6f1.h	2020-07-25 04:44:17.857085000 +0200
++++ 5.6.0f3.h	2020-07-25 04:44:17.890590500 +0200
 @@ -104,0 +106 @@
 +DO_API( void, il2cpp_field_set_value_object, (Il2CppObject *instance, FieldInfo *field, Il2CppObject *value));
 @@ -234,0 +237,3 @@
 +// Logging
 +DO_API(void, il2cpp_register_log_callback, (Il2CppLogCallback method));
 +
---- 5.6.7f1.h	2020-07-19 20:23:22.191966900 +0200
-+++ 2017.1.0f3.h	2020-07-19 20:23:18.953905100 +0200
+--- 5.6.7f1.h	2020-07-25 04:44:18.132132500 +0200
++++ 2017.1.0f3.h	2020-07-25 04:44:15.621195800 +0200
 @@ -5,0 +6 @@
 +DO_API(void, il2cpp_set_temp_dir, (const char *temp_path));
 @@ -59,0 +61 @@
 +DO_API(bool, il2cpp_class_is_blittable, (const Il2CppClass * klass));
---- 2017.1.5f1.h	2020-07-19 20:23:19.166941900 +0200
-+++ 2017.2.0f3.h	2020-07-19 20:23:19.210950100 +0200
+--- 2017.1.5f1.h	2020-07-25 04:44:15.796726100 +0200
++++ 2017.2.0f3.h	2020-07-25 04:44:15.832732500 +0200
 @@ -0,0 +1,5 @@
 +#ifndef DO_API_NO_RETURN
 +#define DO_API_NO_RETURN(r, n, p) DO_API(r,n,p)
@@ -228,8 +228,8 @@
 @@ -88 +93 @@
 -DO_API(void, il2cpp_raise_exception, (Il2CppException*));
 +DO_API_NO_RETURN(void, il2cpp_raise_exception, (Il2CppException*));
---- 2017.2.5f1.h	2020-07-19 20:23:19.434488500 +0200
-+++ 2017.3.0f3.h	2020-07-19 20:23:19.480496500 +0200
+--- 2017.2.5f1.h	2020-07-25 04:44:16.012264000 +0200
++++ 2017.3.0f3.h	2020-07-25 04:44:16.048269900 +0200
 @@ -157,0 +158 @@
 +DO_API(void, il2cpp_profiler_install_fileio, (Il2CppProfileFileIOFunc callback));
 @@ -245,24 +245,0 @@
@@ -257,8 +257,8 @@
 -DO_API(void, il2cpp_debug_method_clear_breakpoint_data, (const Il2CppDebugMethodInfo * info));
 -DO_API(void, il2cpp_debug_method_clear_breakpoint_data_at, (const Il2CppDebugMethodInfo * info, uint64_t location));
 -#endif
---- 2017.4.40f1.h	2020-07-19 20:23:22.561031000 +0200
-+++ 2018.1.0f2.h	2020-07-19 20:23:22.896088900 +0200
+--- 2017.4.40f1.h	2020-07-25 04:44:18.415682000 +0200
++++ 2018.1.0f2.h	2020-07-25 04:44:18.668726200 +0200
 @@ -72,0 +73 @@
 +DO_API(uint32_t, il2cpp_class_get_type_token, (Il2CppClass * klass));
 @@ -77,0 +79 @@
@@ -281,8 +281,8 @@
 +
 +// Debugger
 +DO_API(void, il2cpp_debugger_set_agent_options, (const char* options));
---- 2018.1.9f2.h	2020-07-19 20:23:23.377172600 +0200
-+++ 2018.2.0f2.h	2020-07-19 20:23:23.428681200 +0200
+--- 2018.1.9f2.h	2020-07-25 04:44:19.006784800 +0200
++++ 2018.2.0f2.h	2020-07-25 04:44:19.045291600 +0200
 @@ -139,0 +140 @@
 +DO_API(const MethodInfo*, il2cpp_method_get_from_reflection, (const Il2CppReflectionMethod * method));
 @@ -232,0 +234 @@
@@ -294,8 +294,8 @@
 +
 +// TLS module
 +DO_API(void, il2cpp_unity_install_unitytls_interface, (const void* unitytlsInterfaceStruct));
---- 2018.2.21f1.h	2020-07-19 20:23:24.070792300 +0200
-+++ 2018.3.0f2.h	2020-07-19 20:23:24.531872600 +0200
+--- 2018.2.21f1.h	2020-07-25 04:44:19.536377100 +0200
++++ 2018.3.0f2.h	2020-07-25 04:44:19.881937000 +0200
 @@ -120,0 +121 @@
 +DO_API(bool, il2cpp_gc_is_disabled, ());
 @@ -122,0 +124 @@
@@ -317,8 +317,8 @@
 +DO_API(Il2CppArray*,  il2cpp_custom_attrs_construct, (Il2CppCustomAttrInfo * cinfo));
 +
 +DO_API(void, il2cpp_custom_attrs_free, (Il2CppCustomAttrInfo * ainfo));
---- 2018.4.24f1.h	2020-07-19 20:23:26.069139300 +0200
-+++ 2019.1.0f2.h	2020-07-19 20:23:26.547222300 +0200
+--- 2018.4.25f1.h	2020-07-25 04:44:21.094148300 +0200
++++ 2019.1.0f2.h	2020-07-25 04:44:21.438207700 +0200
 @@ -5,3 +5,2 @@
 -
 -DO_API(void, il2cpp_init, (const char* domain_name));
@@ -338,8 +338,8 @@
 +// Il2CppClass user data for GetComponent optimization
 +DO_API(void, il2cpp_class_set_userdata, (Il2CppClass * klass, void* userdata));
 +DO_API(int, il2cpp_class_get_userdata_offset, ());
---- 2019.2.21f1.h	2020-07-19 20:23:28.105991900 +0200
-+++ 2019.3.0f6.h	2020-07-19 20:23:28.611579700 +0200
+--- 2019.2.21f1.h	2020-07-25 04:44:22.560903300 +0200
++++ 2019.3.0f6.h	2020-07-25 04:44:22.920466000 +0200
 @@ -37,0 +38 @@
 +DO_API(void, il2cpp_class_for_each, (void(*klassReportFunc)(Il2CppClass* klass, void* userData), void* userData));
 @@ -57,0 +59 @@
@@ -374,8 +374,12 @@
 +
 +// Debug metadata
 +DO_API(bool, il2cpp_debug_get_method_info, (const MethodInfo*, Il2CppMethodDebugInfo * methodDebugInfo));
---- 2019.3.15f1.h	2020-07-19 20:23:28.935635800 +0200
-+++ 2019.4.0f1.h	2020-07-19 20:23:29.496233500 +0200
+--- 2019.3.15f1.h	2020-07-25 04:44:23.161507900 +0200
++++ 2019.4.0f1.h	2020-07-25 04:44:23.567578600 +0200
 @@ -304,0 +305,2 @@
 +
 +DO_API(void, il2cpp_set_default_thread_affinity, (int64_t affinity_mask));
+--- 2019.4.5f1.h	2020-07-25 04:44:23.770614000 +0200
++++ 2020.1.0f1.h	2020-07-25 04:44:23.810120800 +0200
+@@ -103,0 +104 @@
++DO_API(void, il2cpp_native_stack_trace, (const Il2CppException * ex, uintptr_t** addresses, int* numFrames, char* imageUUID));
