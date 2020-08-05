@@ -1,5 +1,5 @@
---- 5.3.1f1.h	2020-07-25 04:44:17.132958800 +0200
-+++ 5.3.2f1.h	2020-07-25 04:44:17.165964700 +0200
+--- 5.3.1f1.h
++++ 5.3.2f1.h
 @@ -77,13 +77,23 @@ const GenericParameterIndex kGenericPara
  const RGCTXIndex kRGCTXIndexInvalid = -1;
  const StringLiteralIndex kStringLiteralIndexInvalid = -1;
@@ -191,8 +191,8 @@
  } Il2CppMetadataRegistration;
  typedef struct Il2CppRuntimeStats
  {
---- 5.3.2f1.h	2020-07-25 04:44:17.165964700 +0200
-+++ 5.3.3f1.h	2020-07-25 04:44:17.199470300 +0200
+--- 5.3.2f1.h
++++ 5.3.3f1.h
 @@ -2,6 +2,7 @@ typedef void (*methodPointerType)();
  typedef int32_t il2cpp_array_size_t;
  typedef uint32_t Il2CppMethodSlot;
@@ -235,8 +235,8 @@
  } Il2CppClass_1;
  
  typedef struct __attribute__((aligned(8))) Il2CppClass_Merged {
---- 5.3.4f1.h	2020-07-25 04:44:17.232976100 +0200
-+++ 5.3.5f1.h	2020-07-25 04:44:17.267982400 +0200
+--- 5.3.4f1.h
++++ 5.3.5f1.h
 @@ -1,4 +1,106 @@
 -typedef void (*methodPointerType)();
 +typedef struct Il2CppClass Il2CppClass;
@@ -480,8 +480,8 @@
  } Il2CppCodeRegistration;
  typedef struct Il2CppMetadataRegistration
  {
---- 5.3.5f1.h	2020-07-25 04:44:17.267982400 +0200
-+++ 5.3.6f1.h	2020-07-25 04:44:17.304488800 +0200
+--- 5.3.5f1.h
++++ 5.3.6f1.h
 @@ -1,3 +1,6 @@
 +typedef uint32_t Il2CppMethodSlot;
 +const int ipv6AddressSize = 16;
@@ -682,8 +682,8 @@
  
  struct MonitorData;
  struct Il2CppObject {
---- 5.3.6f1.h	2020-07-25 04:44:17.304488800 +0200
-+++ 5.3.7f1.h	2020-07-25 04:44:17.339494700 +0200
+--- 5.3.6f1.h
++++ 5.3.7f1.h
 @@ -950,9 +950,9 @@ typedef struct Il2CppMetadataRegistratio
   int32_t methodSpecsCount;
   const Il2CppMethodSpec* methodSpecs;
@@ -696,8 +696,8 @@
   const size_t metadataUsagesCount;
   void** const* metadataUsages;
  } Il2CppMetadataRegistration;
---- 5.3.8f2.h	2020-07-25 04:44:17.374500900 +0200
-+++ 5.4.0f3.h	2020-07-25 04:44:17.409007300 +0200
+--- 5.3.8f2.h
++++ 5.4.0f3.h
 @@ -950,9 +950,9 @@ typedef struct Il2CppMetadataRegistratio
   int32_t methodSpecsCount;
   const Il2CppMethodSpec* methodSpecs;
@@ -710,8 +710,8 @@
   const size_t metadataUsagesCount;
   void** const* metadataUsages;
  } Il2CppMetadataRegistration;
---- 5.4.0f3.h	2020-07-25 04:44:17.409007300 +0200
-+++ 5.4.1f1.h	2020-07-25 04:44:17.442512600 +0200
+--- 5.4.0f3.h
++++ 5.4.1f1.h
 @@ -950,9 +950,9 @@ typedef struct Il2CppMetadataRegistratio
   int32_t methodSpecsCount;
   const Il2CppMethodSpec* methodSpecs;
@@ -724,8 +724,8 @@
   const size_t metadataUsagesCount;
   void** const* metadataUsages;
  } Il2CppMetadataRegistration;
---- 5.4.3f1.h	2020-07-25 04:44:17.511024800 +0200
-+++ 5.4.4f1.h	2020-07-25 04:44:17.545030300 +0200
+--- 5.4.3f1.h
++++ 5.4.4f1.h
 @@ -788,6 +788,7 @@ typedef struct Il2CppClass
   uint16_t interfaces_count;
   uint16_t interface_offsets_count;
@@ -742,8 +742,8 @@
      uint8_t rank;
      uint8_t minimumAlignment;
      uint8_t packingSize;
---- 5.4.6f3.h	2020-07-25 04:44:17.615042700 +0200
-+++ 5.5.0f3.h	2020-07-25 04:44:17.649048600 +0200
+--- 5.4.6f3.h
++++ 5.5.0f3.h
 @@ -409,6 +409,11 @@ typedef struct Il2CppCustomAttributeType
   int32_t start;
   int32_t count;
@@ -861,8 +861,8 @@
  } Il2CppCodeRegistration;
  typedef struct Il2CppMetadataRegistration
  {
---- 5.5.0f3.h	2020-07-25 04:44:17.649048600 +0200
-+++ 5.5.1f1.h	2020-07-25 04:44:17.683054700 +0200
+--- 5.5.0f3.h
++++ 5.5.1f1.h
 @@ -801,6 +801,7 @@ typedef struct Il2CppClass
   uint16_t interfaces_count;
   uint16_t interface_offsets_count;
@@ -879,8 +879,8 @@
      uint8_t rank;
      uint8_t minimumAlignment;
      uint8_t packingSize;
---- 5.5.2f1.h	2020-07-25 04:44:17.717060900 +0200
-+++ 5.5.3f1.h	2020-07-25 04:44:17.751566400 +0200
+--- 5.5.2f1.h
++++ 5.5.3f1.h
 @@ -84,7 +84,8 @@ typedef struct Il2CppStackFrameInfo
  {
   const MethodInfo *method;
@@ -921,8 +921,8 @@
   Il2CppImage *corlib;
   Il2CppClass *object_class;
   Il2CppClass *byte_class;
---- 5.5.6f1.h	2020-07-25 04:44:17.855084500 +0200
-+++ 5.6.0f3.h	2020-07-25 04:44:17.888590300 +0200
+--- 5.5.6f1.h
++++ 5.6.0f3.h
 @@ -84,8 +84,7 @@ typedef struct Il2CppStackFrameInfo
  {
      const MethodInfo *method;
@@ -1114,8 +1114,8 @@
  } Il2CppCodeRegistration;
  typedef struct Il2CppMetadataRegistration
  {
---- 5.6.0f3.h	2020-07-25 04:44:17.888590300 +0200
-+++ 5.6.1f1.h	2020-07-25 04:44:17.923096700 +0200
+--- 5.6.0f3.h
++++ 5.6.1f1.h
 @@ -84,7 +84,8 @@ typedef struct Il2CppStackFrameInfo
  {
   const MethodInfo *method;
@@ -1175,8 +1175,8 @@
  typedef struct Il2CppInteropData
  {
   Il2CppMethodPointer delegatePInvokeWrapperFunction;
---- 5.6.7f1.h	2020-07-25 04:44:18.130132300 +0200
-+++ 2017.1.0f3.h	2020-07-25 04:44:15.618695200 +0200
+--- 5.6.7f1.h
++++ 2017.1.0f3.h
 @@ -218,7 +218,8 @@ typedef enum Il2CppRGCTXDataType
      IL2CPP_RGCTX_DATA_INVALID,
      IL2CPP_RGCTX_DATA_TYPE,
@@ -1223,8 +1223,8 @@
      MethodIndex entryPointIndex;
      Il2CppNameToTypeDefinitionIndexHashTable* nameToClassHashTable;
      uint32_t token;
---- 2017.1.2f1.h	2020-07-25 04:44:15.689707600 +0200
-+++ 2017.1.3f1.h	2020-07-25 04:44:15.725713900 +0200
+--- 2017.1.2f1.h
++++ 2017.1.3f1.h
 @@ -952,6 +952,7 @@ typedef struct Il2CppDomain
  typedef struct Il2CppImage
  {
@@ -1233,8 +1233,8 @@
      AssemblyIndex assemblyIndex;
      TypeDefinitionIndex typeStart;
      uint32_t typeCount;
---- 2017.1.5f1.h	2020-07-25 04:44:15.794725900 +0200
-+++ 2017.2.0f3.h	2020-07-25 04:44:15.830732300 +0200
+--- 2017.1.5f1.h
++++ 2017.2.0f3.h
 @@ -108,7 +108,7 @@ typedef const Il2CppNativeChar* (*Il2Cpp
  typedef void (*Il2CppLogCallback)(const char*);
  typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
@@ -1252,8 +1252,8 @@
      AssemblyIndex assemblyIndex;
      TypeDefinitionIndex typeStart;
      uint32_t typeCount;
---- 2017.2.0f3.h	2020-07-25 04:44:15.830732300 +0200
-+++ 2017.2.1f1.h	2020-07-25 04:44:15.866238700 +0200
+--- 2017.2.0f3.h
++++ 2017.2.1f1.h
 @@ -952,6 +952,7 @@ typedef struct Il2CppDomain
  typedef struct Il2CppImage
  {
@@ -1262,8 +1262,8 @@
      AssemblyIndex assemblyIndex;
      TypeDefinitionIndex typeStart;
      uint32_t typeCount;
---- 2017.2.5f1.h	2020-07-25 04:44:16.010263400 +0200
-+++ 2017.3.0f3.h	2020-07-25 04:44:16.046270300 +0200
+--- 2017.2.5f1.h
++++ 2017.3.0f3.h
 @@ -42,8 +42,14 @@ typedef enum Il2CppProfileFlags
      IL2CPP_PROFILE_METHOD_EVENTS = 1 << 16,
      IL2CPP_PROFILE_MONITOR_EVENTS = 1 << 17,
@@ -1302,16 +1302,16 @@
  typedef const Il2CppNativeChar* (*Il2CppSetFindPlugInCallback)(const Il2CppNativeChar*);
  typedef void (*Il2CppLogCallback)(const char*);
  typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
---- 2017.3.1f1.h	2020-07-25 04:44:16.083276700 +0200
-+++ 2017.4.1f1.h	2020-07-25 04:44:16.483346400 +0200
+--- 2017.3.1f1.h
++++ 2017.4.1f1.h
 @@ -1,4 +1,5 @@
  typedef uint32_t Il2CppMethodSlot;
 +const uint32_t kInvalidIl2CppMethodSlot = 65535;
  const int ipv6AddressSize = 16;
  typedef int32_t il2cpp_hresult_t;
  typedef struct Il2CppClass Il2CppClass;
---- 2017.4.40f1.h	2020-07-25 04:44:18.413182100 +0200
-+++ 2018.1.0f2.h	2020-07-25 04:44:18.666225700 +0200
+--- 2017.4.40f1.h
++++ 2018.1.0f2.h
 @@ -1,7 +1,3 @@
 -typedef uint32_t Il2CppMethodSlot;
 -const uint32_t kInvalidIl2CppMethodSlot = 65535;
@@ -1645,8 +1645,8 @@
  } Il2CppRuntimeStats;
  extern Il2CppRuntimeStats il2cpp_runtime_stats;
  typedef struct Il2CppPerfCounters
---- 2018.1.9f2.h	2020-07-25 04:44:19.004784500 +0200
-+++ 2018.2.0f2.h	2020-07-25 04:44:19.043291700 +0200
+--- 2018.1.9f2.h
++++ 2018.2.0f2.h
 @@ -668,6 +668,7 @@ typedef struct Il2CppDefaults
      Il2CppClass* windows_foundation_uri_class;
      Il2CppClass* windows_foundation_iuri_runtime_class_class;
@@ -1786,8 +1786,8 @@
  } Il2CppClass_1;
  
  typedef struct __attribute__((aligned(8))) Il2CppClass_Merged {
---- 2018.2.11f1.h	2020-07-25 04:44:19.118304200 +0200
-+++ 2018.2.12f1.h	2020-07-25 04:44:19.156310900 +0200
+--- 2018.2.11f1.h
++++ 2018.2.12f1.h
 @@ -565,7 +565,8 @@ typedef enum Il2CppCallConvention
  typedef enum Il2CppCharSet
  {
@@ -1798,8 +1798,8 @@
  } Il2CppCharSet;
  typedef struct Il2CppClass Il2CppClass;
  typedef struct Il2CppGuid Il2CppGuid;
---- 2018.2.15f1.h	2020-07-25 04:44:19.268830500 +0200
-+++ 2018.2.16f1.h	2020-07-25 04:44:19.308337500 +0200
+--- 2018.2.15f1.h
++++ 2018.2.16f1.h
 @@ -664,6 +664,7 @@ typedef struct Il2CppDefaults
      Il2CppClass *missing_class;
      Il2CppClass *value_type_class;
@@ -1808,8 +1808,8 @@
      Il2CppClass* ikey_value_pair_class;
      Il2CppClass* key_value_pair_class;
      Il2CppClass* windows_foundation_uri_class;
---- 2018.2.21f1.h	2020-07-25 04:44:19.533876800 +0200
-+++ 2018.3.0f2.h	2020-07-25 04:44:19.879936800 +0200
+--- 2018.2.21f1.h
++++ 2018.3.0f2.h
 @@ -18,6 +18,7 @@ typedef struct Il2CppString Il2CppString
  typedef struct Il2CppThread Il2CppThread;
  typedef struct Il2CppAsyncResult Il2CppAsyncResult;
@@ -2037,8 +2037,8 @@
      int32_t referencedAssemblyStart;
      int32_t referencedAssemblyCount;
      Il2CppAssemblyName aname;
---- 2018.3.7f1.h	2020-07-25 04:44:20.338016700 +0200
-+++ 2018.3.8f1.h	2020-07-25 04:44:20.375523200 +0200
+--- 2018.3.7f1.h
++++ 2018.3.8f1.h
 @@ -903,6 +903,7 @@ typedef struct Il2CppClass
      uint8_t genericRecursionDepth;
      uint8_t rank;
@@ -2055,8 +2055,8 @@
      uint8_t packingSize;
      uint8_t initialized_and_no_error : 1;
      uint8_t valuetype : 1;
---- 2018.4.17f1.h	2020-07-25 04:44:20.752088600 +0200
-+++ 2018.4.18f1.h	2020-07-25 04:44:20.789095000 +0200
+--- 2018.4.17f1.h
++++ 2018.4.18f1.h
 @@ -1065,6 +1065,11 @@ typedef struct Il2CppCodeGenOptions
  {
      uint8_t enablePrimitiveValueTypeGenericSharing;
@@ -2078,8 +2078,8 @@
  } Il2CppCodeRegistration;
  typedef struct Il2CppMetadataRegistration
  {
---- 2018.4.25f1.h	2020-07-25 04:44:21.092147900 +0200
-+++ 2019.1.0f2.h	2020-07-25 04:44:21.435707500 +0200
+--- 2018.4.25f1.h
++++ 2019.1.0f2.h
 @@ -110,8 +110,8 @@ typedef struct Il2CppManagedMemorySnapsh
  typedef void (*Il2CppMethodPointer)();
  typedef uintptr_t il2cpp_array_size_t;
@@ -2598,8 +2598,8 @@
  } Il2CppCodeRegistration;
  typedef struct Il2CppMetadataRegistration
  {
---- 2019.1.14f1.h	2020-07-25 04:44:21.636742400 +0200
-+++ 2019.2.0f1.h	2020-07-25 04:44:22.033312100 +0200
+--- 2019.1.14f1.h
++++ 2019.2.0f1.h
 @@ -109,6 +109,7 @@ typedef void (*Il2CppLogCallback)(const
  typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
  typedef void (*Il2CppMethodPointer)();
@@ -2646,8 +2646,8 @@
  typedef struct Il2CppPerfCounters
  {
      uint32_t jit_methods;
---- 2019.2.21f1.h	2020-07-25 04:44:22.558403000 +0200
-+++ 2019.3.0f6.h	2020-07-25 04:44:22.918465800 +0200
+--- 2019.2.21f1.h
++++ 2019.3.0f6.h
 @@ -82,6 +82,13 @@ typedef struct Il2CppStackFrameInfo
  {
      const MethodInfo *method;
@@ -2813,8 +2813,8 @@
      const uint32_t rgctxRangesCount;
      const Il2CppTokenRangePair* rgctxRanges;
      const uint32_t rgctxsCount;
---- 2019.3.6f1.h	2020-07-25 04:44:23.403550400 +0200
-+++ 2019.3.7f1.h	2020-07-25 04:44:23.443557400 +0200
+--- 2019.3.6f1.h
++++ 2019.3.7f1.h
 @@ -1345,6 +1345,11 @@ typedef struct Il2CppTokenIndexMethodTup
      void** method;
      uint32_t genericMethodIndex;
@@ -2836,8 +2836,8 @@
      uint32_t codeGenModulesCount;
      const Il2CppCodeGenModule** codeGenModules;
  } Il2CppCodeRegistration;
---- 2019.4.5f1.h	2020-07-25 04:44:23.768613500 +0200
-+++ 2020.1.0f1.h	2020-07-25 04:44:23.808120400 +0200
+--- 2019.4.6f1.h
++++ 2020.1.0f1.h
 @@ -81,6 +81,7 @@ typedef enum
  typedef struct Il2CppStackFrameInfo
  {
