@@ -187,7 +187,7 @@ for dir in glob.glob('../group*/il2cpp-*'):
 
     # We preprocess the file using dummy (empty) standard library headers
     # so that we only see the Il2Cpp-specific stuff.
-    header = subprocess.check_output(['cpp', '-P', '-I', 'dummy', '-I', dir, fn]).decode()
+    header = subprocess.check_output(['cpp', '-P', '-I', 'dummy', '-I', dir, fn], stderr=subprocess.DEVNULL).decode()
     header = process_header(version, header)
     open('%s.h' % version, 'w').write(header)
 
