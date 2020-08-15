@@ -43,7 +43,7 @@ def split_class_structure(version, contents):
             else:
                 cctor_thread_padding = False
             break
-        if '*' in ftype or ftype in ('size_t',):
+        if '*' in ftype or ftype in ('size_t', 'Il2CppMetadataTypeHandle'):
             size32 += 4
         elif ftype in ('uint32_t', 'int32_t', 'GenericContainerIndex', 'CustomAttributeIndex'):
             size32 += 4
