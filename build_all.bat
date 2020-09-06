@@ -219,7 +219,7 @@ call group5\build.bat 2019.4.5f1
 call group5\build.bat 2019.4.6f1
 call group5\build.bat 2019.4.7f1
 call group5\build.bat 2019.4.8f1
-call group5\build.bad 2019.4.9f1
+call group5\build.bat 2019.4.9f1
 call group6\build.bat 2020.1.0f1
 call group6\build.bat 2020.1.1f1
 call group6\build.bat 2020.1.2f1
