@@ -1,7 +1,7 @@
 @echo off
 
 @if not [%1]==[] goto main
-@echo Usage: %0 ^<Version^>
+@echo Usage: %0 ^<Version^> [f]
 @exit /B 1
 
 :main
@@ -10,6 +10,11 @@
 @echo %DATE% %TIME%
 
 set OUTDIR=%cd%\output\%VERSION%
+set OUT64=%OUTDIR%\libil2cpp-x64.dll
+set OUT32=%OUTDIR%\libil2cpp-x86.dll
+
+if /i not "%2"=="f" if exist "%OUT64%" if exist "%OUT32%" exit /B 0
+
 rd /s /q "%OUTDIR%" 2>nul
 mkdir "%OUTDIR%"
 mkdir "%OUTDIR%\lib"
@@ -29,12 +34,12 @@ copy "%~dp0\Mono\lib\mono\2.0\mscorlib.dll" "%OUTDIR%\lib"
 
 @REM mono, for whatever reason, causes link.exe's printf to block forever. so, don't use mono to run il2cpp for compilation...
 mkdir "%OUTDIR%\cache"
-"%~dp0\il2cpp-%VERSION%\build\il2cpp.exe" --generatedcppdir "%OUTDIR%\il2cpp" --compile-cpp --platform=WindowsDesktop --architecture=x64 --outputpath "%OUTDIR%\libil2cpp-x64.dll" --configuration=Release --cachedirectory="%OUTDIR%\cache"
+"%~dp0\il2cpp-%VERSION%\build\il2cpp.exe" --generatedcppdir "%OUTDIR%\il2cpp" --compile-cpp --platform=WindowsDesktop --architecture=x64 --outputpath "%OUT64%" --configuration=Release --cachedirectory="%OUTDIR%\cache"
 @IF %ERRORLEVEL% NEQ 0 GOTO fail
 rd /s /q "%OUTDIR%\cache"
 
 mkdir "%OUTDIR%\cache"
-"%~dp0\il2cpp-%VERSION%\build\il2cpp.exe" --generatedcppdir "%OUTDIR%\il2cpp" --compile-cpp --platform=WindowsDesktop --architecture=x86 --outputpath "%OUTDIR%\libil2cpp-x86.dll" --configuration=Release --cachedirectory="%OUTDIR%\cache"
+"%~dp0\il2cpp-%VERSION%\build\il2cpp.exe" --generatedcppdir "%OUTDIR%\il2cpp" --compile-cpp --platform=WindowsDesktop --architecture=x86 --outputpath "%OUT32%" --configuration=Release --cachedirectory="%OUTDIR%\cache"
 @IF %ERRORLEVEL% NEQ 0 GOTO fail
 rd /s /q "%OUTDIR%\cache"
 
