@@ -352,3 +352,6 @@
     * `Il2CppCodeGenModule.reversePInvokeWrapperIndices`: `Il2CppTokenIndexPair*` => `Il2CppTokenIndexMethodTuple*`
 - 2019.3.7:
     + `Il2CppCodeRegistration.windowsRuntimeFactoryTable` (moves codeGenModules)
+- 2020.1.0:
+    + `Il2CppStackFrameInfo.raw_ip`
+    * `Il2CppMethodSlot`: `uint32_t` => `uint16_t`
