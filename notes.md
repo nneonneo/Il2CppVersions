@@ -166,6 +166,8 @@
     2018.4.22f1
     2018.4.23f1
     2018.4.24f1
+    2018.4.25f1
+    2018.4.26f1
 24.2:
     2019.1.0f2 *
     2019.1.1f1
@@ -226,6 +228,16 @@
     2019.4.2f1
     2019.4.3f1
     2019.4.4f1
+    2019.4.5f1
+    2019.4.6f1
+    2019.4.7f1
+    2019.4.8f1
+    2019.4.9f1
+    2020.1.0f1 *
+    2020.1.1f1
+    2020.1.2f1
+    2020.1.3f1
+    2020.1.4f1
 ```
 
 ## Milestones
@@ -340,3 +352,6 @@
     * `Il2CppCodeGenModule.reversePInvokeWrapperIndices`: `Il2CppTokenIndexPair*` => `Il2CppTokenIndexMethodTuple*`
 - 2019.3.7:
     + `Il2CppCodeRegistration.windowsRuntimeFactoryTable` (moves codeGenModules)
+- 2020.1.0:
+    + `Il2CppStackFrameInfo.raw_ip`
+    * `Il2CppMethodSlot`: `uint32_t` => `uint16_t`

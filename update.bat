@@ -10,4 +10,4 @@ pushd api
 wsl -e bash diffs.sh
 popd
 
-echo Don't forget to update notes.md!
+echo Don't forget to update notes.md and build_all.bat!

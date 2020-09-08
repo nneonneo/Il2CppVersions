@@ -13,7 +13,9 @@ Currently, everything only works on Windows and builds only for Windows. I welco
 - Edit `extract.sh` to update the paths to 7z.exe and your downloads.
 - Run `extract.sh` to extract il2cpp into each of the group directories
 - Edit `Test.cs` as you see fit; it just needs to be C# 4.0 compatible.
-- Run `build_all.bat` to build `Test.cs` into a DLL against every single version. These will go into the `output/` directory, one per version.
+- Run `build_all.bat` to build `Test.cs` into a DLL against every single version. These will go into the `output/` directory, one per version. Already built versions will be skipped.
+
+To force a rebuild of an individual version, use the `f` (force) option when calling `build.bat`.
 
 Note that downloading and building everything will probably take a *long* time - on the order of multiple hours.
 
