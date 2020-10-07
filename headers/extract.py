@@ -118,76 +118,68 @@ def process_header(version, header):
     header = header.replace('\r\n', '\n')
     # remove some unused static const variables
     header = re.sub(r'(?m)^.*?const\s+.*?kIl2CppU?Int\w+(Min|Max)\s*=\s*.+\n', '', header)
-    header = re.sub(r'(?m)^.*?const\s+.*?kIl2CppNewLine.+\n', '', header)
+    header = re.sub(r'(?m)^.*?const\s+.*?kIl2Cpp(NewLine|SizeOf|OffsetOf).+\n', '', header)
     # remove useless pragmas
     header = re.sub(r'(?m)^\s*#pragma\s+once\s*\n', '', header)
     header = re.sub(r'(?m)^\s*#pragma\s+warning.+\n', '', header)
     # remove some C++-isms from older versions of the header (before they made it C compatible)
     header = re.sub(r'(?m)^template[^;]+;\n', '', header)
     header = re.sub(r'\bmutable\s+', '', header)
-    # remove blank lines
-    header = re.sub(r'(?m)^[ \t]*\n', '', header)
+    # remove C++ pure virtual function prototypes
+    header = re.sub(r'(?m)^\s*virtual .*? = 0;$', '', header)
 
     # IDA needs array sizes to be macros or literals, and doesn't understand const ints
     header = header.replace('[kPublicKeyByteLength]', '[8]')
     # Older versions used TypeInfo; change it to Il2CppClass for consistency with newer headers
     header = re.sub(r'\bTypeInfo\b', 'Il2CppClass', header)
     # Decompilation of array accesses only works properly when VLA arrays have nonzero length
-    header = header.replace('vtable[0]', 'vtable[32]')
+    header = re.sub(r'(?m)(\s+.*?)\s*\[0\]\s*;\s*$', r'\1[32];', header)
+    # Replace the nested il2cpp::os:: namespace definitions in 5.3.0-2017.4.40
+    header = re.sub(r'(?m)^namespace il2cpp\s*\{\s*namespace os\s*\{([^\}]+)\}\s*\}', r'\1', header)
+    # Replace all il2cpp::os:: usages
+    header = header.replace('il2cpp::os::', '')
+    # Remove Il2CppExceptionWrapper constructor
+    header = re.sub(r'(?m)^\s*Il2CppExceptionWrapper\s*\(Il2CppException\s*\*\s*ex\)\s*:\s*ex\s*\(ex\)\s*\{\}$', '', header)
+    # Remove const methods (GetIl2CppType and GetInternalThread
+    header = re.sub(r'(?m)^.*const$\s*\{[^\}]+\}', '', header)
+    # Remove exports defined with __attribute__ ((visibility ("default"))) (IL2CPPEXPORT/EXPORT)
+    # Basically iil2cpp_gc_wbarrier_set_field in current versions
+    header = re.sub(r'(?m)^.*?__attribute__ \(\(visibility \(\"default\"\)\)\).*$', '', header)
+    # Remove blank lines
+    header = re.sub(r'(?m)^[ \t]*\n', '', header)
+    # Change all class to struct
+    header = re.sub(r'(?m)^\s*class\s+', 'struct ', header)
+    # Change all C++ class inheritance to use composition for C compatibility
+    header = re.sub(r'(?m)^struct (.*?) : (?:public )?Il2Cpp(\S+)\s+\{([^\}]+)\};', r'struct \1 {\n Il2Cpp\2 \2;\3};', header)
     # Change all structs/enums/unions to use typedef for C compatibility
     header = re.sub(r'(?m)^(struct|union|enum)\s+(\w+)\s*\{([^\}]+(?:union\s*\{[^\}]+\}[^\}]*)*)^\};',
                     r'typedef \1 \2\n{\3} \2;', header)
     # Change all forward declarations into typedefs too
     header = re.sub(r'(?m)^struct(\s+)(\w+)\s*;', r'typedef struct\1\2 \2;', header)
+
     # Split the Il2CppClass structure into substructures so we can specialize certain fields
     # for e.g. vtable slot naming/typing
     m = re.search(r'struct\s+Il2CppClass\s*{\s*([^}]+)\n}(?:\s*Il2CppClass)?\s*;', header)
     if not m:
         raise Exception("struct Il2CppClass not found in %s" % version)
     header = header.replace(m.group(0), m.group(0) + '\n' + split_class_structure(version, m.group(1)))
-
-    # Add only the necessary bits from object-internals.h; this is stable across all versions
-    # (object-internals.h contains a lot of other C++ crap which would need to be stripped for IDA,
-    # and may pull in extra headers that would bloat our generated header)
-    header += '''
-struct MonitorData;
-struct Il2CppObject {
-    struct Il2CppClass *klass;
-    struct MonitorData *monitor;
-};
-typedef int32_t il2cpp_array_lower_bound_t;
-struct Il2CppArrayBounds {
-    il2cpp_array_size_t length;
-    il2cpp_array_lower_bound_t lower_bound;
-};
-struct Il2CppArray {
-    struct Il2CppObject obj;
-    struct Il2CppArrayBounds *bounds;
-    il2cpp_array_size_t max_length;
-    /* vector must be 8-byte aligned.
-       On 64-bit platforms, this happens naturally.
-       On 32-bit platforms, sizeof(obj)=8, sizeof(bounds)=4 and sizeof(max_length)=4 so it's also already aligned. */
-    void *vector[32];
-};
-struct Il2CppString {
-    struct Il2CppObject object;
-    int32_t length;
-    uint16_t chars[32];
-};
-'''
-
     return header
 
 for dir in glob.glob('../group*/il2cpp-*'):
     version = dir.split('il2cpp-')[1]
     dir = os.path.join(dir, 'libil2cpp')
-    fn = os.path.join(dir, 'class-internals.h')
+    fn = os.path.join(dir, 'object-internals.h')
     if not os.path.exists(fn):
-        fn = os.path.join(dir, 'il2cpp-class-internals.h')
+        fn = os.path.join(dir, 'il2cpp-object-internals.h')
+    args = ['cpp', '-P', '-D', 'NET_4_0', '-I', 'dummy', '-I', dir]
+    # Unity 5.x doesn't have #include "class-internals.h"
+    if version.startswith('5.'):
+        args.extend(['-include', os.path.join(dir, 'class-internals.h')])
+    args.append(fn)
 
     # We preprocess the file using dummy (empty) standard library headers
     # so that we only see the Il2Cpp-specific stuff.
-    header = subprocess.check_output(['cpp', '-P', '-I', 'dummy', '-I', dir, fn], stderr=subprocess.DEVNULL).decode()
+    header = subprocess.check_output(args, stderr=subprocess.DEVNULL).decode()
     header = process_header(version, header)
     open('%s.h' % version, 'w').write(header)
 
