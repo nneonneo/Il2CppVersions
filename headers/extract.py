@@ -143,7 +143,7 @@ def process_header(version, header):
     # Remove const methods (GetIl2CppType and GetInternalThread
     header = re.sub(r'(?m)^.*const$\s*\{[^\}]+\}', '', header)
     # Remove exports defined with __attribute__ ((visibility ("default"))) (IL2CPPEXPORT/EXPORT)
-    # Basically iil2cpp_gc_wbarrier_set_field in current versions
+    # Basically il2cpp_gc_wbarrier_set_field in current versions
     header = re.sub(r'(?m)^.*?__attribute__ \(\(visibility \(\"default\"\)\)\).*$', '', header)
     # Remove blank lines
     header = re.sub(r'(?m)^[ \t]*\n', '', header)
