@@ -230,4 +230,5 @@ call group6\build.bat 2020.1.4f1
 call group6\build.bat 2020.1.5f1
 call group6\build.bat 2020.1.6f1
 call group6\build.bat 2020.1.7f1
+call group6\build.bat 2020.1.8f1
 pause

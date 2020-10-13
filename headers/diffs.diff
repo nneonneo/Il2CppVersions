@@ -4105,7 +4105,7 @@
  } Il2CppCodeRegistration;
  typedef struct Il2CppMetadataRegistration
  {
---- 2018.4.27f1.h
+--- 2018.4.28f1.h
 +++ 2019.1.0f2.h
 @@ -110,8 +110,8 @@ typedef struct Il2CppManagedMemorySnapsh
  typedef void (*Il2CppMethodPointer)();
@@ -5022,7 +5022,7 @@
  } Il2CppCatchPoint;
  typedef struct Il2CppDebuggerMetadataRegistration
  {
---- 2019.4.11f1.h
+--- 2019.4.12f1.h
 +++ 2020.1.0f1.h
 @@ -81,6 +81,7 @@ typedef enum
  typedef struct Il2CppStackFrameInfo
@@ -5067,7 +5067,7 @@
  } Il2CppCatchPoint;
  typedef struct Il2CppDebuggerMetadataRegistration
  {
---- 2020.1.7f1.h
+--- 2020.1.8f1.h
 +++ 2020.2.0a19.h
 @@ -64,6 +64,12 @@ typedef enum
  } Il2CppGCEvent;

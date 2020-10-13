@@ -317,7 +317,7 @@
 +DO_API(Il2CppArray*,  il2cpp_custom_attrs_construct, (Il2CppCustomAttrInfo * cinfo));
 +
 +DO_API(void, il2cpp_custom_attrs_free, (Il2CppCustomAttrInfo * ainfo));
---- 2018.4.27f1.h
+--- 2018.4.28f1.h
 +++ 2019.1.0f2.h
 @@ -5,3 +5,2 @@
 -
@@ -379,11 +379,11 @@
 @@ -304,0 +305,2 @@
 +
 +DO_API(void, il2cpp_set_default_thread_affinity, (int64_t affinity_mask));
---- 2019.4.11f1.h
+--- 2019.4.12f1.h
 +++ 2020.1.0f1.h
 @@ -103,0 +104 @@
 +DO_API(void, il2cpp_native_stack_trace, (const Il2CppException * ex, uintptr_t** addresses, int* numFrames, char* imageUUID));
---- 2020.1.7f1.h
+--- 2020.1.8f1.h
 +++ 2020.2.0a19.h
 @@ -122,0 +123 @@
 +DO_API(void, il2cpp_gc_start_incremental_collection , ());
