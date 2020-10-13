@@ -150,6 +150,10 @@ def process_header(version, header):
     # Change all class to struct
     header = re.sub(r'(?m)^\s*class\s+', 'struct ', header)
     # Change all C++ class inheritance to use composition for C compatibility
+    # Primarily for Il2CppArray/Il2CppArraySize (5.3.3+), Il2CppRCW (5.3.4-only), Il2CppComObject (5.3.5+), Il2CppException (5.6.0+)
+    # and 10 unused COM interface classes. All were changed to be C-compatible in 2018.1.1.
+    # The five aforementioned classes derive from Il2CppObject except for Il2CppArraySize which derives from Il2CppArray.
+    # Produces the same memory layout for MSVC and GCC.
     header = re.sub(r'(?m)^struct (.*?) : (?:public )?Il2Cpp(\S+)\s+\{([^\}]+)\};', r'struct \1 {\n Il2Cpp\2 \2;\3};', header)
     # Change all structs/enums/unions to use typedef for C compatibility
     header = re.sub(r'(?m)^(struct|union|enum)\s+(\w+)\s*\{([^\}]+(?:union\s*\{[^\}]+\}[^\}]*)*)^\};',
