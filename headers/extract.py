@@ -136,6 +136,8 @@ def process_header(version, header):
     header = re.sub(r'(?m)(\s+.*?)\s*\[0\]\s*;\s*$', r'\1[32];', header)
     # Replace the nested il2cpp::os:: namespace definitions in 5.3.0-2017.4.40
     header = re.sub(r'(?m)^namespace il2cpp\s*\{\s*namespace os\s*\{([^\}]+)\}\s*\}', r'\1', header)
+    # Remove classes in il2cpp::vm (primarily for MemoryInformation.h)
+    header = re.sub(r'(?ms)^namespace il2cpp\s*\{\s*namespace vm\s*\{\s*namespace MemoryInformation\s*\{.*\}(?!;)\s*\}\s*\}', '', header)
     # Replace all il2cpp::os:: usages
     header = header.replace('il2cpp::os::', '')
     # Remove Il2CppExceptionWrapper constructor
@@ -183,6 +185,8 @@ for dir in glob.glob('../group*/il2cpp-*'):
     # Unity 5.x doesn't have #include "class-internals.h"
     if version.startswith('5.'):
         args.extend(['-include', os.path.join(dir, 'class-internals.h')])
+    # Also include MemoryInformation.h
+    args.extend(['-include', os.path.join(dir, 'vm', 'MemoryInformation.h')])
     args.append(fn)
 
     # We preprocess the file using dummy (empty) standard library headers
