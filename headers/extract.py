@@ -185,6 +185,10 @@ for dir in glob.glob('../group*/il2cpp-*'):
     # Unity 5.x doesn't have #include "class-internals.h"
     if version.startswith('5.'):
         args.extend(['-include', os.path.join(dir, 'class-internals.h')])
+    # From Unity 2020.2, global-metadata.dat structs are stored in "vm/GlobalMetadataFileInternals.h"
+    gmfi = os.path.join(dir, 'vm', 'GlobalMetadataFileInternals.h')
+    if os.path.exists(gmfi):
+        args.extend(['-include', gmfi])
     # Also include MemoryInformation.h
     args.extend(['-include', os.path.join(dir, 'vm', 'MemoryInformation.h')])
     args.append(fn)
