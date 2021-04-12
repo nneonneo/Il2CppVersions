@@ -16,7 +16,8 @@ $metadata = @{
 	"2019.4.15" = 24.4;
 	"2020.1.0" = 24.3;
 	"2020.1.11" = 24.4;
-	"2020.2.0" = 27
+	"2020.2.0" = 27;
+	"2020.2.4" = 27.1;
 };
 
 $firstVersion        = (ls -File -Filter "5*.h" $PSScriptRoot | select -First 1).Name

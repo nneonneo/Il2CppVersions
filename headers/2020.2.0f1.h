@@ -88,9 +88,6 @@ typedef struct Il2CppStackFrameInfo
 {
     const MethodInfo *method;
     uintptr_t raw_ip;
-    int sourceCodeLineNumber;
-    int ilOffset;
-    const char* filePath;
 } Il2CppStackFrameInfo;
 typedef void(*Il2CppMethodPointer)();
 typedef struct Il2CppMethodDebugInfo
@@ -238,7 +235,7 @@ typedef union Il2CppRGCTXDefinitionData
 typedef struct Il2CppRGCTXDefinition
 {
     Il2CppRGCTXDataType type;
-    const Il2CppRGCTXDefinitionData* data;
+    Il2CppRGCTXDefinitionData data;
 } Il2CppRGCTXDefinition;
 typedef struct
 {
@@ -682,10 +679,9 @@ typedef struct Il2CppType
     } data;
     unsigned int attrs : 16;
     Il2CppTypeEnum type : 8;
-    unsigned int num_mods : 5;
+    unsigned int num_mods : 6;
     unsigned int byref : 1;
     unsigned int pinned : 1;
-    unsigned int valuetype : 1;
 } Il2CppType;
 typedef struct Il2CppMetadataFieldInfo
 {
@@ -1151,7 +1147,7 @@ typedef struct ParameterInfo
     uint32_t token;
     const Il2CppType* parameter_type;
 } ParameterInfo;
-typedef void (*InvokerMethod)(Il2CppMethodPointer, const MethodInfo*, void*, void**, void*);
+typedef void* (*InvokerMethod)(Il2CppMethodPointer, const MethodInfo*, void*, void**);
 typedef enum MethodVariableKind
 {
     kMethodVariableKind_This,
@@ -1248,7 +1244,7 @@ typedef struct MethodInfo
     {
         const Il2CppRGCTXData* rgctx_data;
         Il2CppMetadataMethodDefinitionHandle methodMetadataHandle;
-    };
+    } Il2CppVariant;
     union
     {
         const Il2CppGenericMethod* genericMethod;
@@ -1325,6 +1321,7 @@ typedef struct Il2CppClass
     uint8_t naturalAligment;
     uint8_t packingSize;
     uint8_t initialized_and_no_error : 1;
+    uint8_t valuetype : 1;
     uint8_t initialized : 1;
     uint8_t enumtype : 1;
     uint8_t is_generic : 1;
@@ -1399,6 +1396,7 @@ typedef struct Il2CppClass_1 {
     uint8_t naturalAligment;
     uint8_t packingSize;
     uint8_t initialized_and_no_error : 1;
+    uint8_t valuetype : 1;
     uint8_t initialized : 1;
     uint8_t enumtype : 1;
     uint8_t is_generic : 1;
@@ -1648,7 +1646,7 @@ typedef struct Il2CppObject
     {
         Il2CppClass *klass;
         Il2CppVTable *vtable;
-    };
+    } Il2CppClass;
     MonitorData *monitor;
 } Il2CppObject;
 typedef int32_t il2cpp_array_lower_bound_t;
@@ -1943,7 +1941,7 @@ typedef struct Il2CppException
     Il2CppString* className;
     Il2CppString* message;
     Il2CppObject* _data;
-    struct Il2CppException* inner_ex;
+    Il2CppException* inner_ex;
     Il2CppString* _helpURL;
     Il2CppArray* trace_ips;
     Il2CppString* stack_trace;
@@ -2194,7 +2192,7 @@ typedef struct Il2CppStringBuilder
 {
     Il2CppObject object;
     Il2CppArray* chunkChars;
-    struct Il2CppStringBuilder* chunkPrevious;
+    Il2CppStringBuilder* chunkPrevious;
     int chunkLength;
     int chunkOffset;
     int maxCapacity;
