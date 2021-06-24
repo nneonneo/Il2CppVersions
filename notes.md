@@ -168,6 +168,9 @@
     2018.4.24f1
     2018.4.25f1
     2018.4.26f1
+    2018.4.27f1
+    2018.4.28f1
+    2018.4.29f1
 24.2:
     2019.1.0f2 *
     2019.1.1f1
@@ -233,11 +236,29 @@
     2019.4.7f1
     2019.4.8f1
     2019.4.9f1
+    2019.4.10f1 *
+    2019.4.11f1
+    2019.4.12f1
+    2019.4.13f1
+    2019.4.14f1
+    2019.4.15f1 * 
     2020.1.0f1 *
     2020.1.1f1
     2020.1.2f1
     2020.1.3f1
     2020.1.4f1
+    2020.1.5f1 *
+    2020.1.6f1
+    2020.1.7f1
+    2020.1.8f1
+    2020.1.9f1
+    2020.1.10f1
+    2020.1.11f1 *
+    2020.1.12f1
+    2020.1.13f1
+    2020.1.14f1
+    2020.2.0 *
+    2021.1.0 *
 ```
 
 ## Milestones
@@ -350,8 +371,23 @@
     + `Il2CppCodeRegistration.codeGenModules`
 - 2019.3.0:
     * `Il2CppCodeGenModule.reversePInvokeWrapperIndices`: `Il2CppTokenIndexPair*` => `Il2CppTokenIndexMethodTuple*`
-- 2019.3.7:
+- 2019.3.7 (24.2 >= 24.3):
     + `Il2CppCodeRegistration.windowsRuntimeFactoryTable` (moves codeGenModules)
-- 2020.1.0:
+- 2019.4.10:
+    * `Il2CppCatchPoint`: `tryId` and `parentTryId`: `int8_t` => `int32_t`
+- 2019.4.15:
+    - `Il2CppAssemblyNameDefinition.hashValueIndex`
+    - `Il2CppAssemblyName.hash_value`
+    * `Il2CppAssemblyName.public_key`: `char *` => `uint8_t *`
+    + `Il2CppCodeGenOptions.maximumRuntimeGenericDepth`
+- 2020.1.0 (branches from 2019.3.7):
     + `Il2CppStackFrameInfo.raw_ip`
     * `Il2CppMethodSlot`: `uint32_t` => `uint16_t`
+- 2020.1.5:
+    - Merge changes from 2019.4.10
+- 2020.1.11:
+    - Merge changes from 2019.4.15
+- 2020.2.0 (24.3 >= 27):
+    - See diffs
+- 2021.1.0:
+    - See diffs
