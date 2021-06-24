@@ -317,7 +317,7 @@
 +DO_API(Il2CppArray*,  il2cpp_custom_attrs_construct, (Il2CppCustomAttrInfo * cinfo));
 +
 +DO_API(void, il2cpp_custom_attrs_free, (Il2CppCustomAttrInfo * ainfo));
---- 2018.4.33f1.h
+--- 2018.4.34f1.h
 +++ 2019.1.0f2.h
 @@ -5,3 +5,2 @@
 -

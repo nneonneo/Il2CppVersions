@@ -164,6 +164,7 @@ call group4\build.bat 2018.4.30f1
 call group4\build.bat 2018.4.31f1
 call group4\build.bat 2018.4.32f1
 call group4\build.bat 2018.4.33f1
+call group4\build.bat 2018.4.34f1
 call group4\build.bat 2019.1.0f2
 call group4\build.bat 2019.1.1f1
 call group4\build.bat 2019.1.2f1
@@ -272,7 +273,9 @@ call group7\build.bat 2020.3.0f1
 call group7\build.bat 2020.3.1f1
 call group7\build.bat 2020.3.2f1
 call group7\build.bat 2020.3.3f1
+call group7\build.bat 2020.3.4f1
 call group7\build.bat 2021.1.0f1
 call group7\build.bat 2021.1.1f1
 call group7\build.bat 2021.1.2f1
+call group7\build.bat 2021.1.3f1
 pause
