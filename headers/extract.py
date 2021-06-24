@@ -165,7 +165,7 @@ def process_header(version, header):
     # Change self-referential fields in a class to use 'struct' for C compatibility
     # ie. struct Foo { int a; Foo* b; int c; } becomes struct Foo { int a; struct Foo* b; int c; }
     # Primarily for Il2CppVariant and Il2CppStringBuilder
-    header = re.sub(r'(?ms)^(?:typedef )?struct (\w+)(\s+\{[^\}]+)(?<!struct )\1(\*.*?\}.*?;\s*$)', r'typedef struct \1\2struct \1\3', header)
+    header = re.sub(r'(?ms)^(?:typedef )?struct (\w+)(\s+\{[^\}]+)(?<!struct )\1(\*.*?\}.*?)\};\s*$', r'typedef struct \1\2struct \1\3} \1;', header)
 
     # Split the Il2CppClass structure into substructures so we can specialize certain fields
     # for e.g. vtable slot naming/typing
