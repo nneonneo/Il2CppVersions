@@ -4413,7 +4413,27 @@
  } Il2CppCodeRegistration;
  typedef struct Il2CppMetadataRegistration
  {
---- 2018.4.29f1.h
+--- 2018.4.33f1.h
++++ 2018.4.34f1.h
+@@ -436,7 +436,6 @@ typedef struct Il2CppAssemblyNameDefinit
+ {
+     StringIndex nameIndex;
+     StringIndex cultureIndex;
+-    StringIndex hashValueIndex;
+     StringIndex publicKeyIndex;
+     uint32_t hash_alg;
+     int32_t hash_len;
+@@ -1123,8 +1122,7 @@ typedef struct Il2CppAssemblyName
+ {
+     const char* name;
+     const char* culture;
+-    const char* hash_value;
+-    const char* public_key;
++    const uint8_t* public_key;
+     uint32_t hash_alg;
+     int32_t hash_len;
+     uint32_t flags;
+--- 2018.4.36f1.h
 +++ 2019.1.0f2.h
 @@ -110,8 +110,8 @@ typedef struct Il2CppManagedMemorySnapsh
  typedef void (*Il2CppMethodPointer)();
@@ -4512,7 +4532,7 @@
      uint32_t token;
      uint16_t flags;
      uint16_t iflags;
-@@ -431,7 +449,7 @@ typedef struct Il2CppGenericMethodFuncti
+@@ -431,11 +449,12 @@ typedef struct Il2CppGenericMethodFuncti
      GenericMethodIndex genericMethodIndex;
      Il2CppGenericMethodIndices indices;
  } Il2CppGenericMethodFunctionsDefinitions;
@@ -4521,7 +4541,12 @@
  typedef struct Il2CppAssemblyNameDefinition
  {
      StringIndex nameIndex;
-@@ -539,8 +557,6 @@ typedef struct Il2CppGlobalMetadataHeade
+     StringIndex cultureIndex;
++    StringIndex hashValueIndex;
+     StringIndex publicKeyIndex;
+     uint32_t hash_alg;
+     int32_t hash_len;
+@@ -538,8 +557,6 @@ typedef struct Il2CppGlobalMetadataHeade
      int32_t interfaceOffsetsCount;
      int32_t typeDefinitionsOffset;
      int32_t typeDefinitionsCount;
@@ -4530,7 +4555,7 @@
      int32_t imagesOffset;
      int32_t imagesCount;
      int32_t assembliesOffset;
-@@ -648,6 +664,230 @@ typedef enum Il2CppCharSet
+@@ -647,6 +664,230 @@ typedef enum Il2CppCharSet
      CHARSET_UNICODE,
      CHARSET_NOT_SPECIFIED
  } Il2CppCharSet;
@@ -4761,7 +4786,7 @@
  typedef struct Il2CppClass Il2CppClass;
  typedef struct Il2CppGuid Il2CppGuid;
  typedef struct Il2CppImage Il2CppImage;
-@@ -656,6 +896,7 @@ typedef struct Il2CppAppDomainSetup Il2C
+@@ -655,6 +896,7 @@ typedef struct Il2CppAppDomainSetup Il2C
  typedef struct Il2CppDelegate Il2CppDelegate;
  typedef struct Il2CppAppContext Il2CppAppContext;
  typedef struct Il2CppNameToTypeDefinitionIndexHashTable Il2CppNameToTypeDefinitionIndexHashTable;
@@ -4769,7 +4794,7 @@
  typedef struct VirtualInvokeData
  {
      Il2CppMethodPointer methodPtr;
-@@ -781,7 +1022,6 @@ typedef struct CustomAttributesCache
+@@ -780,7 +1022,6 @@ typedef struct CustomAttributesCache
      Il2CppObject** attributes;
  } CustomAttributesCache;
  typedef void (*CustomAttributesCacheGenerator)(CustomAttributesCache*);
@@ -4777,7 +4802,7 @@
  typedef struct FieldInfo
  {
      const char* name;
-@@ -836,7 +1076,6 @@ typedef struct Il2CppMethodExecutionCont
+@@ -835,7 +1076,6 @@ typedef struct Il2CppMethodExecutionCont
  } Il2CppMethodExecutionContextInfo;
  typedef struct Il2CppMethodExecutionContextInfoIndex
  {
@@ -4785,7 +4810,7 @@
      int32_t startIndex;
      int32_t count;
  } Il2CppMethodExecutionContextInfoIndex;
-@@ -851,11 +1090,6 @@ typedef struct Il2CppMethodHeaderInfo
+@@ -850,11 +1090,6 @@ typedef struct Il2CppMethodHeaderInfo
      int32_t startScope;
      int32_t numScopes;
  } Il2CppMethodHeaderInfo;
@@ -4797,7 +4822,7 @@
  typedef struct Il2CppSequencePointSourceFile
  {
      const char *file;
-@@ -863,7 +1097,7 @@ typedef struct Il2CppSequencePointSource
+@@ -862,7 +1097,7 @@ typedef struct Il2CppSequencePointSource
  } Il2CppSequencePointSourceFile;
  typedef struct Il2CppTypeSourceFilePair
  {
@@ -4806,7 +4831,7 @@
      int32_t sourceFileIndex;
  } Il2CppTypeSourceFilePair;
  typedef struct Il2CppSequencePoint
-@@ -881,14 +1115,13 @@ typedef struct Il2CppSequencePoint
+@@ -880,14 +1115,13 @@ typedef struct Il2CppSequencePoint
  } Il2CppSequencePoint;
  typedef struct Il2CppDebuggerMetadataRegistration
  {
@@ -4823,7 +4848,7 @@
      int32_t numTypeSourceFileEntries;
      Il2CppTypeSourceFilePair* typeSourceFiles;
      const char** methodExecutionContextInfoStrings;
-@@ -933,20 +1166,6 @@ typedef struct Il2CppRuntimeInterfaceOff
+@@ -932,20 +1166,6 @@ typedef struct Il2CppRuntimeInterfaceOff
      Il2CppClass* interfaceType;
      int32_t offset;
  } Il2CppRuntimeInterfaceOffsetPair;
@@ -4844,7 +4869,7 @@
  typedef struct Il2CppClass
  {
      const Il2CppImage* image;
-@@ -973,10 +1192,11 @@ typedef struct Il2CppClass
+@@ -972,10 +1192,11 @@ typedef struct Il2CppClass
      void* static_fields;
      const Il2CppRGCTXData* rgctx_data;
      struct Il2CppClass** typeHierarchy;
@@ -4857,7 +4882,7 @@
      GenericContainerIndex genericContainerIndex;
      uint32_t instance_size;
      uint32_t actualSize;
-@@ -1043,15 +1263,14 @@ typedef struct Il2CppClass_0 {
+@@ -1042,15 +1263,14 @@ typedef struct Il2CppClass_0 {
  
  typedef struct Il2CppClass_1 {
      struct Il2CppClass** typeHierarchy;
@@ -4875,7 +4900,17 @@
  #endif
      GenericContainerIndex genericContainerIndex;
      uint32_t instance_size;
-@@ -1147,6 +1366,7 @@ typedef struct Il2CppImage
+@@ -1122,7 +1342,8 @@ typedef struct Il2CppAssemblyName
+ {
+     const char* name;
+     const char* culture;
+-    const uint8_t* public_key;
++    const char* hash_value;
++    const char* public_key;
+     uint32_t hash_alg;
+     int32_t hash_len;
+     uint32_t flags;
+@@ -1145,6 +1366,7 @@ typedef struct Il2CppImage
      uint32_t customAttributeCount;
      MethodIndex entryPointIndex;
      Il2CppNameToTypeDefinitionIndexHashTable * nameToClassHashTable;
@@ -4883,7 +4918,7 @@
      uint32_t token;
      uint8_t dynamic;
  } Il2CppImage;
-@@ -1162,15 +1382,32 @@ typedef struct Il2CppCodeGenOptions
+@@ -1160,15 +1382,32 @@ typedef struct Il2CppCodeGenOptions
  {
      uint8_t enablePrimitiveValueTypeGenericSharing;
  } Il2CppCodeGenOptions;
@@ -4922,7 +4957,7 @@
      uint32_t reversePInvokeWrapperCount;
      const Il2CppMethodPointer* reversePInvokeWrappers;
      uint32_t genericMethodPointersCount;
-@@ -1183,8 +1420,8 @@ typedef struct Il2CppCodeRegistration
+@@ -1181,8 +1420,8 @@ typedef struct Il2CppCodeRegistration
      const Il2CppMethodPointer* unresolvedVirtualCallPointers;
      uint32_t interopDataCount;
      Il2CppInteropData* interopData;
@@ -4933,7 +4968,7 @@
  } Il2CppCodeRegistration;
  typedef struct Il2CppMetadataRegistration
  {
-@@ -2014,212 +2251,3 @@ typedef union Il2CppSingle_float
+@@ -2012,212 +2251,3 @@ typedef union Il2CppSingle_float
      Il2CppSingle s;
      float f;
  } Il2CppSingle_float;
@@ -5358,7 +5393,46 @@
  } Il2CppCodeGenOptions;
  typedef struct Il2CppTokenIndexPair
  {
---- 2019.4.15f1.h
+--- 2019.4.20f1.h
++++ 2019.4.21f1.h
+@@ -461,6 +461,7 @@ typedef struct
+ {
+     MethodIndex methodIndex;
+     MethodIndex invokerIndex;
++    MethodIndex adjustorThunkIndex;
+ } Il2CppGenericMethodIndices;
+ typedef struct Il2CppGenericMethodFunctionsDefinitions
+ {
+@@ -1424,6 +1425,11 @@ typedef struct Il2CppTokenIndexMethodTup
+     void** method;
+     uint32_t genericMethodIndex;
+ } Il2CppTokenIndexMethodTuple;
++typedef struct Il2CppTokenAdjustorThunkPair
++{
++    uint32_t token;
++    Il2CppMethodPointer adjustorThunk;
++} Il2CppTokenAdjustorThunkPair;
+ typedef struct Il2CppWindowsRuntimeFactoryTableEntry
+ {
+     const Il2CppType* type;
+@@ -1434,6 +1440,8 @@ typedef struct Il2CppCodeGenModule
+     const char* moduleName;
+     const uint32_t methodPointerCount;
+     const Il2CppMethodPointer* methodPointers;
++    const uint32_t adjustorThunkCount;
++    const Il2CppTokenAdjustorThunkPair* adjustorThunks;
+     const int32_t* invokerIndices;
+     const uint32_t reversePInvokeWrapperCount;
+     const Il2CppTokenIndexMethodTuple* reversePInvokeWrapperIndices;
+@@ -1449,6 +1457,7 @@ typedef struct Il2CppCodeRegistration
+     const Il2CppMethodPointer* reversePInvokeWrappers;
+     uint32_t genericMethodPointersCount;
+     const Il2CppMethodPointer* genericMethodPointers;
++    const Il2CppMethodPointer* genericAdjustorThunks;
+     uint32_t invokerPointersCount;
+     const InvokerMethod* invokerPointers;
+     CustomAttributeIndex customAttributeCount;
+--- 2019.4.28f1.h
 +++ 2020.1.0f1.h
 @@ -81,6 +81,7 @@ typedef enum
  typedef struct Il2CppStackFrameInfo
@@ -5379,7 +5453,15 @@
  static const int ipv6AddressSize = 16;
  typedef int32_t il2cpp_hresult_t;
  typedef struct Il2CppMetadataField
-@@ -472,6 +473,7 @@ typedef struct Il2CppAssemblyNameDefinit
+@@ -461,7 +462,6 @@ typedef struct
+ {
+     MethodIndex methodIndex;
+     MethodIndex invokerIndex;
+-    MethodIndex adjustorThunkIndex;
+ } Il2CppGenericMethodIndices;
+ typedef struct Il2CppGenericMethodFunctionsDefinitions
+ {
+@@ -473,6 +473,7 @@ typedef struct Il2CppAssemblyNameDefinit
  {
      StringIndex nameIndex;
      StringIndex cultureIndex;
@@ -5387,7 +5469,7 @@
      StringIndex publicKeyIndex;
      uint32_t hash_alg;
      int32_t hash_len;
-@@ -1133,8 +1135,8 @@ typedef struct Il2CppCatchPoint
+@@ -1134,8 +1135,8 @@ typedef struct Il2CppCatchPoint
      MethodIndex methodDefinitionIndex;
      TypeIndex catchTypeIndex;
      int32_t ilOffset;
@@ -5398,7 +5480,7 @@
  } Il2CppCatchPoint;
  typedef struct Il2CppDebuggerMetadataRegistration
  {
-@@ -1367,7 +1369,8 @@ typedef struct Il2CppAssemblyName
+@@ -1368,7 +1369,8 @@ typedef struct Il2CppAssemblyName
  {
      const char* name;
      const char* culture;
@@ -5408,7 +5490,7 @@
      uint32_t hash_alg;
      int32_t hash_len;
      uint32_t flags;
-@@ -1405,7 +1408,6 @@ typedef struct Il2CppAssembly
+@@ -1406,7 +1408,6 @@ typedef struct Il2CppAssembly
  typedef struct Il2CppCodeGenOptions
  {
      uint8_t enablePrimitiveValueTypeGenericSharing;
@@ -5416,6 +5498,35 @@
  } Il2CppCodeGenOptions;
  typedef struct Il2CppTokenIndexPair
  {
+@@ -1425,11 +1426,6 @@ typedef struct Il2CppTokenIndexMethodTup
+     void** method;
+     uint32_t genericMethodIndex;
+ } Il2CppTokenIndexMethodTuple;
+-typedef struct Il2CppTokenAdjustorThunkPair
+-{
+-    uint32_t token;
+-    Il2CppMethodPointer adjustorThunk;
+-} Il2CppTokenAdjustorThunkPair;
+ typedef struct Il2CppWindowsRuntimeFactoryTableEntry
+ {
+     const Il2CppType* type;
+@@ -1440,8 +1436,6 @@ typedef struct Il2CppCodeGenModule
+     const char* moduleName;
+     const uint32_t methodPointerCount;
+     const Il2CppMethodPointer* methodPointers;
+-    const uint32_t adjustorThunkCount;
+-    const Il2CppTokenAdjustorThunkPair* adjustorThunks;
+     const int32_t* invokerIndices;
+     const uint32_t reversePInvokeWrapperCount;
+     const Il2CppTokenIndexMethodTuple* reversePInvokeWrapperIndices;
+@@ -1457,7 +1451,6 @@ typedef struct Il2CppCodeRegistration
+     const Il2CppMethodPointer* reversePInvokeWrappers;
+     uint32_t genericMethodPointersCount;
+     const Il2CppMethodPointer* genericMethodPointers;
+-    const Il2CppMethodPointer* genericAdjustorThunks;
+     uint32_t invokerPointersCount;
+     const InvokerMethod* invokerPointers;
+     CustomAttributeIndex customAttributeCount;
 --- 2020.1.4f1.h
 +++ 2020.1.5f1.h
 @@ -1135,8 +1135,8 @@ typedef struct Il2CppCatchPoint
@@ -5457,8 +5568,8 @@
  } Il2CppCodeGenOptions;
  typedef struct Il2CppTokenIndexPair
  {
---- 2020.1.14f1.h
-+++ 2020.2.0a19.h
+--- 2020.1.17f1.h
++++ 2020.2.0f1.h
 @@ -64,6 +64,12 @@ typedef enum
  } Il2CppGCEvent;
  typedef enum
@@ -5718,7 +5829,7 @@
      TypeIndex declaringTypeIndex;
      TypeIndex parentIndex;
      TypeIndex elementTypeIndex;
-@@ -447,32 +371,16 @@ typedef struct Il2CppPropertyDefinition
+@@ -447,28 +371,11 @@ typedef struct Il2CppPropertyDefinition
      uint32_t attrs;
      uint32_t token;
  } Il2CppPropertyDefinition;
@@ -5747,12 +5858,7 @@
  typedef struct Il2CppAssemblyNameDefinition
  {
      StringIndex nameIndex;
-     StringIndex cultureIndex;
-+    StringIndex hashValueIndex;
-     StringIndex publicKeyIndex;
-     uint32_t hash_alg;
-     int32_t hash_len;
-@@ -504,27 +412,33 @@ typedef struct Il2CppAssemblyDefinition
+@@ -504,27 +411,33 @@ typedef struct Il2CppAssemblyDefinition
      int32_t referencedAssemblyCount;
      Il2CppAssemblyNameDefinition aname;
  } Il2CppAssemblyDefinition;
@@ -5798,7 +5904,7 @@
  typedef struct Il2CppWindowsRuntimeTypeNamePair
  {
      StringIndex nameIndex;
-@@ -579,10 +493,6 @@ typedef struct Il2CppGlobalMetadataHeade
+@@ -579,10 +492,6 @@ typedef struct Il2CppGlobalMetadataHeade
      int32_t imagesCount;
      int32_t assembliesOffset;
      int32_t assembliesCount;
@@ -5809,7 +5915,7 @@
      int32_t fieldRefsOffset;
      int32_t fieldRefsCount;
      int32_t referencedAssembliesOffset;
-@@ -597,10 +507,131 @@ typedef struct Il2CppGlobalMetadataHeade
+@@ -597,10 +506,131 @@ typedef struct Il2CppGlobalMetadataHeade
      int32_t unresolvedVirtualCallParameterRangesCount;
      int32_t windowsRuntimeTypeNamesOffset;
      int32_t windowsRuntimeTypeNamesSize;
@@ -5941,7 +6047,7 @@
  typedef struct Il2CppClass Il2CppClass;
  typedef struct MethodInfo MethodInfo;
  typedef struct Il2CppType Il2CppType;
-@@ -623,25 +654,9 @@ typedef struct Il2CppGenericContext
+@@ -623,25 +653,9 @@ typedef struct Il2CppGenericContext
      const Il2CppGenericInst *class_inst;
      const Il2CppGenericInst *method_inst;
  } Il2CppGenericContext;
@@ -5968,7 +6074,7 @@
      Il2CppGenericContext context;
      Il2CppClass *cached_class;
  } Il2CppGenericClass;
-@@ -655,10 +670,12 @@ typedef struct Il2CppType
+@@ -655,10 +669,12 @@ typedef struct Il2CppType
      union
      {
          void* dummy;
@@ -5983,7 +6089,7 @@
          Il2CppGenericClass *generic_class;
      } data;
      unsigned int attrs : 16;
-@@ -667,6 +684,58 @@ typedef struct Il2CppType
+@@ -667,6 +683,58 @@ typedef struct Il2CppType
      unsigned int byref : 1;
      unsigned int pinned : 1;
  } Il2CppType;
@@ -6042,7 +6148,7 @@
  typedef enum Il2CppCallConvention
  {
      IL2CPP_CALL_DEFAULT,
-@@ -906,6 +975,9 @@ typedef struct Il2CppInteropData
+@@ -906,6 +974,9 @@ typedef struct Il2CppInteropData
      const Il2CppGuid* guid;
      const Il2CppType* type;
  } Il2CppInteropData;
@@ -6052,7 +6158,7 @@
  typedef struct Il2CppClass Il2CppClass;
  typedef struct Il2CppGuid Il2CppGuid;
  typedef struct Il2CppImage Il2CppImage;
-@@ -913,8 +985,10 @@ typedef struct Il2CppAppDomain Il2CppApp
+@@ -913,8 +984,10 @@ typedef struct Il2CppAppDomain Il2CppApp
  typedef struct Il2CppAppDomainSetup Il2CppAppDomainSetup;
  typedef struct Il2CppDelegate Il2CppDelegate;
  typedef struct Il2CppAppContext Il2CppAppContext;
@@ -6064,7 +6170,7 @@
  typedef struct VirtualInvokeData
  {
      Il2CppMethodPointer methodPtr;
-@@ -1115,12 +1189,12 @@ typedef struct Il2CppSequencePointSource
+@@ -1115,12 +1188,12 @@ typedef struct Il2CppSequencePointSource
  } Il2CppSequencePointSourceFile;
  typedef struct Il2CppTypeSourceFilePair
  {
@@ -6079,7 +6185,7 @@
      int32_t sourceFileIndex;
      int32_t lineStart, lineEnd;
      int32_t columnStart, columnEnd;
-@@ -1131,11 +1205,11 @@ typedef struct Il2CppSequencePoint
+@@ -1131,7 +1204,7 @@ typedef struct Il2CppSequencePoint
  } Il2CppSequencePoint;
  typedef struct Il2CppCatchPoint
  {
@@ -6087,14 +6193,8 @@
 +    MethodIndex __methodDefinitionIndex;
      TypeIndex catchTypeIndex;
      int32_t ilOffset;
--    int32_t tryId;
--    int32_t parentTryId;
-+    int8_t tryId;
-+    int8_t parentTryId;
- } Il2CppCatchPoint;
- typedef struct Il2CppDebuggerMetadataRegistration
- {
-@@ -1170,12 +1244,12 @@ typedef struct MethodInfo
+     int32_t tryId;
+@@ -1170,12 +1243,12 @@ typedef struct MethodInfo
      union
      {
          const Il2CppRGCTXData* rgctx_data;
@@ -6109,7 +6209,7 @@
      };
      uint32_t token;
      uint16_t flags;
-@@ -1205,7 +1279,7 @@ typedef struct Il2CppClass
+@@ -1205,7 +1278,7 @@ typedef struct Il2CppClass
      Il2CppClass* declaringType;
      Il2CppClass* parent;
      Il2CppGenericClass *generic_class;
@@ -6118,7 +6218,7 @@
      const Il2CppInteropData* interopData;
      Il2CppClass* klass;
      FieldInfo* fields;
-@@ -1223,7 +1297,7 @@ typedef struct Il2CppClass
+@@ -1223,7 +1296,7 @@ typedef struct Il2CppClass
      uint32_t cctor_started;
      uint32_t cctor_finished;
      __attribute__((aligned(8))) size_t cctor_thread;
@@ -6127,7 +6227,7 @@
      uint32_t instance_size;
      uint32_t actualSize;
      uint32_t element_size;
-@@ -1276,7 +1350,7 @@ typedef struct Il2CppClass_0 {
+@@ -1276,7 +1349,7 @@ typedef struct Il2CppClass_0 {
      Il2CppClass* declaringType;
      Il2CppClass* parent;
      Il2CppGenericClass * generic_class;
@@ -6136,7 +6236,7 @@
      const Il2CppInteropData* interopData;
      Il2CppClass* klass;
      FieldInfo* fields;
-@@ -1298,7 +1372,7 @@ typedef struct Il2CppClass_1 {
+@@ -1298,7 +1371,7 @@ typedef struct Il2CppClass_1 {
  #else
      __attribute__((aligned(8))) size_t cctor_thread;
  #endif
@@ -6145,17 +6245,7 @@
      uint32_t instance_size;
      uint32_t actualSize;
      uint32_t element_size;
-@@ -1368,7 +1442,8 @@ typedef struct Il2CppAssemblyName
- {
-     const char* name;
-     const char* culture;
--    const uint8_t* public_key;
-+    const char* hash_value;
-+    const char* public_key;
-     uint32_t hash_alg;
-     int32_t hash_len;
-     uint32_t flags;
-@@ -1383,14 +1458,11 @@ typedef struct Il2CppImage
+@@ -1383,14 +1456,11 @@ typedef struct Il2CppImage
      const char* name;
      const char *nameNoExt;
      Il2CppAssembly* assembly;
@@ -6172,11 +6262,9 @@
      const Il2CppCodeGenModule* codeGenModule;
      uint32_t token;
      uint8_t dynamic;
-@@ -1406,13 +1478,12 @@ typedef struct Il2CppAssembly
- typedef struct Il2CppCodeGenOptions
- {
+@@ -1408,11 +1478,11 @@ typedef struct Il2CppCodeGenOptions
      uint8_t enablePrimitiveValueTypeGenericSharing;
--    int maximumRuntimeGenericDepth;
+     int maximumRuntimeGenericDepth;
  } Il2CppCodeGenOptions;
 -typedef struct Il2CppTokenIndexPair
 +typedef struct Il2CppRange
@@ -6190,7 +6278,7 @@
  typedef struct Il2CppTokenRangePair
  {
      uint32_t token;
-@@ -1423,7 +1494,7 @@ typedef struct Il2CppTokenIndexMethodTup
+@@ -1423,7 +1493,7 @@ typedef struct Il2CppTokenIndexMethodTup
      uint32_t token;
      int32_t index;
      void** method;
@@ -6199,7 +6287,7 @@
  } Il2CppTokenIndexMethodTuple;
  typedef struct Il2CppWindowsRuntimeFactoryTableEntry
  {
-@@ -1443,6 +1514,11 @@ typedef struct Il2CppCodeGenModule
+@@ -1443,6 +1513,11 @@ typedef struct Il2CppCodeGenModule
      const uint32_t rgctxsCount;
      const Il2CppRGCTXDefinition* rgctxs;
      const Il2CppDebuggerMetadataRegistration *debuggerMetadata;
@@ -6211,7 +6299,7 @@
  } Il2CppCodeGenModule;
  typedef struct Il2CppCodeRegistration
  {
-@@ -1452,8 +1528,6 @@ typedef struct Il2CppCodeRegistration
+@@ -1452,8 +1527,6 @@ typedef struct Il2CppCodeRegistration
      const Il2CppMethodPointer* genericMethodPointers;
      uint32_t invokerPointersCount;
      const InvokerMethod* invokerPointers;
@@ -6220,77 +6308,47 @@
      uint32_t unresolvedVirtualCallCount;
      const Il2CppMethodPointer* unresolvedVirtualCallPointers;
      uint32_t interopDataCount;
---- 2020.2.0a19.h
-+++ 2020.2.0b1.h
-@@ -1208,8 +1208,8 @@ typedef struct Il2CppCatchPoint
-     MethodIndex __methodDefinitionIndex;
-     TypeIndex catchTypeIndex;
-     int32_t ilOffset;
--    int8_t tryId;
--    int8_t parentTryId;
-+    int32_t tryId;
-+    int32_t parentTryId;
- } Il2CppCatchPoint;
- typedef struct Il2CppDebuggerMetadataRegistration
+--- 2020.2.3f1.h
++++ 2020.2.4f1.h
+@@ -241,6 +241,7 @@ typedef struct
  {
---- 2020.2.0b1.h
-+++ 2020.2.0b12.h
-@@ -380,7 +380,6 @@ typedef struct Il2CppAssemblyNameDefinit
+     MethodIndex methodIndex;
+     MethodIndex invokerIndex;
++    MethodIndex adjustorThunkIndex;
+ } Il2CppGenericMethodIndices;
+ typedef struct Il2CppGenericMethodFunctionsDefinitions
  {
-     StringIndex nameIndex;
-     StringIndex cultureIndex;
--    StringIndex hashValueIndex;
-     StringIndex publicKeyIndex;
-     uint32_t hash_alg;
-     int32_t hash_len;
-@@ -1442,8 +1441,7 @@ typedef struct Il2CppAssemblyName
+@@ -1495,6 +1496,11 @@ typedef struct Il2CppTokenIndexMethodTup
+     void** method;
+     uint32_t __genericMethodIndex;
+ } Il2CppTokenIndexMethodTuple;
++typedef struct Il2CppTokenAdjustorThunkPair
++{
++    uint32_t token;
++    Il2CppMethodPointer adjustorThunk;
++} Il2CppTokenAdjustorThunkPair;
+ typedef struct Il2CppWindowsRuntimeFactoryTableEntry
  {
-     const char* name;
-     const char* culture;
--    const char* hash_value;
--    const char* public_key;
-+    const uint8_t* public_key;
-     uint32_t hash_alg;
-     int32_t hash_len;
-     uint32_t flags;
-@@ -1478,6 +1476,7 @@ typedef struct Il2CppAssembly
- typedef struct Il2CppCodeGenOptions
- {
-     uint8_t enablePrimitiveValueTypeGenericSharing;
-+    int maximumRuntimeGenericDepth;
- } Il2CppCodeGenOptions;
- typedef struct Il2CppRange
- {
---- 2020.2.0b12.h
-+++ 2020.2.0b2.h
-@@ -380,6 +380,7 @@ typedef struct Il2CppAssemblyNameDefinit
- {
-     StringIndex nameIndex;
-     StringIndex cultureIndex;
-+    StringIndex hashValueIndex;
-     StringIndex publicKeyIndex;
-     uint32_t hash_alg;
-     int32_t hash_len;
-@@ -1441,7 +1442,8 @@ typedef struct Il2CppAssemblyName
- {
-     const char* name;
-     const char* culture;
--    const uint8_t* public_key;
-+    const char* hash_value;
-+    const char* public_key;
-     uint32_t hash_alg;
-     int32_t hash_len;
-     uint32_t flags;
-@@ -1476,7 +1478,6 @@ typedef struct Il2CppAssembly
- typedef struct Il2CppCodeGenOptions
- {
-     uint8_t enablePrimitiveValueTypeGenericSharing;
--    int maximumRuntimeGenericDepth;
- } Il2CppCodeGenOptions;
- typedef struct Il2CppRange
- {
---- 2020.2.0b2.h
-+++ 2021.1.0a6.h
+     const Il2CppType* type;
+@@ -1505,6 +1511,8 @@ typedef struct Il2CppCodeGenModule
+     const char* moduleName;
+     const uint32_t methodPointerCount;
+     const Il2CppMethodPointer* methodPointers;
++    const uint32_t adjustorThunkCount;
++    const Il2CppTokenAdjustorThunkPair* adjustorThunks;
+     const int32_t* invokerIndices;
+     const uint32_t reversePInvokeWrapperCount;
+     const Il2CppTokenIndexMethodTuple* reversePInvokeWrapperIndices;
+@@ -1525,6 +1533,7 @@ typedef struct Il2CppCodeRegistration
+     const Il2CppMethodPointer* reversePInvokeWrappers;
+     uint32_t genericMethodPointersCount;
+     const Il2CppMethodPointer* genericMethodPointers;
++    const Il2CppMethodPointer* genericAdjustorThunks;
+     uint32_t invokerPointersCount;
+     const InvokerMethod* invokerPointers;
+     uint32_t unresolvedVirtualCallCount;
+--- 2020.3.12f1.h
++++ 2021.1.0f1.h
 @@ -88,6 +88,9 @@ typedef struct Il2CppStackFrameInfo
  {
      const MethodInfo *method;
@@ -6310,15 +6368,7 @@
  } Il2CppRGCTXDefinition;
  typedef struct
  {
-@@ -380,7 +383,6 @@ typedef struct Il2CppAssemblyNameDefinit
- {
-     StringIndex nameIndex;
-     StringIndex cultureIndex;
--    StringIndex hashValueIndex;
-     StringIndex publicKeyIndex;
-     uint32_t hash_alg;
-     int32_t hash_len;
-@@ -680,9 +682,10 @@ typedef struct Il2CppType
+@@ -680,9 +683,10 @@ typedef struct Il2CppType
      } data;
      unsigned int attrs : 16;
      Il2CppTypeEnum type : 8;
@@ -6330,7 +6380,7 @@
  } Il2CppType;
  typedef struct Il2CppMetadataFieldInfo
  {
-@@ -1148,7 +1151,7 @@ typedef struct ParameterInfo
+@@ -1148,7 +1152,7 @@ typedef struct ParameterInfo
      uint32_t token;
      const Il2CppType* parameter_type;
  } ParameterInfo;
@@ -6339,7 +6389,7 @@
  typedef enum MethodVariableKind
  {
      kMethodVariableKind_This,
-@@ -1322,7 +1325,6 @@ typedef struct Il2CppClass
+@@ -1322,7 +1326,6 @@ typedef struct Il2CppClass
      uint8_t naturalAligment;
      uint8_t packingSize;
      uint8_t initialized_and_no_error : 1;
@@ -6347,7 +6397,7 @@
      uint8_t initialized : 1;
      uint8_t enumtype : 1;
      uint8_t is_generic : 1;
-@@ -1397,7 +1399,6 @@ typedef struct Il2CppClass_1 {
+@@ -1397,7 +1400,6 @@ typedef struct Il2CppClass_1 {
      uint8_t naturalAligment;
      uint8_t packingSize;
      uint8_t initialized_and_no_error : 1;
@@ -6355,21 +6405,3 @@
      uint8_t initialized : 1;
      uint8_t enumtype : 1;
      uint8_t is_generic : 1;
-@@ -1442,8 +1443,7 @@ typedef struct Il2CppAssemblyName
- {
-     const char* name;
-     const char* culture;
--    const char* hash_value;
--    const char* public_key;
-+    const uint8_t* public_key;
-     uint32_t hash_alg;
-     int32_t hash_len;
-     uint32_t flags;
-@@ -1478,6 +1478,7 @@ typedef struct Il2CppAssembly
- typedef struct Il2CppCodeGenOptions
- {
-     uint8_t enablePrimitiveValueTypeGenericSharing;
-+    int maximumRuntimeGenericDepth;
- } Il2CppCodeGenOptions;
- typedef struct Il2CppRange
- {
