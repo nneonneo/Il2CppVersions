@@ -389,3 +389,12 @@
 +DO_API(void, il2cpp_gc_start_incremental_collection , ());
 @@ -125,0 +127 @@
 +DO_API(void, il2cpp_gc_set_mode, (Il2CppGCMode mode));
+--- 2021.1.13f1.h
++++ 2021.2.0b1.h
+@@ -155,2 +155 @@
+-DO_API(void*, il2cpp_unity_liveness_calculation_begin, (Il2CppClass * filter, int max_object_count, il2cpp_register_object_callback callback, void* userdata, il2cpp_WorldChangedCallback onWorldStarted, il2cpp_WorldChangedCallback onWorldStopped));
+-DO_API(void, il2cpp_unity_liveness_calculation_end, (void* state));
++DO_API(void*, il2cpp_unity_liveness_allocate_struct, (Il2CppClass * filter, int max_object_count, il2cpp_register_object_callback callback, void* userdata, il2cpp_liveness_reallocate_callback reallocate));
+@@ -158,0 +158,2 @@
++DO_API(void, il2cpp_unity_liveness_finalize, (void* state));
++DO_API(void, il2cpp_unity_liveness_free_struct, (void* state));

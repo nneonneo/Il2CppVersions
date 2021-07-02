@@ -288,6 +288,7 @@ call group7\build.bat 2020.3.9f1
 call group7\build.bat 2020.3.10f1
 call group7\build.bat 2020.3.11f1
 call group7\build.bat 2020.3.12f1
+call group7\build.bat 2020.3.13f1
 call group7\build.bat 2021.1.0f1
 call group7\build.bat 2021.1.1f1
 call group7\build.bat 2021.1.2f1
@@ -300,4 +301,6 @@ call group7\build.bat 2021.1.9f1
 call group7\build.bat 2021.1.10f1
 call group7\build.bat 2021.1.11f1
 call group7\build.bat 2021.1.12f1
+call group7\build.bat 2021.1.13f1
+call group7\build.bat 2021.2.0b1
 pause
