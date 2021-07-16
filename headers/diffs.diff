@@ -6347,7 +6347,7 @@
      uint32_t invokerPointersCount;
      const InvokerMethod* invokerPointers;
      uint32_t unresolvedVirtualCallCount;
---- 2020.3.13f1.h
+--- 2020.3.14f1.h
 +++ 2021.1.0f1.h
 @@ -88,6 +88,9 @@ typedef struct Il2CppStackFrameInfo
  {
@@ -6405,8 +6405,18 @@
      uint8_t initialized : 1;
      uint8_t enumtype : 1;
      uint8_t is_generic : 1;
---- 2021.1.13f1.h
-+++ 2021.2.0b1.h
+--- 2021.1.14f1.h
++++ 2021.1.15f1.h
+@@ -1254,6 +1254,7 @@ typedef struct MethodInfo
+     {
+         const Il2CppGenericMethod* genericMethod;
+         Il2CppMetadataGenericContainerHandle genericContainerHandle;
++        Il2CppMethodPointer nativeFunction;
+     };
+     uint32_t token;
+     uint16_t flags;
+--- 2021.1.15f1.h
++++ 2021.2.0b4.h
 @@ -122,7 +122,7 @@ typedef struct
  typedef uint16_t Il2CppChar;
  typedef char Il2CppNativeChar;
@@ -6522,7 +6532,15 @@
      union
      {
          const Il2CppRGCTXData* rgctx_data;
-@@ -1299,7 +1298,7 @@ typedef struct Il2CppClass
+@@ -1254,7 +1253,6 @@ typedef struct MethodInfo
+     {
+         const Il2CppGenericMethod* genericMethod;
+         Il2CppMetadataGenericContainerHandle genericContainerHandle;
+-        Il2CppMethodPointer nativeFunction;
+     };
+     uint32_t token;
+     uint16_t flags;
+@@ -1300,7 +1298,7 @@ typedef struct Il2CppClass
      void *unity_user_data;
      uint32_t initializationExceptionGCHandle;
      uint32_t cctor_started;
@@ -6531,7 +6549,7 @@
      __attribute__((aligned(8))) size_t cctor_thread;
      Il2CppMetadataGenericContainerHandle genericContainerHandle;
      uint32_t instance_size;
-@@ -1328,6 +1327,7 @@ typedef struct Il2CppClass
+@@ -1329,6 +1327,7 @@ typedef struct Il2CppClass
      uint8_t initialized_and_no_error : 1;
      uint8_t initialized : 1;
      uint8_t enumtype : 1;
@@ -6539,7 +6557,7 @@
      uint8_t is_generic : 1;
      uint8_t has_references : 1;
      uint8_t init_pending : 1;
-@@ -1337,7 +1337,7 @@ typedef struct Il2CppClass
+@@ -1338,7 +1337,7 @@ typedef struct Il2CppClass
      uint8_t is_blittable : 1;
      uint8_t is_import_or_windows_runtime : 1;
      uint8_t is_vtable_initialized : 1;
@@ -6548,7 +6566,7 @@
      VirtualInvokeData vtable[32];
  } Il2CppClass;
  
-@@ -1369,7 +1369,7 @@ typedef struct Il2CppClass_1 {
+@@ -1370,7 +1369,7 @@ typedef struct Il2CppClass_1 {
      void * unity_user_data;
      uint32_t initializationExceptionGCHandle;
      uint32_t cctor_started;
@@ -6557,7 +6575,7 @@
  #ifdef IS_32BIT
      uint32_t cctor_thread;
  #else
-@@ -1402,6 +1402,7 @@ typedef struct Il2CppClass_1 {
+@@ -1403,6 +1402,7 @@ typedef struct Il2CppClass_1 {
      uint8_t initialized_and_no_error : 1;
      uint8_t initialized : 1;
      uint8_t enumtype : 1;
@@ -6565,7 +6583,7 @@
      uint8_t is_generic : 1;
      uint8_t has_references : 1;
      uint8_t init_pending : 1;
-@@ -1411,7 +1412,7 @@ typedef struct Il2CppClass_1 {
+@@ -1412,7 +1412,7 @@ typedef struct Il2CppClass_1 {
      uint8_t is_blittable : 1;
      uint8_t is_import_or_windows_runtime : 1;
      uint8_t is_vtable_initialized : 1;
@@ -6574,7 +6592,7 @@
  } Il2CppClass_1;
  
  typedef struct __attribute__((aligned(8))) Il2CppClass_Merged {
-@@ -1769,13 +1770,13 @@ typedef struct Il2CppPropertyInfo
+@@ -1770,13 +1770,13 @@ typedef struct Il2CppPropertyInfo
  typedef struct Il2CppReflectionParameter
  {
      Il2CppObject object;
@@ -6590,7 +6608,7 @@
  } Il2CppReflectionParameter;
  typedef struct Il2CppReflectionModule
  {
-@@ -1809,8 +1810,8 @@ typedef struct Il2CppReflectionAssembly
+@@ -1810,8 +1810,8 @@ typedef struct Il2CppReflectionAssembly
  {
      Il2CppObject object;
      const Il2CppAssembly *assembly;
@@ -6600,7 +6618,7 @@
      Il2CppObject *minimum;
      Il2CppObject *optional;
      Il2CppObject *refuse;
-@@ -1838,15 +1839,29 @@ typedef struct Il2CppReflectionPointer
+@@ -1839,15 +1839,29 @@ typedef struct Il2CppReflectionPointer
      void* data;
      Il2CppReflectionType* type;
  } Il2CppReflectionPointer;
@@ -6633,7 +6651,7 @@
      uint32_t state;
      Il2CppObject* abort_exc;
      int abort_state_handle;
-@@ -1860,7 +1875,7 @@ typedef struct Il2CppInternalThread
+@@ -1861,7 +1875,7 @@ typedef struct Il2CppInternalThread
      int _serialized_principal_version;
      void* appdomain_refs;
      int32_t interruption_requested;
@@ -6642,7 +6660,7 @@
      uint8_t threadpool_thread;
      uint8_t thread_interrupt_requested;
      int stack_size;
-@@ -1869,7 +1884,6 @@ typedef struct Il2CppInternalThread
+@@ -1870,7 +1884,6 @@ typedef struct Il2CppInternalThread
      int managed_id;
      uint32_t small_id;
      void* manage_callback;
@@ -6650,7 +6668,7 @@
      intptr_t flags;
      void* thread_pinning_ref;
      void* abort_protected_block_count;
-@@ -1878,7 +1892,7 @@ typedef struct Il2CppInternalThread
+@@ -1879,7 +1892,7 @@ typedef struct Il2CppInternalThread
      void * suspended;
      int32_t self_suspended;
      size_t thread_state;
@@ -6659,7 +6677,7 @@
      void* last;
  } Il2CppInternalThread;
  typedef struct Il2CppIOSelectorJob
-@@ -1964,6 +1978,7 @@ typedef struct Il2CppException
+@@ -1965,6 +1978,7 @@ typedef struct Il2CppException
      Il2CppObject* safeSerializationManager;
      Il2CppArray* captured_traces;
      Il2CppArray* native_trace_ips;
@@ -6667,7 +6685,7 @@
  } Il2CppException;
  typedef struct Il2CppSystemException
  {
-@@ -1990,6 +2005,8 @@ typedef struct Il2CppDelegate
+@@ -1991,6 +2005,8 @@ typedef struct Il2CppDelegate
      void* delegate_trampoline;
      intptr_t extraArg;
      uint8_t **method_code;
@@ -6676,7 +6694,7 @@
      Il2CppReflectionMethod *method_info;
      Il2CppReflectionMethod *original_method_info;
      Il2CppObject *data;
-@@ -2005,6 +2022,8 @@ typedef struct Il2CppMarshalByRefObject
+@@ -2006,6 +2022,8 @@ typedef struct Il2CppMarshalByRefObject
      Il2CppObject obj;
      Il2CppObject *identity;
  } Il2CppMarshalByRefObject;
@@ -6685,7 +6703,7 @@
  typedef struct Il2CppAppDomain
  {
      Il2CppMarshalByRefObject mbr;
-@@ -2115,6 +2134,32 @@ typedef struct Il2CppNumberFormatInfo
+@@ -2116,6 +2134,32 @@ typedef struct Il2CppNumberFormatInfo
      uint8_t validForParseAsNumber;
      uint8_t validForParseAsCurrency;
  } Il2CppNumberFormatInfo;
@@ -6718,7 +6736,7 @@
  typedef struct Il2CppCultureData
  {
      Il2CppObject obj;
-@@ -2362,3 +2407,7 @@ typedef union Il2CppSingle_float
+@@ -2363,3 +2407,7 @@ typedef union Il2CppSingle_float
      Il2CppSingle s;
      float f;
  } Il2CppSingle_float;
