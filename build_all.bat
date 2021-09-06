@@ -250,6 +250,7 @@ call group5\build.bat 2019.4.26f1
 call group5\build.bat 2019.4.27f1
 call group5\build.bat 2019.4.28f1
 call group5\build.bat 2019.4.29f1
+call group5\build.bat 2019.4.30f1
 call group6\build.bat 2020.1.0f1
 call group6\build.bat 2020.1.1f1
 call group6\build.bat 2020.1.2f1
@@ -292,6 +293,8 @@ call group7\build.bat 2020.3.12f1
 call group7\build.bat 2020.3.13f1
 call group7\build.bat 2020.3.14f1
 call group7\build.bat 2020.3.15f2
+call group7\build.bat 2020.3.16f1
+call group7\build.bat 2020.3.17f1
 call group7\build.bat 2021.1.0f1
 call group7\build.bat 2021.1.1f1
 call group7\build.bat 2021.1.2f1
@@ -308,5 +311,8 @@ call group7\build.bat 2021.1.13f1
 call group7\build.bat 2021.1.14f1
 call group7\build.bat 2021.1.15f1
 call group7\build.bat 2021.1.16f1
+call group7\build.bat 2021.1.17f1
+call group7\build.bat 2021.1.18f1
+call group7\build.bat 2021.1.19f1
 call group7\build.bat 2021.2.0b4
 pause
