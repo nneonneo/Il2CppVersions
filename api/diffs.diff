@@ -379,18 +379,34 @@
 @@ -304,0 +305,2 @@
 +
 +DO_API(void, il2cpp_set_default_thread_affinity, (int64_t affinity_mask));
---- 2019.4.30f1.h
-+++ 2020.1.0f1.h
+--- 2019.4.35f1.h
++++ 2020.1.0a3.h
+@@ -249 +248,0 @@
+-DO_API(void, il2cpp_override_stack_backtrace, (Il2CppBacktraceFunc stackBacktraceFunc));
+@@ -305,2 +303,0 @@
+-
+-DO_API(void, il2cpp_set_default_thread_affinity, (int64_t affinity_mask));
+--- 2020.1.0a18.h
++++ 2020.1.0a19.h
 @@ -103,0 +104 @@
 +DO_API(void, il2cpp_native_stack_trace, (const Il2CppException * ex, uintptr_t** addresses, int* numFrames, char* imageUUID));
---- 2020.1.17f1.h
-+++ 2020.2.0f1.h
+@@ -248,0 +250 @@
++DO_API(void, il2cpp_override_stack_backtrace, (Il2CppBacktraceFunc stackBacktraceFunc));
+--- 2020.1.0b10.h
++++ 2020.1.0b11.h
+@@ -305,0 +306,2 @@
++
++DO_API(void, il2cpp_set_default_thread_affinity, (int64_t affinity_mask));
+--- 2020.2.0a13.h
++++ 2020.2.0a15.h
 @@ -122,0 +123 @@
 +DO_API(void, il2cpp_gc_start_incremental_collection , ());
-@@ -125,0 +127 @@
+--- 2020.2.0a16.h
++++ 2020.2.0a17.h
+@@ -126,0 +127 @@
 +DO_API(void, il2cpp_gc_set_mode, (Il2CppGCMode mode));
---- 2021.1.19f1.h
-+++ 2021.2.0b4.h
+--- 2021.2.0a14.h
++++ 2021.2.0a15.h
 @@ -155,2 +155 @@
 -DO_API(void*, il2cpp_unity_liveness_calculation_begin, (Il2CppClass * filter, int max_object_count, il2cpp_register_object_callback callback, void* userdata, il2cpp_WorldChangedCallback onWorldStarted, il2cpp_WorldChangedCallback onWorldStopped));
 -DO_API(void, il2cpp_unity_liveness_calculation_end, (void* state));
@@ -398,3 +414,23 @@
 @@ -158,0 +158,2 @@
 +DO_API(void, il2cpp_unity_liveness_finalize, (void* state));
 +DO_API(void, il2cpp_unity_liveness_free_struct, (void* state));
+--- 2021.2.0b7.h
++++ 2021.2.0b8.h
+@@ -104 +104 @@
+-DO_API(void, il2cpp_native_stack_trace, (const Il2CppException * ex, uintptr_t** addresses, int* numFrames, char* imageUUID));
++DO_API(void, il2cpp_native_stack_trace, (const Il2CppException * ex, uintptr_t** addresses, int* numFrames, char** imageUUID, char** imageName));
+--- 2021.2.0b12.h
++++ 2021.2.0b13.h
+@@ -139,0 +140,2 @@
++DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
++DO_API(void, il2cpp_gc_free_fixed, (void* address));
+--- 2021.2.9f1.h
++++ 2022.1.0a7.h
+@@ -140,2 +139,0 @@
+-DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
+-DO_API(void, il2cpp_gc_free_fixed, (void* address));
+--- 2022.1.0a9.h
++++ 2022.1.0a10.h
+@@ -139,0 +140,2 @@
++DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
++DO_API(void, il2cpp_gc_free_fixed, (void* address));
