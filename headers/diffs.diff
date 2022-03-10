@@ -5442,7 +5442,7 @@
      };
      uint32_t token;
      uint16_t flags;
---- 2019.4.35f1.h
+--- 2019.4.36f1.h
 +++ 2020.1.0a3.h
 @@ -123,7 +123,6 @@ typedef void (*Il2CppProfileFileIOFunc)
  typedef void (*Il2CppProfileThreadFunc) (Il2CppProfiler *prof, unsigned long tid);
@@ -6694,7 +6694,7 @@
  } Il2CppGlobalMetadataHeader;
  #pragma pack(pop, p1)
  typedef struct Il2CppMetadataField
---- 2020.3.27f1.h
+--- 2020.3.29f1.h
 +++ 2021.1.0a2.h
 @@ -88,6 +88,9 @@ typedef struct Il2CppStackFrameInfo
  {
@@ -7801,7 +7801,7 @@
      void* interp_method;
      void* interp_invoke_impl;
      Il2CppReflectionMethod *method_info;
---- 2021.2.9f1.h
+--- 2021.2.12f1.h
 +++ 2022.1.0a7.h
 @@ -137,7 +137,6 @@ typedef size_t(*Il2CppBacktraceFunc) (Il
  typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
@@ -8150,3 +8150,40 @@
      void* interp_method;
      void* interp_invoke_impl;
      Il2CppReflectionMethod *method_info;
+--- 2022.1.0b6.h
++++ 2022.1.0b7.h
+@@ -515,10 +515,10 @@ typedef struct Il2CppGlobalMetadataHeade
+     int32_t attributeDataSize;
+     int32_t attributeDataRangeOffset;
+     int32_t attributeDataRangeSize;
+-    int32_t unresolvedVirtualCallParameterTypesOffset;
+-    int32_t unresolvedVirtualCallParameterTypesSize;
+-    int32_t unresolvedVirtualCallParameterRangesOffset;
+-    int32_t unresolvedVirtualCallParameterRangesSize;
++    int32_t unresolvedIndirectCallParameterTypesOffset;
++    int32_t unresolvedIndirectCallParameterTypesSize;
++    int32_t unresolvedIndirectCallParameterRangesOffset;
++    int32_t unresolvedIndirectCallParameterRangesSize;
+     int32_t windowsRuntimeTypeNamesOffset;
+     int32_t windowsRuntimeTypeNamesSize;
+     int32_t windowsRuntimeStringsOffset;
+@@ -1267,7 +1267,6 @@ typedef struct MethodInfo
+     uint8_t is_inflated : 1;
+     uint8_t wrapper_type : 1;
+     uint8_t has_full_generic_sharing_signature : 1;
+-    uint8_t indirect_call_via_invokers : 1;
+ } MethodInfo;
+ typedef struct Il2CppRuntimeInterfaceOffsetPair
+ {
+@@ -1547,8 +1546,10 @@ typedef struct Il2CppCodeRegistration
+     const Il2CppMethodPointer* genericAdjustorThunks;
+     uint32_t invokerPointersCount;
+     const InvokerMethod* invokerPointers;
+-    uint32_t unresolvedVirtualCallCount;
++    uint32_t unresolvedIndirectCallCount;
+     const Il2CppMethodPointer* unresolvedVirtualCallPointers;
++    const Il2CppMethodPointer* unresolvedInstanceCallPointers;
++    const Il2CppMethodPointer* unresolvedStaticCallPointers;
+     uint32_t interopDataCount;
+     Il2CppInteropData* interopData;
+     uint32_t windowsRuntimeFactoryCount;

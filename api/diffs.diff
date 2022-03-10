@@ -379,7 +379,7 @@
 @@ -304,0 +305,2 @@
 +
 +DO_API(void, il2cpp_set_default_thread_affinity, (int64_t affinity_mask));
---- 2019.4.35f1.h
+--- 2019.4.36f1.h
 +++ 2020.1.0a3.h
 @@ -249 +248,0 @@
 -DO_API(void, il2cpp_override_stack_backtrace, (Il2CppBacktraceFunc stackBacktraceFunc));
@@ -424,7 +424,7 @@
 @@ -139,0 +140,2 @@
 +DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
 +DO_API(void, il2cpp_gc_free_fixed, (void* address));
---- 2021.2.9f1.h
+--- 2021.2.12f1.h
 +++ 2022.1.0a7.h
 @@ -140,2 +139,0 @@
 -DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
