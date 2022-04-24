@@ -424,7 +424,7 @@
 @@ -139,0 +140,2 @@
 +DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
 +DO_API(void, il2cpp_gc_free_fixed, (void* address));
---- 2021.2.12f1.h
+--- 2021.3.1f1.h
 +++ 2022.1.0a7.h
 @@ -140,2 +139,0 @@
 -DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
