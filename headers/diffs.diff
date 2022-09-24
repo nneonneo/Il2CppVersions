@@ -5442,7 +5442,7 @@
      };
      uint32_t token;
      uint16_t flags;
---- 2019.4.39f1.h
+--- 2019.4.40f1.h
 +++ 2020.1.0a3.h
 @@ -123,7 +123,6 @@ typedef void (*Il2CppProfileFileIOFunc)
  typedef void (*Il2CppProfileThreadFunc) (Il2CppProfiler *prof, unsigned long tid);
@@ -6694,7 +6694,7 @@
  } Il2CppGlobalMetadataHeader;
  #pragma pack(pop, p1)
  typedef struct Il2CppMetadataField
---- 2020.3.34f1.h
+--- 2020.3.39f1.h
 +++ 2021.1.0a2.h
 @@ -88,6 +88,9 @@ typedef struct Il2CppStackFrameInfo
  {
@@ -7802,6 +7802,16 @@
      void* interp_invoke_impl;
      Il2CppReflectionMethod *method_info;
 --- 2021.3.2f1.h
++++ 2021.3.10f1.h
+@@ -282,6 +282,7 @@ typedef enum Il2CppMetadataUsage
+     kIl2CppMetadataUsageFieldInfo,
+     kIl2CppMetadataUsageStringLiteral,
+     kIl2CppMetadataUsageMethodRef,
++    kIl2CppMetadataUsageFieldRva
+ } Il2CppMetadataUsage;
+ typedef enum Il2CppInvalidMetadataUsageToken
+ {
+--- 2021.3.10f1.h
 +++ 2022.1.0a7.h
 @@ -137,7 +137,6 @@ typedef size_t(*Il2CppBacktraceFunc) (Il
  typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
@@ -7811,7 +7821,15 @@
  typedef uint16_t Il2CppMethodSlot;
  static const uint16_t kInvalidIl2CppMethodSlot = 65535;
  static const int ipv6AddressSize = 16;
-@@ -464,67 +463,67 @@ typedef struct Il2CppGlobalMetadataHeade
+@@ -282,7 +281,6 @@ typedef enum Il2CppMetadataUsage
+     kIl2CppMetadataUsageFieldInfo,
+     kIl2CppMetadataUsageStringLiteral,
+     kIl2CppMetadataUsageMethodRef,
+-    kIl2CppMetadataUsageFieldRva
+ } Il2CppMetadataUsage;
+ typedef enum Il2CppInvalidMetadataUsageToken
+ {
+@@ -465,67 +463,67 @@ typedef struct Il2CppGlobalMetadataHeade
      int32_t sanity;
      int32_t version;
      int32_t stringLiteralOffset;
@@ -7908,7 +7926,7 @@
  } Il2CppGlobalMetadataHeader;
  #pragma pack(pop, p1)
  typedef struct Il2CppMetadataField
-@@ -1114,7 +1113,6 @@ typedef struct Il2CppDefaults
+@@ -1115,7 +1113,6 @@ typedef struct Il2CppDefaults
      Il2CppClass* uint32_shared_enum;
      Il2CppClass* uint64_shared_enum;
      Il2CppClass* il2cpp_fully_shared_type;
@@ -7916,7 +7934,7 @@
  } Il2CppDefaults;
  extern Il2CppDefaults il2cpp_defaults;
  typedef struct Il2CppClass Il2CppClass;
-@@ -1267,7 +1265,6 @@ typedef struct MethodInfo
+@@ -1268,7 +1265,6 @@ typedef struct MethodInfo
      uint8_t is_inflated : 1;
      uint8_t wrapper_type : 1;
      uint8_t has_full_generic_sharing_signature : 1;
@@ -7924,7 +7942,7 @@
  } MethodInfo;
  typedef struct Il2CppRuntimeInterfaceOffsetPair
  {
-@@ -1336,7 +1333,6 @@ typedef struct Il2CppClass
+@@ -1337,7 +1333,6 @@ typedef struct Il2CppClass
      uint8_t is_generic : 1;
      uint8_t has_references : 1;
      uint8_t init_pending : 1;
@@ -7932,7 +7950,7 @@
      uint8_t size_inited : 1;
      uint8_t has_finalize : 1;
      uint8_t has_cctor : 1;
-@@ -1412,7 +1408,6 @@ typedef struct Il2CppClass_1 {
+@@ -1413,7 +1408,6 @@ typedef struct Il2CppClass_1 {
      uint8_t is_generic : 1;
      uint8_t has_references : 1;
      uint8_t init_pending : 1;
@@ -7940,7 +7958,7 @@
      uint8_t size_inited : 1;
      uint8_t has_finalize : 1;
      uint8_t has_cctor : 1;
-@@ -1443,7 +1438,6 @@ typedef struct Il2CppDomain
+@@ -1444,7 +1438,6 @@ typedef struct Il2CppDomain
      Il2CppAppDomain* domain;
      Il2CppAppDomainSetup* setup;
      Il2CppAppContext* default_context;
@@ -7948,7 +7966,7 @@
      const char* friendly_name;
      uint32_t domain_id;
      volatile int threadpool_jobs;
-@@ -1489,7 +1483,6 @@ typedef struct Il2CppCodeGenOptions
+@@ -1490,7 +1483,6 @@ typedef struct Il2CppCodeGenOptions
  {
      uint8_t enablePrimitiveValueTypeGenericSharing;
      int maximumRuntimeGenericDepth;
@@ -7956,7 +7974,7 @@
  } Il2CppCodeGenOptions;
  typedef struct Il2CppRange
  {
-@@ -2007,12 +2000,12 @@ typedef struct Il2CppDelegate
+@@ -2008,12 +2000,12 @@ typedef struct Il2CppDelegate
  {
      Il2CppObject object;
      Il2CppMethodPointer method_ptr;
