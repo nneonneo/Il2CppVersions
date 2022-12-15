@@ -424,7 +424,7 @@
 @@ -139,0 +140,2 @@
 +DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
 +DO_API(void, il2cpp_gc_free_fixed, (void* address));
---- 2021.3.10f1.h
+--- 2021.3.15f1.h
 +++ 2022.1.0a7.h
 @@ -140,2 +139,0 @@
 -DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
@@ -434,3 +434,21 @@
 @@ -139,0 +140,2 @@
 +DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
 +DO_API(void, il2cpp_gc_free_fixed, (void* address));
+--- 2022.2.0a12.h
++++ 2022.2.0a13.h
+@@ -300,0 +301 @@
++DO_API(Il2CppCustomAttrInfo*, il2cpp_custom_attrs_from_field, (const FieldInfo * field));
+--- 2022.2.0b10.h
++++ 2022.2.0b11.h
+@@ -265,0 +266 @@
++DO_API(char*, il2cpp_type_get_reflection_name, (const Il2CppType * type));
+--- 2022.2.0f1.h
++++ 2023.1.0a1.h
+@@ -266 +265,0 @@
+-DO_API(char*, il2cpp_type_get_reflection_name, (const Il2CppType * type));
+--- 2023.1.0a5.h
++++ 2023.1.0a6.h
+@@ -107,0 +108 @@
++DO_API(const FieldInfo*, il2cpp_field_get_from_reflection, (const Il2CppReflectionField * field));
+@@ -109,0 +111 @@
++DO_API(Il2CppReflectionField*, il2cpp_field_get_object, (FieldInfo * field, Il2CppClass * refclass));

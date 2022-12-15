@@ -6694,7 +6694,7 @@
  } Il2CppGlobalMetadataHeader;
  #pragma pack(pop, p1)
  typedef struct Il2CppMetadataField
---- 2020.3.39f1.h
+--- 2020.3.42f1.h
 +++ 2021.1.0a2.h
 @@ -88,6 +88,9 @@ typedef struct Il2CppStackFrameInfo
  {
@@ -7802,7 +7802,7 @@
      void* interp_invoke_impl;
      Il2CppReflectionMethod *method_info;
 --- 2021.3.2f1.h
-+++ 2021.3.10f1.h
++++ 2021.3.9f1.h
 @@ -282,6 +282,7 @@ typedef enum Il2CppMetadataUsage
      kIl2CppMetadataUsageFieldInfo,
      kIl2CppMetadataUsageStringLiteral,
@@ -7811,7 +7811,7 @@
  } Il2CppMetadataUsage;
  typedef enum Il2CppInvalidMetadataUsageToken
  {
---- 2021.3.10f1.h
+--- 2021.3.15f1.h
 +++ 2022.1.0a7.h
 @@ -137,7 +137,6 @@ typedef size_t(*Il2CppBacktraceFunc) (Il
  typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
@@ -8205,3 +8205,89 @@
      uint32_t interopDataCount;
      Il2CppInteropData* interopData;
      uint32_t windowsRuntimeFactoryCount;
+--- 2022.1.7f1.h
++++ 2022.1.8f1.h
+@@ -282,6 +282,7 @@ typedef enum Il2CppMetadataUsage
+     kIl2CppMetadataUsageFieldInfo,
+     kIl2CppMetadataUsageStringLiteral,
+     kIl2CppMetadataUsageMethodRef,
++    kIl2CppMetadataUsageFieldRva
+ } Il2CppMetadataUsage;
+ typedef enum Il2CppInvalidMetadataUsageToken
+ {
+--- 2022.1.24f1.h
++++ 2022.2.0a9.h
+@@ -282,7 +282,6 @@ typedef enum Il2CppMetadataUsage
+     kIl2CppMetadataUsageFieldInfo,
+     kIl2CppMetadataUsageStringLiteral,
+     kIl2CppMetadataUsageMethodRef,
+-    kIl2CppMetadataUsageFieldRva
+ } Il2CppMetadataUsage;
+ typedef enum Il2CppInvalidMetadataUsageToken
+ {
+@@ -1307,6 +1306,7 @@ typedef struct Il2CppClass
+     __attribute__((aligned(8))) size_t cctor_thread;
+     Il2CppMetadataGenericContainerHandle genericContainerHandle;
+     uint32_t instance_size;
++    uint32_t stack_slot_size;
+     uint32_t actualSize;
+     uint32_t element_size;
+     int32_t native_size;
+@@ -1327,7 +1327,6 @@ typedef struct Il2CppClass
+     uint8_t genericRecursionDepth;
+     uint8_t rank;
+     uint8_t minimumAlignment;
+-    uint8_t naturalAligment;
+     uint8_t packingSize;
+     uint8_t initialized_and_no_error : 1;
+     uint8_t initialized : 1;
+@@ -1383,6 +1382,7 @@ typedef struct Il2CppClass_1 {
+ #endif
+     Il2CppMetadataGenericContainerHandle genericContainerHandle;
+     uint32_t instance_size;
++    uint32_t stack_slot_size;
+     uint32_t actualSize;
+     uint32_t element_size;
+     int32_t native_size;
+@@ -1403,7 +1403,6 @@ typedef struct Il2CppClass_1 {
+     uint8_t genericRecursionDepth;
+     uint8_t rank;
+     uint8_t minimumAlignment;
+-    uint8_t naturalAligment;
+     uint8_t packingSize;
+     uint8_t initialized_and_no_error : 1;
+     uint8_t initialized : 1;
+--- 2022.2.0a10.h
++++ 2022.2.0a11.h
+@@ -1122,11 +1122,6 @@ typedef struct MethodInfo MethodInfo;
+ typedef struct FieldInfo FieldInfo;
+ typedef struct Il2CppObject Il2CppObject;
+ typedef struct MemberInfo MemberInfo;
+-typedef struct CustomAttributesCache
+-{
+-    int count;
+-    Il2CppObject** attributes;
+-} CustomAttributesCache;
+ typedef struct FieldInfo
+ {
+     const char* name;
+--- 2022.2.0b1.h
++++ 2022.2.0b2.h
+@@ -282,6 +282,7 @@ typedef enum Il2CppMetadataUsage
+     kIl2CppMetadataUsageFieldInfo,
+     kIl2CppMetadataUsageStringLiteral,
+     kIl2CppMetadataUsageMethodRef,
++    kIl2CppMetadataUsageFieldRva
+ } Il2CppMetadataUsage;
+ typedef enum Il2CppInvalidMetadataUsageToken
+ {
+--- 2023.1.0a5.h
++++ 2023.1.0a6.h
+@@ -12,6 +12,7 @@ typedef struct Il2CppImage Il2CppImage;
+ typedef struct Il2CppException Il2CppException;
+ typedef struct Il2CppProfiler Il2CppProfiler;
+ typedef struct Il2CppObject Il2CppObject;
++typedef struct Il2CppReflectionField Il2CppReflectionField;
+ typedef struct Il2CppReflectionMethod Il2CppReflectionMethod;
+ typedef struct Il2CppReflectionType Il2CppReflectionType;
+ typedef struct Il2CppString Il2CppString;
