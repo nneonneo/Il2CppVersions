@@ -6694,7 +6694,7 @@
  } Il2CppGlobalMetadataHeader;
  #pragma pack(pop, p1)
  typedef struct Il2CppMetadataField
---- 2020.3.42f1.h
+--- 2020.3.46f1.h
 +++ 2021.1.0a2.h
 @@ -88,6 +88,9 @@ typedef struct Il2CppStackFrameInfo
  {
@@ -7801,8 +7801,8 @@
      void* interp_method;
      void* interp_invoke_impl;
      Il2CppReflectionMethod *method_info;
---- 2021.3.2f1.h
-+++ 2021.3.9f1.h
+--- 2021.3.6f1.h
++++ 2021.3.7f1.h
 @@ -282,6 +282,7 @@ typedef enum Il2CppMetadataUsage
      kIl2CppMetadataUsageFieldInfo,
      kIl2CppMetadataUsageStringLiteral,
@@ -7811,17 +7811,29 @@
  } Il2CppMetadataUsage;
  typedef enum Il2CppInvalidMetadataUsageToken
  {
---- 2021.3.15f1.h
-+++ 2022.1.0a7.h
-@@ -137,7 +137,6 @@ typedef size_t(*Il2CppBacktraceFunc) (Il
+--- 2021.3.19f1.h
++++ 2021.3.20f1.h
+@@ -136,6 +136,7 @@ typedef void (*Il2CppLogCallback)(const
+ typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
  typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
  typedef uintptr_t il2cpp_array_size_t;
++typedef uint8_t (*Il2CppAndroidUpStateFunc)(const char* ifName, uint8_t* is_up);
+ typedef void ( *SynchronizationContextCallback)(intptr_t arg);
+ typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
+ typedef uint16_t Il2CppMethodSlot;
+--- 2021.3.21f1.h
++++ 2022.1.0a7.h
+@@ -136,9 +136,7 @@ typedef void (*Il2CppLogCallback)(const
+ typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
+ typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
+ typedef uintptr_t il2cpp_array_size_t;
+-typedef uint8_t (*Il2CppAndroidUpStateFunc)(const char* ifName, uint8_t* is_up);
  typedef void ( *SynchronizationContextCallback)(intptr_t arg);
 -typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
  typedef uint16_t Il2CppMethodSlot;
  static const uint16_t kInvalidIl2CppMethodSlot = 65535;
  static const int ipv6AddressSize = 16;
-@@ -282,7 +281,6 @@ typedef enum Il2CppMetadataUsage
+@@ -283,7 +281,6 @@ typedef enum Il2CppMetadataUsage
      kIl2CppMetadataUsageFieldInfo,
      kIl2CppMetadataUsageStringLiteral,
      kIl2CppMetadataUsageMethodRef,
@@ -7829,7 +7841,7 @@
  } Il2CppMetadataUsage;
  typedef enum Il2CppInvalidMetadataUsageToken
  {
-@@ -465,67 +463,67 @@ typedef struct Il2CppGlobalMetadataHeade
+@@ -466,67 +463,67 @@ typedef struct Il2CppGlobalMetadataHeade
      int32_t sanity;
      int32_t version;
      int32_t stringLiteralOffset;
@@ -7926,7 +7938,7 @@
  } Il2CppGlobalMetadataHeader;
  #pragma pack(pop, p1)
  typedef struct Il2CppMetadataField
-@@ -1115,7 +1113,6 @@ typedef struct Il2CppDefaults
+@@ -1116,7 +1113,6 @@ typedef struct Il2CppDefaults
      Il2CppClass* uint32_shared_enum;
      Il2CppClass* uint64_shared_enum;
      Il2CppClass* il2cpp_fully_shared_type;
@@ -7934,7 +7946,7 @@
  } Il2CppDefaults;
  extern Il2CppDefaults il2cpp_defaults;
  typedef struct Il2CppClass Il2CppClass;
-@@ -1268,7 +1265,6 @@ typedef struct MethodInfo
+@@ -1269,7 +1265,6 @@ typedef struct MethodInfo
      uint8_t is_inflated : 1;
      uint8_t wrapper_type : 1;
      uint8_t has_full_generic_sharing_signature : 1;
@@ -7942,7 +7954,7 @@
  } MethodInfo;
  typedef struct Il2CppRuntimeInterfaceOffsetPair
  {
-@@ -1337,7 +1333,6 @@ typedef struct Il2CppClass
+@@ -1338,7 +1333,6 @@ typedef struct Il2CppClass
      uint8_t is_generic : 1;
      uint8_t has_references : 1;
      uint8_t init_pending : 1;
@@ -7950,7 +7962,7 @@
      uint8_t size_inited : 1;
      uint8_t has_finalize : 1;
      uint8_t has_cctor : 1;
-@@ -1413,7 +1408,6 @@ typedef struct Il2CppClass_1 {
+@@ -1414,7 +1408,6 @@ typedef struct Il2CppClass_1 {
      uint8_t is_generic : 1;
      uint8_t has_references : 1;
      uint8_t init_pending : 1;
@@ -7958,7 +7970,7 @@
      uint8_t size_inited : 1;
      uint8_t has_finalize : 1;
      uint8_t has_cctor : 1;
-@@ -1444,7 +1438,6 @@ typedef struct Il2CppDomain
+@@ -1445,7 +1438,6 @@ typedef struct Il2CppDomain
      Il2CppAppDomain* domain;
      Il2CppAppDomainSetup* setup;
      Il2CppAppContext* default_context;
@@ -7966,7 +7978,7 @@
      const char* friendly_name;
      uint32_t domain_id;
      volatile int threadpool_jobs;
-@@ -1490,7 +1483,6 @@ typedef struct Il2CppCodeGenOptions
+@@ -1491,7 +1483,6 @@ typedef struct Il2CppCodeGenOptions
  {
      uint8_t enablePrimitiveValueTypeGenericSharing;
      int maximumRuntimeGenericDepth;
@@ -7974,7 +7986,7 @@
  } Il2CppCodeGenOptions;
  typedef struct Il2CppRange
  {
-@@ -2008,12 +2000,12 @@ typedef struct Il2CppDelegate
+@@ -2009,12 +2000,12 @@ typedef struct Il2CppDelegate
  {
      Il2CppObject object;
      Il2CppMethodPointer method_ptr;
@@ -8281,6 +8293,26 @@
  } Il2CppMetadataUsage;
  typedef enum Il2CppInvalidMetadataUsageToken
  {
+--- 2022.2.8f1.h
++++ 2022.2.9f1.h
+@@ -136,6 +136,7 @@ typedef void (*Il2CppLogCallback)(const
+ typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
+ typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
+ typedef uintptr_t il2cpp_array_size_t;
++typedef uint8_t (*Il2CppAndroidUpStateFunc)(const char* ifName, uint8_t* is_up);
+ typedef void ( *SynchronizationContextCallback)(intptr_t arg);
+ typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
+ typedef uint16_t Il2CppMethodSlot;
+--- 2022.2.11f1.h
++++ 2023.1.0a1.h
+@@ -136,7 +136,6 @@ typedef void (*Il2CppLogCallback)(const
+ typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
+ typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
+ typedef uintptr_t il2cpp_array_size_t;
+-typedef uint8_t (*Il2CppAndroidUpStateFunc)(const char* ifName, uint8_t* is_up);
+ typedef void ( *SynchronizationContextCallback)(intptr_t arg);
+ typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
+ typedef uint16_t Il2CppMethodSlot;
 --- 2023.1.0a5.h
 +++ 2023.1.0a6.h
 @@ -12,6 +12,7 @@ typedef struct Il2CppImage Il2CppImage;
