@@ -424,11 +424,21 @@
 @@ -139,0 +140,2 @@
 +DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
 +DO_API(void, il2cpp_gc_free_fixed, (void* address));
---- 2021.3.15f1.h
+--- 2021.3.19f1.h
++++ 2021.3.20f1.h
+@@ -312,0 +313,3 @@
++
++// Android
++DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));
+--- 2021.3.21f1.h
 +++ 2022.1.0a7.h
 @@ -140,2 +139,0 @@
 -DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
 -DO_API(void, il2cpp_gc_free_fixed, (void* address));
+@@ -313,3 +310,0 @@
+-
+-// Android
+-DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));
 --- 2022.1.0a9.h
 +++ 2022.1.0a10.h
 @@ -139,0 +140,2 @@
@@ -442,10 +452,20 @@
 +++ 2022.2.0b11.h
 @@ -265,0 +266 @@
 +DO_API(char*, il2cpp_type_get_reflection_name, (const Il2CppType * type));
---- 2022.2.0f1.h
+--- 2022.2.8f1.h
++++ 2022.2.9f1.h
+@@ -314,0 +315,3 @@
++
++// Android
++DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));
+--- 2022.2.11f1.h
 +++ 2023.1.0a1.h
 @@ -266 +265,0 @@
 -DO_API(char*, il2cpp_type_get_reflection_name, (const Il2CppType * type));
+@@ -315,3 +313,0 @@
+-
+-// Android
+-DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));
 --- 2023.1.0a5.h
 +++ 2023.1.0a6.h
 @@ -107,0 +108 @@
