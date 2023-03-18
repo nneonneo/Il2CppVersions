@@ -472,3 +472,20 @@
 +DO_API(const FieldInfo*, il2cpp_field_get_from_reflection, (const Il2CppReflectionField * field));
 @@ -109,0 +111 @@
 +DO_API(Il2CppReflectionField*, il2cpp_field_get_object, (FieldInfo * field, Il2CppClass * refclass));
+--- 2023.1.0a14.h
++++ 2023.2.0a6.h
+@@ -145,4 +145,4 @@
+-DO_API(uint32_t, il2cpp_gchandle_new, (Il2CppObject * obj, bool pinned));
+-DO_API(uint32_t, il2cpp_gchandle_new_weakref, (Il2CppObject * obj, bool track_resurrection));
+-DO_API(Il2CppObject*, il2cpp_gchandle_get_target , (uint32_t gchandle));
+-DO_API(void, il2cpp_gchandle_free, (uint32_t gchandle));
++DO_API(Il2CppGCHandle, il2cpp_gchandle_new, (Il2CppObject * obj, bool pinned));
++DO_API(Il2CppGCHandle, il2cpp_gchandle_new_weakref, (Il2CppObject * obj, bool track_resurrection));
++DO_API(Il2CppObject*, il2cpp_gchandle_get_target , (Il2CppGCHandle gchandle));
++DO_API(void, il2cpp_gchandle_free, (Il2CppGCHandle gchandle));
+@@ -267,0 +268 @@
++DO_API(char*, il2cpp_type_get_reflection_name, (const Il2CppType * type));
+@@ -315,0 +317,3 @@
++
++// Android
++DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));

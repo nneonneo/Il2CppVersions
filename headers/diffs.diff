@@ -8323,3 +8323,42 @@
  typedef struct Il2CppReflectionMethod Il2CppReflectionMethod;
  typedef struct Il2CppReflectionType Il2CppReflectionType;
  typedef struct Il2CppString Il2CppString;
+--- 2023.1.0a14.h
++++ 2023.2.0a6.h
+@@ -137,6 +137,8 @@ typedef void (*Il2CppLogCallback)(const
+ typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
+ typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
+ typedef uintptr_t il2cpp_array_size_t;
++typedef void* Il2CppGCHandle;
++typedef uint8_t (*Il2CppAndroidUpStateFunc)(const char* ifName, uint8_t* is_up);
+ typedef void ( *SynchronizationContextCallback)(intptr_t arg);
+ typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
+ typedef uint16_t Il2CppMethodSlot;
+@@ -1017,7 +1019,8 @@ typedef enum Il2CppTypeNameFormat
+     IL2CPP_TYPE_NAME_FORMAT_IL,
+     IL2CPP_TYPE_NAME_FORMAT_REFLECTION,
+     IL2CPP_TYPE_NAME_FORMAT_FULL_NAME,
+-    IL2CPP_TYPE_NAME_FORMAT_ASSEMBLY_QUALIFIED
++    IL2CPP_TYPE_NAME_FORMAT_ASSEMBLY_QUALIFIED,
++    IL2CPP_TYPE_NAME_FORMAT_REFLECTION_QUALIFIED
+ } Il2CppTypeNameFormat;
+ typedef struct Il2CppDefaults
+ {
+@@ -1297,7 +1300,7 @@ typedef struct Il2CppClass
+     const Il2CppRGCTXData* rgctx_data;
+     struct Il2CppClass** typeHierarchy;
+     void *unity_user_data;
+-    uint32_t initializationExceptionGCHandle;
++    Il2CppGCHandle initializationExceptionGCHandle;
+     uint32_t cctor_started;
+     uint32_t cctor_finished_or_no_cctor;
+     __attribute__((aligned(8))) size_t cctor_thread;
+@@ -1369,7 +1372,7 @@ typedef struct Il2CppClass_0 {
+ typedef struct Il2CppClass_1 {
+     struct Il2CppClass** typeHierarchy;
+     void * unity_user_data;
+-    uint32_t initializationExceptionGCHandle;
++    Il2CppGCHandle initializationExceptionGCHandle;
+     uint32_t cctor_started;
+     uint32_t cctor_finished_or_no_cctor;
+ #ifdef IS_32BIT
