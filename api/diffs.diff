@@ -473,7 +473,7 @@
 @@ -109,0 +111 @@
 +DO_API(Il2CppReflectionField*, il2cpp_field_get_object, (FieldInfo * field, Il2CppClass * refclass));
 --- 2023.1.0a14.h
-+++ 2023.2.0a6.h
++++ 2023.1.0b7.h
 @@ -145,4 +145,4 @@
 -DO_API(uint32_t, il2cpp_gchandle_new, (Il2CppObject * obj, bool pinned));
 -DO_API(uint32_t, il2cpp_gchandle_new_weakref, (Il2CppObject * obj, bool track_resurrection));

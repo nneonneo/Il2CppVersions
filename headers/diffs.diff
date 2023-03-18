@@ -8324,7 +8324,7 @@
  typedef struct Il2CppReflectionType Il2CppReflectionType;
  typedef struct Il2CppString Il2CppString;
 --- 2023.1.0a14.h
-+++ 2023.2.0a6.h
++++ 2023.1.0b7.h
 @@ -137,6 +137,8 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
  typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
