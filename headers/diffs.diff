@@ -6694,7 +6694,7 @@
  } Il2CppGlobalMetadataHeader;
  #pragma pack(pop, p1)
  typedef struct Il2CppMetadataField
---- 2020.3.46f1.h
+--- 2020.3.48f1.h
 +++ 2021.1.0a2.h
 @@ -88,6 +88,9 @@ typedef struct Il2CppStackFrameInfo
  {
@@ -7821,7 +7821,7 @@
  typedef void ( *SynchronizationContextCallback)(intptr_t arg);
  typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
  typedef uint16_t Il2CppMethodSlot;
---- 2021.3.21f1.h
+--- 2021.3.39f1.h
 +++ 2022.1.0a7.h
 @@ -136,9 +136,7 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
@@ -8303,7 +8303,18 @@
  typedef void ( *SynchronizationContextCallback)(intptr_t arg);
  typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
  typedef uint16_t Il2CppMethodSlot;
---- 2022.2.11f1.h
+--- 2022.3.7f1.h
++++ 2022.3.8f1.h
+@@ -1873,7 +1873,7 @@ typedef struct Il2CppInternalThread
+     int abort_state_handle;
+     uint64_t tid;
+     intptr_t debugger_thread;
+-    void** static_data;
++    void* static_data;
+     void* runtime_thread_info;
+     Il2CppObject* current_appcontext;
+     Il2CppObject* root_domain_thread;
+--- 2022.3.31f1.h
 +++ 2023.1.0a1.h
 @@ -136,7 +136,6 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
@@ -8313,6 +8324,15 @@
  typedef void ( *SynchronizationContextCallback)(intptr_t arg);
  typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
  typedef uint16_t Il2CppMethodSlot;
+@@ -1873,7 +1872,7 @@ typedef struct Il2CppInternalThread
+     int abort_state_handle;
+     uint64_t tid;
+     intptr_t debugger_thread;
+-    void* static_data;
++    void** static_data;
+     void* runtime_thread_info;
+     Il2CppObject* current_appcontext;
+     Il2CppObject* root_domain_thread;
 --- 2023.1.0a5.h
 +++ 2023.1.0a6.h
 @@ -12,6 +12,7 @@ typedef struct Il2CppImage Il2CppImage;
@@ -8324,17 +8344,36 @@
  typedef struct Il2CppReflectionType Il2CppReflectionType;
  typedef struct Il2CppString Il2CppString;
 --- 2023.1.0a14.h
-+++ 2023.1.0b7.h
-@@ -137,6 +137,8 @@ typedef void (*Il2CppLogCallback)(const
++++ 2023.1.0a15.h
+@@ -137,6 +137,7 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
  typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
  typedef uintptr_t il2cpp_array_size_t;
 +typedef void* Il2CppGCHandle;
-+typedef uint8_t (*Il2CppAndroidUpStateFunc)(const char* ifName, uint8_t* is_up);
  typedef void ( *SynchronizationContextCallback)(intptr_t arg);
  typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
  typedef uint16_t Il2CppMethodSlot;
-@@ -1017,7 +1019,8 @@ typedef enum Il2CppTypeNameFormat
+@@ -1297,7 +1298,7 @@ typedef struct Il2CppClass
+     const Il2CppRGCTXData* rgctx_data;
+     struct Il2CppClass** typeHierarchy;
+     void *unity_user_data;
+-    uint32_t initializationExceptionGCHandle;
++    Il2CppGCHandle initializationExceptionGCHandle;
+     uint32_t cctor_started;
+     uint32_t cctor_finished_or_no_cctor;
+     __attribute__((aligned(8))) size_t cctor_thread;
+@@ -1369,7 +1370,7 @@ typedef struct Il2CppClass_0 {
+ typedef struct Il2CppClass_1 {
+     struct Il2CppClass** typeHierarchy;
+     void * unity_user_data;
+-    uint32_t initializationExceptionGCHandle;
++    Il2CppGCHandle initializationExceptionGCHandle;
+     uint32_t cctor_started;
+     uint32_t cctor_finished_or_no_cctor;
+ #ifdef IS_32BIT
+--- 2023.1.0a16.h
++++ 2023.1.0a17.h
+@@ -1018,7 +1018,8 @@ typedef enum Il2CppTypeNameFormat
      IL2CPP_TYPE_NAME_FORMAT_IL,
      IL2CPP_TYPE_NAME_FORMAT_REFLECTION,
      IL2CPP_TYPE_NAME_FORMAT_FULL_NAME,
@@ -8344,21 +8383,62 @@
  } Il2CppTypeNameFormat;
  typedef struct Il2CppDefaults
  {
-@@ -1297,7 +1300,7 @@ typedef struct Il2CppClass
-     const Il2CppRGCTXData* rgctx_data;
-     struct Il2CppClass** typeHierarchy;
-     void *unity_user_data;
--    uint32_t initializationExceptionGCHandle;
-+    Il2CppGCHandle initializationExceptionGCHandle;
-     uint32_t cctor_started;
-     uint32_t cctor_finished_or_no_cctor;
-     __attribute__((aligned(8))) size_t cctor_thread;
-@@ -1369,7 +1372,7 @@ typedef struct Il2CppClass_0 {
- typedef struct Il2CppClass_1 {
-     struct Il2CppClass** typeHierarchy;
-     void * unity_user_data;
--    uint32_t initializationExceptionGCHandle;
-+    Il2CppGCHandle initializationExceptionGCHandle;
-     uint32_t cctor_started;
-     uint32_t cctor_finished_or_no_cctor;
- #ifdef IS_32BIT
+--- 2023.1.0b5.h
++++ 2023.1.0b6.h
+@@ -138,6 +138,7 @@ typedef size_t(*Il2CppBacktraceFunc) (Il
+ typedef struct Il2CppManagedMemorySnapshot Il2CppManagedMemorySnapshot;
+ typedef uintptr_t il2cpp_array_size_t;
+ typedef void* Il2CppGCHandle;
++typedef uint8_t (*Il2CppAndroidUpStateFunc)(const char* ifName, uint8_t* is_up);
+ typedef void ( *SynchronizationContextCallback)(intptr_t arg);
+ typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
+ typedef uint16_t Il2CppMethodSlot;
+--- 2023.1.9f1.h
++++ 2023.1.10f1.h
+@@ -1876,7 +1876,7 @@ typedef struct Il2CppInternalThread
+     int abort_state_handle;
+     uint64_t tid;
+     intptr_t debugger_thread;
+-    void** static_data;
++    void* static_data;
+     void* runtime_thread_info;
+     Il2CppObject* current_appcontext;
+     Il2CppObject* root_domain_thread;
+--- 2023.1.20f1.h
++++ 2023.2.0a6.h
+@@ -1876,7 +1876,7 @@ typedef struct Il2CppInternalThread
+     int abort_state_handle;
+     uint64_t tid;
+     intptr_t debugger_thread;
+-    void* static_data;
++    void** static_data;
+     void* runtime_thread_info;
+     Il2CppObject* current_appcontext;
+     Il2CppObject* root_domain_thread;
+--- 2023.2.0a20.h
++++ 2023.2.0a22.h
+@@ -720,6 +720,7 @@ typedef struct Il2CppMetadataMethodInfo
+     uint16_t iflags;
+     uint16_t slot;
+     uint16_t parameterCount;
++    uint8_t isUnmangedCallersOnly;
+ } Il2CppMetadataMethodInfo;
+ typedef struct Il2CppMetadataParameterInfo
+ {
+@@ -1267,6 +1268,7 @@ typedef struct MethodInfo
+     uint8_t is_inflated : 1;
+     uint8_t wrapper_type : 1;
+     uint8_t has_full_generic_sharing_signature : 1;
++    uint8_t is_unmanaged_callers_only : 1;
+ } MethodInfo;
+ typedef struct Il2CppRuntimeInterfaceOffsetPair
+ {
+@@ -1876,7 +1878,7 @@ typedef struct Il2CppInternalThread
+     int abort_state_handle;
+     uint64_t tid;
+     intptr_t debugger_thread;
+-    void** static_data;
++    void* static_data;
+     void* runtime_thread_info;
+     Il2CppObject* current_appcontext;
+     Il2CppObject* root_domain_thread;

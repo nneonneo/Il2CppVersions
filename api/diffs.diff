@@ -430,7 +430,7 @@
 +
 +// Android
 +DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));
---- 2021.3.21f1.h
+--- 2021.3.39f1.h
 +++ 2022.1.0a7.h
 @@ -140,2 +139,0 @@
 -DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
@@ -458,11 +458,17 @@
 +
 +// Android
 +DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));
---- 2022.2.11f1.h
+--- 2022.2.18f1.h
++++ 2022.2.19f1.h
+@@ -39,0 +40 @@
++DO_API(bool, il2cpp_class_is_inited, (const Il2CppClass * klass));
+--- 2022.3.31f1.h
 +++ 2023.1.0a1.h
-@@ -266 +265,0 @@
+@@ -40 +39,0 @@
+-DO_API(bool, il2cpp_class_is_inited, (const Il2CppClass * klass));
+@@ -267 +265,0 @@
 -DO_API(char*, il2cpp_type_get_reflection_name, (const Il2CppType * type));
-@@ -315,3 +313,0 @@
+@@ -316,3 +313,0 @@
 -
 -// Android
 -DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));
@@ -473,7 +479,7 @@
 @@ -109,0 +111 @@
 +DO_API(Il2CppReflectionField*, il2cpp_field_get_object, (FieldInfo * field, Il2CppClass * refclass));
 --- 2023.1.0a14.h
-+++ 2023.1.0b7.h
++++ 2023.1.0a15.h
 @@ -145,4 +145,4 @@
 -DO_API(uint32_t, il2cpp_gchandle_new, (Il2CppObject * obj, bool pinned));
 -DO_API(uint32_t, il2cpp_gchandle_new_weakref, (Il2CppObject * obj, bool track_resurrection));
@@ -485,7 +491,17 @@
 +DO_API(void, il2cpp_gchandle_free, (Il2CppGCHandle gchandle));
 @@ -267,0 +268 @@
 +DO_API(char*, il2cpp_type_get_reflection_name, (const Il2CppType * type));
-@@ -315,0 +317,3 @@
+--- 2023.1.0b5.h
++++ 2023.1.0b6.h
+@@ -316,0 +317,3 @@
 +
 +// Android
 +DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));
+--- 2023.2.0a10.h
++++ 2023.2.0a11.h
+@@ -39,0 +40 @@
++DO_API(bool, il2cpp_class_is_inited, (const Il2CppClass * klass));
+--- 2023.2.0a16.h
++++ 2023.2.0a17.h
+@@ -246 +245,0 @@
+-DO_API(Il2CppThread**, il2cpp_thread_get_all_attached_threads, (size_t * size));
