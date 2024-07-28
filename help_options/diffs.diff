@@ -1,0 +1,843 @@
+--- 5.4.3f1.txt
++++ 5.4.4f1.txt
+@@ -16,6 +16,7 @@ Options:
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --data-folder=<path>                            The directory where non-source code data will be written
+   --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
++  --map-file-parser=<value>                       Path to MapFileParser binary
+   --profiler-report                               Enable generation of a profiler report
+   --convert-to-cpp                                Convert the provided assemblies to C++
+   --compile-cpp                                   Compile generated C++ code
+--- 5.4.6f3.txt
++++ 5.5.0b1.txt
+@@ -11,12 +11,14 @@ Options:
+   --forcerebuild                                  Forces a rebuild
+   --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+   --linker-flags=<value>                          Additional flags to pass to the linker
++  --libil2cpp-static                              Links il2cpp as static library to the executable
++  --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
++  --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+   --assembly=<path,path,..>                       One or more paths to assemblies to convert
+   --directory=<path,path,..>                      One or more directories containing assemblies to convert
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --data-folder=<path>                            The directory where non-source code data will be written
+   --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
+-  --map-file-parser=<value>                       Path to MapFileParser binary
+   --profiler-report                               Enable generation of a profiler report
+   --convert-to-cpp                                Convert the provided assemblies to C++
+   --compile-cpp                                   Compile generated C++ code
+--- 5.5.0f3.txt
++++ 5.5.1f1.txt
+@@ -19,6 +19,7 @@ Options:
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --data-folder=<path>                            The directory where non-source code data will be written
+   --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
++  --map-file-parser=<value>                       Path to MapFileParser binary
+   --profiler-report                               Enable generation of a profiler report
+   --convert-to-cpp                                Convert the provided assemblies to C++
+   --compile-cpp                                   Compile generated C++ code
+--- 5.6.0b2.txt
++++ 5.6.0b3.txt
+@@ -18,6 +18,7 @@ Options:
+   --directory=<path,path,..>                      One or more directories containing assemblies to convert
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --data-folder=<path>                            The directory where non-source code data will be written
++  --symbols-folder=<path>                         The directory where symbol information will be written
+   --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
+   --map-file-parser=<value>                       Path to MapFileParser binary
+   --profiler-report                               Enable generation of a profiler report
+--- 2018.1.0b9.txt
++++ 2018.1.0b10.txt
+@@ -24,6 +24,7 @@ Options:
+   --profiler-report                               Enable generation of a profiler report
+   --convert-to-cpp                                Convert the provided assemblies to C++
+   --compile-cpp                                   Compile generated C++ code
++  --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --emit-null-checks                              Enables generation of null checks
+   --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+   --enable-stats                                  Enables conversion statistics
+--- 2018.1.9f2.txt
++++ 2018.2.0b1.txt
+@@ -1,4 +1,15 @@
+ Options:
++  --assembly=<path,path,..>                       One or more paths to assemblies to convert
++  --directory=<path,path,..>                      One or more directories containing assemblies to convert
++  --generatedcppdir=<path>                        The directory where generated C++ code is written
++  --data-folder=<path>                            The directory where non-source code data will be written
++  --symbols-folder=<path>                         The directory where symbol information will be written
++  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
++  --map-file-parser=<value>                       Path to MapFileParser binary
++  --profiler-report                               Enable generation of a profiler report
++  --convert-to-cpp                                Convert the provided assemblies to C++
++  --compile-cpp                                   Compile generated C++ code
++  --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --outputpath=<value>                            Path to output the compiled binary
+   --additional-defines=<value,value,..>           Defines for generated C++ code compilation
+@@ -14,17 +25,6 @@ Options:
+   --libil2cpp-static                              Links il2cpp as static library to the executable
+   --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+-  --assembly=<path,path,..>                       One or more paths to assemblies to convert
+-  --directory=<path,path,..>                      One or more directories containing assemblies to convert
+-  --generatedcppdir=<path>                        The directory where generated C++ code is written
+-  --data-folder=<path>                            The directory where non-source code data will be written
+-  --symbols-folder=<path>                         The directory where symbol information will be written
+-  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
+-  --map-file-parser=<value>                       Path to MapFileParser binary
+-  --profiler-report                               Enable generation of a profiler report
+-  --convert-to-cpp                                Convert the provided assemblies to C++
+-  --compile-cpp                                   Compile generated C++ code
+-  --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --emit-null-checks                              Enables generation of null checks
+   --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+   --enable-stats                                  Enables conversion statistics
+--- 2018.2.0b2.txt
++++ 2018.2.0b3.txt
+@@ -25,9 +25,11 @@ Options:
+   --libil2cpp-static                              Links il2cpp as static library to the executable
+   --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
++  --assembly-output                               Enables assembly code output from the C++ compiler
+   --emit-null-checks                              Enables generation of null checks
+   --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+   --enable-stats                                  Enables conversion statistics
+   --enable-array-bounds-check                     Enables generation of array bounds checks
+   --enable-divide-by-zero-check                   Enables generation of divide by zero checks
++  --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+\ No newline at end of file
+--- 2018.4.21f1.txt
++++ 2018.4.22f1.txt
+@@ -12,6 +12,7 @@ Options:
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --outputpath=<value>                            Path to output the compiled binary
++  --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --additional-defines=<value,value,..>           Defines for generated C++ code compilation
+   --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+   --additional-include-directories=<path,path,..> One or more additional include directories
+--- 2018.4.36f1.txt
++++ 2019.1.0a7.txt
+@@ -12,7 +12,6 @@ Options:
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --outputpath=<value>                            Path to output the compiled binary
+-  --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --additional-defines=<value,value,..>           Defines for generated C++ code compilation
+   --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+   --additional-include-directories=<path,path,..> One or more additional include directories
+@@ -24,6 +23,7 @@ Options:
+   --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+   --linker-flags=<value>                          Additional flags to pass to the linker
+   --libil2cpp-static                              Links il2cpp as static library to the executable
++  --lump-runtime-library                          Enable lumping for the runtime library
+   --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+   --assembly-output                               Enables assembly code output from the C++ compiler
+@@ -32,5 +32,10 @@ Options:
+   --enable-stats                                  Enables conversion statistics
+   --enable-array-bounds-check                     Enables generation of array bounds checks
+   --enable-divide-by-zero-check                   Enables generation of divide by zero checks
++  --disable-cpp-chunks                            Disable splitting of cpp files into chunks
++  --enable-predictable-output                     Enable predictable output, the same set of files are always emitted for the same set of input files
++  --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
++  --disable-generic-sharing                       Disables generic sharing
++  --enable-tiny-debugging                         Adds features for helping to debug tiny generated code, such as type IDs
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+\ No newline at end of file
+--- 2019.1.12f1.txt
++++ 2019.1.14f1.txt
+@@ -38,4 +38,5 @@ Options:
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+   --enable-tiny-debugging                         Adds features for helping to debug tiny generated code, such as type IDs
++  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+\ No newline at end of file
+--- 2019.1.14f1.txt
++++ 2019.2.0a6.txt
+@@ -38,5 +38,4 @@ Options:
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+   --enable-tiny-debugging                         Adds features for helping to debug tiny generated code, such as type IDs
+-  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+\ No newline at end of file
+--- 2019.2.0a11.txt
++++ 2019.2.0a13.txt
+@@ -37,5 +37,5 @@ Options:
+   --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+-  --enable-tiny-debugging                         Adds features for helping to debug tiny generated code, such as type IDs
++  --enable-dots-debugging                         Adds features for helping to debug dots generated code, such as type IDs
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+\ No newline at end of file
+--- 2019.2.0b10.txt
++++ 2019.2.0f1.txt
+@@ -38,4 +38,5 @@ Options:
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+   --enable-dots-debugging                         Adds features for helping to debug dots generated code, such as type IDs
++  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+\ No newline at end of file
+--- 2019.2.21f1.txt
++++ 2019.3.0a2.txt
+@@ -38,5 +38,4 @@ Options:
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+   --enable-dots-debugging                         Adds features for helping to debug dots generated code, such as type IDs
+-  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+\ No newline at end of file
+--- 2019.3.0a4.txt
++++ 2019.3.0a5.txt
+@@ -37,5 +37,5 @@ Options:
+   --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+-  --enable-dots-debugging                         Adds features for helping to debug dots generated code, such as type IDs
++  --enable-tiny-debugging                         Adds features for helping to debug dots generated code, such as type IDs
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+\ No newline at end of file
+--- 2019.3.0a8.txt
++++ 2019.3.0a10.txt
+@@ -23,7 +23,7 @@ Options:
+   --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+   --linker-flags=<value>                          Additional flags to pass to the linker
+   --libil2cpp-static                              Links il2cpp as static library to the executable
+-  --lump-runtime-library                          Enable lumping for the runtime library
++  --disable-runtime-lumping                       Disable lumping for the runtime library
+   --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+   --assembly-output                               Enables assembly code output from the C++ compiler
+--- 2019.3.0a10.txt
++++ 2019.3.0a11.txt
+@@ -38,4 +38,5 @@ Options:
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+   --enable-tiny-debugging                         Adds features for helping to debug dots generated code, such as type IDs
++  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+\ No newline at end of file
+--- 2019.3.12f1.txt
++++ 2019.3.13f1.txt
+@@ -12,6 +12,7 @@ Options:
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --outputpath=<value>                            Path to output the compiled binary
++  --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --additional-defines=<value,value,..>           Defines for generated C++ code compilation
+   --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+   --additional-include-directories=<path,path,..> One or more additional include directories
+--- 2019.4.40f1.txt
++++ 2020.1.0a3.txt
+@@ -12,7 +12,6 @@ Options:
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --outputpath=<value>                            Path to output the compiled binary
+-  --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --additional-defines=<value,value,..>           Defines for generated C++ code compilation
+   --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+   --additional-include-directories=<path,path,..> One or more additional include directories
+--- 2020.1.0a18.txt
++++ 2020.1.0a19.txt
+@@ -10,6 +10,7 @@ Options:
+   --convert-to-cpp                                Convert the provided assemblies to C++
+   --compile-cpp                                   Compile generated C++ code
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
++  --stats-output-dir=<path>                       The directory where statistics information will be written
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --outputpath=<value>                            Path to output the compiled binary
+   --additional-defines=<value,value,..>           Defines for generated C++ code compilation
+@@ -39,4 +40,4 @@ Options:
+   --disable-generic-sharing                       Disables generic sharing
+   --enable-tiny-debugging                         Adds features for helping to debug dots generated code, such as type IDs
+   --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+-  --stats-output-dir=<path>                       The directory where statistics information will be written
+\ No newline at end of file
++  --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
+\ No newline at end of file
+--- 2020.1.0a19.txt
++++ 2020.1.0a20.txt
+@@ -1,4 +1,22 @@
+ Options:
++  --emit-null-checks                              Enables generation of null checks
++  --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
++  --enable-stats                                  Enables conversion statistics
++  --enable-array-bounds-check                     Enables generation of array bounds checks
++  --enable-divide-by-zero-check                   Enables generation of divide by zero checks
++  --disable-cpp-chunks                            Disable splitting of cpp files into chunks
++  --enable-predictable-output                     Enable predictable output, the same set of files are always emitted for the same set of input files
++  --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
++  --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
++  --disable-generic-sharing                       Disables generic sharing
++  --enable-tiny-debugging                         Adds features for helping to debug dots generated code, such as type IDs
++  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
++  --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
++  --code-generation-option=<value>                Specify an option related to code generation
++  --file-generation-option=<value>                Specify an option related to file output
++  --generics-option=<value>                       Specify an option related to generics
++  --feature=<value>                               Enable a feature of il2cpp
++  --diagnostic-option=<value>                     Enable a diagnostic ability
+   --assembly=<path,path,..>                       One or more paths to assemblies to convert
+   --directory=<path,path,..>                      One or more directories containing assemblies to convert
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+@@ -28,16 +46,3 @@ Options:
+   --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+   --assembly-output                               Enables assembly code output from the C++ compiler
+-  --emit-null-checks                              Enables generation of null checks
+-  --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+-  --enable-stats                                  Enables conversion statistics
+-  --enable-array-bounds-check                     Enables generation of array bounds checks
+-  --enable-divide-by-zero-check                   Enables generation of divide by zero checks
+-  --disable-cpp-chunks                            Disable splitting of cpp files into chunks
+-  --enable-predictable-output                     Enable predictable output, the same set of files are always emitted for the same set of input files
+-  --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
+-  --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+-  --disable-generic-sharing                       Disables generic sharing
+-  --enable-tiny-debugging                         Adds features for helping to debug dots generated code, such as type IDs
+-  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+-  --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
+\ No newline at end of file
+--- 2020.1.0a20.txt
++++ 2020.1.0a21.txt
+@@ -1,3 +1,5 @@
++Running il2cpp.exe in server GC mode.
++
+ Options:
+   --emit-null-checks                              Enables generation of null checks
+   --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+--- 2020.1.0b7.txt
++++ 2020.1.0b8.txt
+@@ -33,6 +33,7 @@ Options:
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --outputpath=<value>                            Path to output the compiled binary
++  --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --additional-defines=<value,value,..>           Defines for generated C++ code compilation
+   --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+   --additional-include-directories=<path,path,..> One or more additional include directories
+--- 2020.1.17f1.txt
++++ 2020.2.0a7.txt
+@@ -30,6 +30,7 @@ Options:
+   --convert-to-cpp                                Convert the provided assemblies to C++
+   --compile-cpp                                   Compile generated C++ code
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
++  --worker-count=<value>                          The number of worker threads to use.  Defaults to processor count
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --outputpath=<value>                            Path to output the compiled binary
+--- 2020.2.0a7.txt
++++ 2020.2.0a8.txt
+@@ -31,6 +31,7 @@ Options:
+   --compile-cpp                                   Compile generated C++ code
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --worker-count=<value>                          The number of worker threads to use.  Defaults to processor count
++  --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --outputpath=<value>                            Path to output the compiled binary
+--- 2020.2.0a16.txt
++++ 2020.2.0a17.txt
+@@ -30,7 +30,7 @@ Options:
+   --convert-to-cpp                                Convert the provided assemblies to C++
+   --compile-cpp                                   Compile generated C++ code
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+-  --worker-count=<value>                          The number of worker threads to use.  Defaults to processor count
++  --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+   --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+   --configuration=<value>                         The build configuration.  Debug|Release
+--- 2020.2.0b6.txt
++++ 2020.2.0b7.txt
+@@ -1,5 +1,3 @@
+-Running il2cpp.exe in server GC mode.
+-
+ Options:
+   --emit-null-checks                              Enables generation of null checks
+   --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+--- 2020.2.0b9.txt
++++ 2020.2.0b10.txt
+@@ -4,8 +4,6 @@ Options:
+   --enable-stats                                  Enables conversion statistics
+   --enable-array-bounds-check                     Enables generation of array bounds checks
+   --enable-divide-by-zero-check                   Enables generation of divide by zero checks
+-  --disable-cpp-chunks                            Disable splitting of cpp files into chunks
+-  --enable-predictable-output                     Enable predictable output, the same set of files are always emitted for the same set of input files
+   --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+--- 2021.1.9f1.txt
++++ 2021.1.10f1.txt
+@@ -9,6 +9,7 @@ Options:
+   --disable-generic-sharing                       Disables generic sharing
+   --enable-tiny-debugging                         Adds features for helping to debug dots generated code, such as type IDs
+   --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
++  --generic-virtual-method-iterations=<value>     Set the maximum number of times to iterate looking for generic virtual methods. The default value is 1.
+   --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
+   --code-generation-option=<value>                Specify an option related to code generation
+   --file-generation-option=<value>                Specify an option related to file output
+--- 2021.1.28f1.txt
++++ 2021.2.0a5.txt
+@@ -9,7 +9,6 @@ Options:
+   --disable-generic-sharing                       Disables generic sharing
+   --enable-tiny-debugging                         Adds features for helping to debug dots generated code, such as type IDs
+   --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+-  --generic-virtual-method-iterations=<value>     Set the maximum number of times to iterate looking for generic virtual methods. The default value is 1.
+   --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
+   --code-generation-option=<value>                Specify an option related to code generation
+   --file-generation-option=<value>                Specify an option related to file output
+--- 2021.2.0a6.txt
++++ 2021.2.0a8.txt
+@@ -1,49 +1,55 @@
+ Options:
++  --convert-to-cpp                                Convert the provided assemblies to C++
++  --compile-cpp                                   Compile generated C++ code
++  --profiler-report                               Enable generation of a profiler report
++  --profiler-output-file=<value>                  The location where to write the profiler output
++  --convert-in-graph                              Use this to run the conversion in a bee graph for fast 0 change builds
++  --assembly=<path,path,..>                       One or more paths to assemblies to convert
++  --directory=<path,path,..>                      One or more directories containing assemblies to convert
++  --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
++  --data-folder=<path>                            The directory where non-source code data will be written
++  --generatedcppdir=<path>                        The directory where generated C++ code is written
++  --symbols-folder=<path>                         The directory where symbol information will be written
++  --map-file-parser=<value>                       Path to MapFileParser binary
++  --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
++  --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
++  --additional-cpp=<path,path,..>                 Additional C++ files to include
+   --emit-null-checks                              Enables generation of null checks
+   --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+   --enable-stats                                  Enables conversion statistics
+   --enable-array-bounds-check                     Enables generation of array bounds checks
+   --enable-divide-by-zero-check                   Enables generation of divide by zero checks
+-  --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+-  --enable-tiny-debugging                         Adds features for helping to debug dots generated code, such as type IDs
+   --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+-  --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
+   --code-generation-option=<value>                Specify an option related to code generation
+   --file-generation-option=<value>                Specify an option related to file output
+   --generics-option=<value>                       Specify an option related to generics
+   --feature=<value>                               Enable a feature of il2cpp
+   --diagnostic-option=<value>                     Enable a diagnostic ability
+-  --assembly=<path,path,..>                       One or more paths to assemblies to convert
+-  --directory=<path,path,..>                      One or more directories containing assemblies to convert
+-  --generatedcppdir=<path>                        The directory where generated C++ code is written
+-  --data-folder=<path>                            The directory where non-source code data will be written
+-  --symbols-folder=<path>                         The directory where symbol information will be written
+-  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
+-  --map-file-parser=<value>                       Path to MapFileParser binary
+-  --profiler-report                               Enable generation of a profiler report
+-  --convert-to-cpp                                Convert the provided assemblies to C++
+-  --compile-cpp                                   Compile generated C++ code
+-  --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+-  --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+-  --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --stats-output-dir=<path>                       The directory where statistics information will be written
+-  --configuration=<value>                         The build configuration.  Debug|Release
+   --outputpath=<value>                            Path to output the compiled binary
+-  --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
++  --dont-deploy-baselib                           il2cpp will not use it's own baselib
++  --verbose                                       Enables verbose output from tools involved in building
++  --forcerebuild                                  Forces a rebuild
++  --disable-bee-builder                           Disable bee builder and use old buildcode
++  --libil2cpp-static                              Links il2cpp as library to the executable
++  --disable-runtime-lumping                       Disable lumping for the runtime library
++  --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
++  --assembly-output                               Enables assembly code output from the C++ compiler
+   --additional-defines=<value,value,..>           Defines for generated C++ code compilation
+   --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+   --additional-include-directories=<path,path,..> One or more additional include directories
+   --additional-link-directories=<path,path,..>    One or more additional link directories
+-  --additional-cpp=<path,path,..>                 Additional C++ files to include
+-  --verbose                                       Enables verbose output from tools involved in building
+-  --cachedirectory=<path>                         A directory to use for caching compilation related files
+-  --forcerebuild                                  Forces a rebuild
+   --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+   --linker-flags=<value>                          Additional flags to pass to the linker
+-  --libil2cpp-static                              Links il2cpp as static library to the executable
+-  --disable-runtime-lumping                       Disable lumping for the runtime library
+-  --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
++  --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
++  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
++  --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
++  --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
++  --configuration=<value>                         The build configuration.  Debug|Release
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+-  --assembly-output                               Enables assembly code output from the C++ compiler
+\ No newline at end of file
++  --enable-tiny-diagnostics                       Adds features for helping to debug dots-runtime generated code, such as type IDs
++  --tiny-explain-static-constructors              Enables additional comments in StaticConstructors.cpp with extra information about dependencies. Tiny only
++  --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
++  --cachedirectory=<path>                         A directory to use for caching compilation related files
+\ No newline at end of file
+--- 2021.2.0a15.txt
++++ 2021.2.0a16.txt
+@@ -45,7 +45,7 @@ Options:
+   --linker-flags=<value>                          Additional flags to pass to the linker
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
+-  --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
++  --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximum time slice of n ms.
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+--- 2021.2.0a16.txt
++++ 2021.2.0a17.txt
+@@ -1,8 +1,6 @@
+ Options:
+   --convert-to-cpp                                Convert the provided assemblies to C++
+   --compile-cpp                                   Compile generated C++ code
+-  --profiler-report                               Enable generation of a profiler report
+-  --profiler-output-file=<value>                  The location where to write the profiler output
+   --convert-in-graph                              Use this to run the conversion in a bee graph for fast 0 change builds
+   --assembly=<path,path,..>                       One or more paths to assemblies to convert
+   --directory=<path,path,..>                      One or more directories containing assemblies to convert
+@@ -22,6 +20,7 @@ Options:
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+   --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
++  --generic-virtual-method-iterations=<value>     Set the maximum number of times to iterate looking for generic virtual methods. The default value is 1.
+   --code-generation-option=<value>                Specify an option related to code generation
+   --file-generation-option=<value>                Specify an option related to file output
+   --generics-option=<value>                       Specify an option related to generics
+@@ -41,15 +40,17 @@ Options:
+   --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+   --additional-include-directories=<path,path,..> One or more additional include directories
+   --additional-link-directories=<path,path,..>    One or more additional link directories
+-  --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+-  --linker-flags=<value>                          Additional flags to pass to the linker
+-  --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
+   --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximum time slice of n ms.
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
++  --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
++  --linker-flags=<value>                          Additional flags to pass to the linker
++  --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --enable-tiny-diagnostics                       Adds features for helping to debug dots-runtime generated code, such as type IDs
+   --tiny-explain-static-constructors              Enables additional comments in StaticConstructors.cpp with extra information about dependencies. Tiny only
+   --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
+   --cachedirectory=<path>                         A directory to use for caching compilation related files
+\ No newline at end of file
++  --profiler-report                               Enable generation of a profiler report
++  --profiler-output-file=<value>                  The location where to write the profiler output
+\ No newline at end of file
+--- 2021.2.0b6.txt
++++ 2021.2.0b7.txt
+@@ -8,7 +8,6 @@ Options:
+   --data-folder=<path>                            The directory where non-source code data will be written
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --symbols-folder=<path>                         The directory where symbol information will be written
+-  --map-file-parser=<value>                       Path to MapFileParser binary
+   --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+   --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --additional-cpp=<path,path,..>                 Additional C++ files to include
+--- 2021.2.0b7.txt
++++ 2021.2.0b8.txt
+@@ -47,6 +47,7 @@ Options:
+   --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+   --linker-flags=<value>                          Additional flags to pass to the linker
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
++  --generate-usym-file                            Generate a symbol file for stacktrace line numbers
+   --enable-tiny-diagnostics                       Adds features for helping to debug dots-runtime generated code, such as type IDs
+   --tiny-explain-static-constructors              Enables additional comments in StaticConstructors.cpp with extra information about dependencies. Tiny only
+   --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
+--- 2021.3.8f1.txt
++++ 2021.3.9f1.txt
+@@ -11,6 +11,7 @@ Options:
+   --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+   --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --additional-cpp=<path,path,..>                 Additional C++ files to include
++  --enable-analytics                              Enables collection of analytics
+   --emit-null-checks                              Enables generation of null checks
+   --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+   --enable-stats                                  Enables conversion statistics
+--- 2021.3.36f1.txt
++++ 2021.3.37f1.txt
+@@ -45,8 +45,8 @@ Options:
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+-  --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+-  --linker-flags=<value>                          Additional flags to pass to the linker
++  --compiler-flags=<value,value,..>               Additional flags to pass to the C++ compiler
++  --linker-flags=<value,value,..>                 Additional flags to pass to the linker
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --generate-usym-file                            Generate a symbol file for stacktrace line numbers
+   --enable-tiny-diagnostics                       Adds features for helping to debug dots-runtime generated code, such as type IDs
+--- 2021.3.40f1.txt
++++ 2022.1.0a7.txt
+@@ -11,7 +11,6 @@ Options:
+   --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+   --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --additional-cpp=<path,path,..>                 Additional C++ files to include
+-  --enable-analytics                              Enables collection of analytics
+   --emit-null-checks                              Enables generation of null checks
+   --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+   --enable-stats                                  Enables conversion statistics
+@@ -45,8 +44,8 @@ Options:
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+-  --compiler-flags=<value,value,..>               Additional flags to pass to the C++ compiler
+-  --linker-flags=<value,value,..>                 Additional flags to pass to the linker
++  --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
++  --linker-flags=<value>                          Additional flags to pass to the linker
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --generate-usym-file                            Generate a symbol file for stacktrace line numbers
+   --enable-tiny-diagnostics                       Adds features for helping to debug dots-runtime generated code, such as type IDs
+--- 2022.1.0a16.txt
++++ 2022.1.0b1.txt
+@@ -47,6 +47,7 @@ Options:
+   --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+   --linker-flags=<value>                          Additional flags to pass to the linker
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
++  --build-package-for-testing                     Instruct to build an application package that can be used for testing
+   --generate-usym-file                            Generate a symbol file for stacktrace line numbers
+   --enable-tiny-diagnostics                       Adds features for helping to debug dots-runtime generated code, such as type IDs
+   --tiny-explain-static-constructors              Enables additional comments in StaticConstructors.cpp with extra information about dependencies. Tiny only
+--- 2022.1.24f1.txt
++++ 2022.2.0a9.txt
+@@ -5,7 +5,6 @@ Options:
+   --assembly=<path,path,..>                       One or more paths to assemblies to convert
+   --directory=<path,path,..>                      One or more directories containing assemblies to convert
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+-  --data-folder=<path>                            The directory where non-source code data will be written
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --symbols-folder=<path>                         The directory where symbol information will be written
+   --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+@@ -16,6 +15,7 @@ Options:
+   --enable-stats                                  Enables conversion statistics
+   --enable-array-bounds-check                     Enables generation of array bounds checks
+   --enable-divide-by-zero-check                   Enables generation of divide by zero checks
++  --emit-comments                                 Annotations to the generated code will be emitted as comments
+   --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+   --disable-generic-sharing                       Disables generic sharing
+   --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+@@ -55,3 +55,4 @@ Options:
+   --cachedirectory=<path>                         A directory to use for caching compilation related files
+   --profiler-report                               Enable generation of a profiler report
+   --profiler-output-file=<value>                  The location where to write the profiler output
+\ No newline at end of file
++  --data-folder=<path>                            The directory where non-source code data will be written
+\ No newline at end of file
+--- 2022.2.0a12.txt
++++ 2022.2.0a13.txt
+@@ -10,6 +10,7 @@ Options:
+   --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+   --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --additional-cpp=<path,path,..>                 Additional C++ files to include
++  --enable-analytics                              Enables collection of analytics
+   --emit-null-checks                              Enables generation of null checks
+   --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+   --enable-stats                                  Enables conversion statistics
+--- 2022.3.8f1.txt
++++ 2022.3.9f1.txt
+@@ -41,6 +41,7 @@ Options:
+   --additional-include-directories=<path,path,..> One or more additional include directories
+   --additional-link-directories=<path,path,..>    One or more additional link directories
+   --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
++  --target-is-simulator                           Flag denoting if the compilation target is a simulator.
+   --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximum time slice of n ms.
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+--- 2022.3.13f1.txt
++++ 2022.3.14f1.txt
+@@ -7,7 +7,6 @@ Options:
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --symbols-folder=<path>                         The directory where symbol information will be written
+-  --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+   --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --additional-cpp=<path,path,..>                 Additional C++ files to include
+   --enable-analytics                              Enables collection of analytics
+@@ -58,3 +57,4 @@ Options:
+   --profiler-report                               Enable generation of a profiler report
+   --profiler-output-file=<value>                  The location where to write the profiler output
+   --data-folder=<path>                            The directory where non-source code data will be written
+\ No newline at end of file
++  --jobs=<value>                                  The number of cores to use during conversion and compilation.  Defaults to processor count
+\ No newline at end of file
+--- 2022.3.22f1.txt
++++ 2022.3.23f1.txt
+@@ -45,8 +45,8 @@ Options:
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+-  --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+-  --linker-flags=<value>                          Additional flags to pass to the linker
++  --compiler-flags=<value,value,..>               Additional flags to pass to the C++ compiler
++  --linker-flags=<value,value,..>                 Additional flags to pass to the linker
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --build-package-for-testing                     Instruct to build an application package that can be used for testing
+   --generate-usym-file                            Generate a symbol file for stacktrace line numbers
+--- 2022.3.38f1.txt
++++ 2023.1.0a1.txt
+@@ -7,6 +7,7 @@ Options:
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --symbols-folder=<path>                         The directory where symbol information will be written
++  --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+   --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --additional-cpp=<path,path,..>                 Additional C++ files to include
+   --enable-analytics                              Enables collection of analytics
+@@ -40,13 +41,12 @@ Options:
+   --additional-include-directories=<path,path,..> One or more additional include directories
+   --additional-link-directories=<path,path,..>    One or more additional link directories
+   --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
+-  --target-is-simulator                           Flag denoting if the compilation target is a simulator.
+   --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximum time slice of n ms.
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+-  --compiler-flags=<value,value,..>               Additional flags to pass to the C++ compiler
+-  --linker-flags=<value,value,..>                 Additional flags to pass to the linker
++  --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
++  --linker-flags=<value>                          Additional flags to pass to the linker
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --build-package-for-testing                     Instruct to build an application package that can be used for testing
+   --generate-usym-file                            Generate a symbol file for stacktrace line numbers
+@@ -57,4 +57,3 @@ Options:
+   --profiler-report                               Enable generation of a profiler report
+   --profiler-output-file=<value>                  The location where to write the profiler output
+   --data-folder=<path>                            The directory where non-source code data will be written
+-  --jobs=<value>                                  The number of cores to use during conversion and compilation.  Defaults to processor count
+\ No newline at end of file
+--- 2023.1.0a23.txt
++++ 2023.1.0a24.txt
+@@ -35,7 +35,6 @@ Options:
+   --libil2cpp-static                              Links il2cpp as library to the executable
+   --disable-runtime-lumping                       Disable lumping for the runtime library
+   --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+-  --assembly-output                               Enables assembly code output from the C++ compiler
+   --additional-defines=<value,value,..>           Defines for generated C++ code compilation
+   --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+   --additional-include-directories=<path,path,..> One or more additional include directories
+--- 2023.1.0b5.txt
++++ 2023.1.0b6.txt
+@@ -39,7 +39,7 @@ Options:
+   --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+   --additional-include-directories=<path,path,..> One or more additional include directories
+   --additional-link-directories=<path,path,..>    One or more additional link directories
+-  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
++  --plugin=<value>                                Path to an il2cpp plugin assembly
+   --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximum time slice of n ms.
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+--- 2023.2.0a14.txt
++++ 2023.2.0a15.txt
+@@ -49,8 +49,6 @@ Options:
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --build-package-for-testing                     Instruct to build an application package that can be used for testing
+   --generate-usym-file                            Generate a symbol file for stacktrace line numbers
+-  --enable-tiny-diagnostics                       Adds features for helping to debug dots-runtime generated code, such as type IDs
+-  --tiny-explain-static-constructors              Enables additional comments in StaticConstructors.cpp with extra information about dependencies. Tiny only
+   --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
+   --cachedirectory=<path>                         A directory to use for caching compilation related files
+   --profiler-report                               Enable generation of a profiler report
+--- 2023.2.0b15.txt
++++ 2023.2.0b16.txt
+@@ -7,7 +7,6 @@ Options:
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --symbols-folder=<path>                         The directory where symbol information will be written
+-  --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+   --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --additional-cpp=<path,path,..>                 Additional C++ files to include
+   --enable-analytics                              Enables collection of analytics
+@@ -54,3 +53,4 @@ Options:
+   --profiler-report                               Enable generation of a profiler report
+   --profiler-output-file=<value>                  The location where to write the profiler output
+   --data-folder=<path>                            The directory where non-source code data will be written
+\ No newline at end of file
++  --jobs=<value>                                  The number of cores to use during conversion and compilation.  Defaults to processor count
+\ No newline at end of file
+--- 2023.2.18f1.txt
++++ 2023.2.19f1.txt
+@@ -43,8 +43,8 @@ Options:
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+-  --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+-  --linker-flags=<value>                          Additional flags to pass to the linker
++  --compiler-flags=<value,value,..>               Additional flags to pass to the C++ compiler
++  --linker-flags=<value,value,..>                 Additional flags to pass to the linker
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --build-package-for-testing                     Instruct to build an application package that can be used for testing
+   --generate-usym-file                            Generate a symbol file for stacktrace line numbers
+--- 2023.2.20f1.txt
++++ 2023.3.0a3.txt
+@@ -7,6 +7,7 @@ Options:
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --symbols-folder=<path>                         The directory where symbol information will be written
++  --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+   --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --additional-cpp=<path,path,..>                 Additional C++ files to include
+   --enable-analytics                              Enables collection of analytics
+@@ -43,8 +44,8 @@ Options:
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+-  --compiler-flags=<value,value,..>               Additional flags to pass to the C++ compiler
+-  --linker-flags=<value,value,..>                 Additional flags to pass to the linker
++  --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
++  --linker-flags=<value>                          Additional flags to pass to the linker
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --build-package-for-testing                     Instruct to build an application package that can be used for testing
+   --generate-usym-file                            Generate a symbol file for stacktrace line numbers
+@@ -53,4 +54,3 @@ Options:
+   --profiler-report                               Enable generation of a profiler report
+   --profiler-output-file=<value>                  The location where to write the profiler output
+   --data-folder=<path>                            The directory where non-source code data will be written
+-  --jobs=<value>                                  The number of cores to use during conversion and compilation.  Defaults to processor count
+\ No newline at end of file
+--- 2023.3.0a4.txt
++++ 2023.3.0a5.txt
+@@ -40,6 +40,7 @@ Options:
+   --additional-include-directories=<path,path,..> One or more additional include directories
+   --additional-link-directories=<path,path,..>    One or more additional link directories
+   --plugin=<value>                                Path to an il2cpp plugin assembly
++  --target-is-simulator                           Flag denoting if the compilation target is a simulator.
+   --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximum time slice of n ms.
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+--- 2023.3.0a11.txt
++++ 2023.3.0a12.txt
+@@ -7,7 +7,6 @@ Options:
+   --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+   --generatedcppdir=<path>                        The directory where generated C++ code is written
+   --symbols-folder=<path>                         The directory where symbol information will be written
+-  --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+   --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+   --additional-cpp=<path,path,..>                 Additional C++ files to include
+   --enable-analytics                              Enables collection of analytics
+@@ -55,3 +54,4 @@ Options:
+   --profiler-report                               Enable generation of a profiler report
+   --profiler-output-file=<value>                  The location where to write the profiler output
+   --data-folder=<path>                            The directory where non-source code data will be written
+\ No newline at end of file
++  --jobs=<value>                                  The number of cores to use during conversion and compilation.  Defaults to processor count
+\ No newline at end of file
+--- 6000.0.0b13.txt
++++ 6000.0.0b15.txt
+@@ -44,8 +44,8 @@ Options:
+   --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+   --configuration=<value>                         The build configuration.  Debug|Release
+   --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+-  --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+-  --linker-flags=<value>                          Additional flags to pass to the linker
++  --compiler-flags=<value,value,..>               Additional flags to pass to the C++ compiler
++  --linker-flags=<value,value,..>                 Additional flags to pass to the linker
+   --linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+   --build-package-for-testing                     Instruct to build an application package that can be used for testing
+   --generate-usym-file                            Generate a symbol file for stacktrace line numbers

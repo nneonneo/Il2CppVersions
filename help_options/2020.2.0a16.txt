@@ -1,0 +1,53 @@
+Running il2cpp.exe in server GC mode.
+
+Options:
+  --emit-null-checks                              Enables generation of null checks
+  --enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+  --enable-stats                                  Enables conversion statistics
+  --enable-array-bounds-check                     Enables generation of array bounds checks
+  --enable-divide-by-zero-check                   Enables generation of divide by zero checks
+  --disable-cpp-chunks                            Disable splitting of cpp files into chunks
+  --enable-predictable-output                     Enable predictable output, the same set of files are always emitted for the same set of input files
+  --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
+  --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+  --disable-generic-sharing                       Disables generic sharing
+  --enable-tiny-debugging                         Adds features for helping to debug dots generated code, such as type IDs
+  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+  --enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
+  --code-generation-option=<value>                Specify an option related to code generation
+  --file-generation-option=<value>                Specify an option related to file output
+  --generics-option=<value>                       Specify an option related to generics
+  --feature=<value>                               Enable a feature of il2cpp
+  --diagnostic-option=<value>                     Enable a diagnostic ability
+  --assembly=<path,path,..>                       One or more paths to assemblies to convert
+  --directory=<path,path,..>                      One or more directories containing assemblies to convert
+  --generatedcppdir=<path>                        The directory where generated C++ code is written
+  --data-folder=<path>                            The directory where non-source code data will be written
+  --symbols-folder=<path>                         The directory where symbol information will be written
+  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
+  --map-file-parser=<value>                       Path to MapFileParser binary
+  --profiler-report                               Enable generation of a profiler report
+  --convert-to-cpp                                Convert the provided assemblies to C++
+  --compile-cpp                                   Compile generated C++ code
+  --extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+  --worker-count=<value>                          The number of worker threads to use.  Defaults to processor count
+  --debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+  --stats-output-dir=<path>                       The directory where statistics information will be written
+  --configuration=<value>                         The build configuration.  Debug|Release
+  --outputpath=<value>                            Path to output the compiled binary
+  --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+  --additional-defines=<value,value,..>           Defines for generated C++ code compilation
+  --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+  --additional-include-directories=<path,path,..> One or more additional include directories
+  --additional-link-directories=<path,path,..>    One or more additional link directories
+  --additional-cpp=<path,path,..>                 Additional C++ files to include
+  --verbose                                       Enables verbose output from tools involved in building
+  --cachedirectory=<path>                         A directory to use for caching compilation related files
+  --forcerebuild                                  Forces a rebuild
+  --compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+  --linker-flags=<value>                          Additional flags to pass to the linker
+  --libil2cpp-static                              Links il2cpp as static library to the executable
+  --disable-runtime-lumping                       Disable lumping for the runtime library
+  --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+  --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+  --assembly-output                               Enables assembly code output from the C++ compiler
