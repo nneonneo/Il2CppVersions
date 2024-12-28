@@ -430,12 +430,18 @@
 +
 +// Android
 +DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));
---- 2021.3.39f1.h
+--- 2021.3.41f1.h
++++ 2021.3.42f1.h
+@@ -39,0 +40 @@
++DO_API(bool, il2cpp_class_is_inited, (const Il2CppClass * klass));
+--- 2021.3.45f1.h
 +++ 2022.1.0a7.h
-@@ -140,2 +139,0 @@
+@@ -40 +39,0 @@
+-DO_API(bool, il2cpp_class_is_inited, (const Il2CppClass * klass));
+@@ -141,2 +139,0 @@
 -DO_API(void*, il2cpp_gc_alloc_fixed, (size_t size));
 -DO_API(void, il2cpp_gc_free_fixed, (void* address));
-@@ -313,3 +310,0 @@
+@@ -314,3 +310,0 @@
 -
 -// Android
 -DO_API(void, il2cpp_unity_set_android_network_up_state_func, (Il2CppAndroidUpStateFunc func));
@@ -462,7 +468,7 @@
 +++ 2022.2.19f1.h
 @@ -39,0 +40 @@
 +DO_API(bool, il2cpp_class_is_inited, (const Il2CppClass * klass));
---- 2022.3.31f1.h
+--- 2022.3.52f1.h
 +++ 2023.1.0a1.h
 @@ -40 +39,0 @@
 -DO_API(bool, il2cpp_class_is_inited, (const Il2CppClass * klass));
@@ -505,3 +511,10 @@
 +++ 2023.2.0a17.h
 @@ -246 +245,0 @@
 -DO_API(Il2CppThread**, il2cpp_thread_get_all_attached_threads, (size_t * size));
+--- 6000.0.9f1.h
++++ 6000.0.10f1.h
+@@ -85,4 +84,0 @@
+-// testing only
+-DO_API(size_t, il2cpp_class_get_bitmap_size, (const Il2CppClass * klass));
+-DO_API(void, il2cpp_class_get_bitmap, (Il2CppClass * klass, size_t * bitmap));
+-
