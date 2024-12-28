@@ -7822,6 +7822,16 @@
  typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
  typedef uint16_t Il2CppMethodSlot;
 --- 2021.3.39f1.h
++++ 2021.3.40f1.h
+@@ -364,6 +364,7 @@ typedef struct Il2CppMethodDefinition
+     StringIndex nameIndex;
+     TypeDefinitionIndex declaringType;
+     TypeIndex returnType;
++    uint32_t returnParameterToken;
+     ParameterIndex parameterStart;
+     GenericContainerIndex genericContainerIndex;
+     uint32_t token;
+--- 2021.3.45f1.h
 +++ 2022.1.0a7.h
 @@ -136,9 +136,7 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
@@ -7841,7 +7851,15 @@
  } Il2CppMetadataUsage;
  typedef enum Il2CppInvalidMetadataUsageToken
  {
-@@ -466,67 +463,67 @@ typedef struct Il2CppGlobalMetadataHeade
+@@ -364,7 +361,6 @@ typedef struct Il2CppMethodDefinition
+     StringIndex nameIndex;
+     TypeDefinitionIndex declaringType;
+     TypeIndex returnType;
+-    uint32_t returnParameterToken;
+     ParameterIndex parameterStart;
+     GenericContainerIndex genericContainerIndex;
+     uint32_t token;
+@@ -467,67 +463,67 @@ typedef struct Il2CppGlobalMetadataHeade
      int32_t sanity;
      int32_t version;
      int32_t stringLiteralOffset;
@@ -7938,7 +7956,7 @@
  } Il2CppGlobalMetadataHeader;
  #pragma pack(pop, p1)
  typedef struct Il2CppMetadataField
-@@ -1116,7 +1113,6 @@ typedef struct Il2CppDefaults
+@@ -1117,7 +1113,6 @@ typedef struct Il2CppDefaults
      Il2CppClass* uint32_shared_enum;
      Il2CppClass* uint64_shared_enum;
      Il2CppClass* il2cpp_fully_shared_type;
@@ -7946,7 +7964,7 @@
  } Il2CppDefaults;
  extern Il2CppDefaults il2cpp_defaults;
  typedef struct Il2CppClass Il2CppClass;
-@@ -1269,7 +1265,6 @@ typedef struct MethodInfo
+@@ -1270,7 +1265,6 @@ typedef struct MethodInfo
      uint8_t is_inflated : 1;
      uint8_t wrapper_type : 1;
      uint8_t has_full_generic_sharing_signature : 1;
@@ -7954,7 +7972,7 @@
  } MethodInfo;
  typedef struct Il2CppRuntimeInterfaceOffsetPair
  {
-@@ -1338,7 +1333,6 @@ typedef struct Il2CppClass
+@@ -1339,7 +1333,6 @@ typedef struct Il2CppClass
      uint8_t is_generic : 1;
      uint8_t has_references : 1;
      uint8_t init_pending : 1;
@@ -7962,7 +7980,7 @@
      uint8_t size_inited : 1;
      uint8_t has_finalize : 1;
      uint8_t has_cctor : 1;
-@@ -1414,7 +1408,6 @@ typedef struct Il2CppClass_1 {
+@@ -1415,7 +1408,6 @@ typedef struct Il2CppClass_1 {
      uint8_t is_generic : 1;
      uint8_t has_references : 1;
      uint8_t init_pending : 1;
@@ -7970,7 +7988,7 @@
      uint8_t size_inited : 1;
      uint8_t has_finalize : 1;
      uint8_t has_cctor : 1;
-@@ -1445,7 +1438,6 @@ typedef struct Il2CppDomain
+@@ -1446,7 +1438,6 @@ typedef struct Il2CppDomain
      Il2CppAppDomain* domain;
      Il2CppAppDomainSetup* setup;
      Il2CppAppContext* default_context;
@@ -7978,7 +7996,7 @@
      const char* friendly_name;
      uint32_t domain_id;
      volatile int threadpool_jobs;
-@@ -1491,7 +1483,6 @@ typedef struct Il2CppCodeGenOptions
+@@ -1492,7 +1483,6 @@ typedef struct Il2CppCodeGenOptions
  {
      uint8_t enablePrimitiveValueTypeGenericSharing;
      int maximumRuntimeGenericDepth;
@@ -7986,7 +8004,7 @@
  } Il2CppCodeGenOptions;
  typedef struct Il2CppRange
  {
-@@ -2009,12 +2000,12 @@ typedef struct Il2CppDelegate
+@@ -2010,12 +2000,12 @@ typedef struct Il2CppDelegate
  {
      Il2CppObject object;
      Il2CppMethodPointer method_ptr;
@@ -8314,7 +8332,17 @@
      void* runtime_thread_info;
      Il2CppObject* current_appcontext;
      Il2CppObject* root_domain_thread;
---- 2022.3.31f1.h
+--- 2022.3.32f1.h
++++ 2022.3.33f1.h
+@@ -364,6 +364,7 @@ typedef struct Il2CppMethodDefinition
+     StringIndex nameIndex;
+     TypeDefinitionIndex declaringType;
+     TypeIndex returnType;
++    uint32_t returnParameterToken;
+     ParameterIndex parameterStart;
+     GenericContainerIndex genericContainerIndex;
+     uint32_t token;
+--- 2022.3.52f1.h
 +++ 2023.1.0a1.h
 @@ -136,7 +136,6 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
@@ -8324,7 +8352,15 @@
  typedef void ( *SynchronizationContextCallback)(intptr_t arg);
  typedef void ( *CultureInfoChangedCallback)(const Il2CppChar* arg);
  typedef uint16_t Il2CppMethodSlot;
-@@ -1873,7 +1872,7 @@ typedef struct Il2CppInternalThread
+@@ -364,7 +363,6 @@ typedef struct Il2CppMethodDefinition
+     StringIndex nameIndex;
+     TypeDefinitionIndex declaringType;
+     TypeIndex returnType;
+-    uint32_t returnParameterToken;
+     ParameterIndex parameterStart;
+     GenericContainerIndex genericContainerIndex;
+     uint32_t token;
+@@ -1874,7 +1872,7 @@ typedef struct Il2CppInternalThread
      int abort_state_handle;
      uint64_t tid;
      intptr_t debugger_thread;
@@ -8442,3 +8478,13 @@
      void* runtime_thread_info;
      Il2CppObject* current_appcontext;
      Il2CppObject* root_domain_thread;
+--- 6000.0.9f1.h
++++ 6000.0.10f1.h
+@@ -366,6 +366,7 @@ typedef struct Il2CppMethodDefinition
+     StringIndex nameIndex;
+     TypeDefinitionIndex declaringType;
+     TypeIndex returnType;
++    uint32_t returnParameterToken;
+     ParameterIndex parameterStart;
+     GenericContainerIndex genericContainerIndex;
+     uint32_t token;
