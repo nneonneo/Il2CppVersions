@@ -127,6 +127,9 @@ def process_header(version, header):
     header = re.sub(r'\bmutable\s+', '', header)
     # remove C++ pure virtual function prototypes
     header = re.sub(r'(?m)^\s*virtual .*? = 0;$', '', header)
+    # remove C++ static fields
+    header = re.sub(r'static Il2CppIntPtr Zero;', '', header)
+    header = re.sub(r'static const Il2CppGuid IID;', '', header)
 
     # IDA needs array sizes to be macros or literals, and doesn't understand const ints
     header = header.replace('[kPublicKeyByteLength]', '[8]')
@@ -166,6 +169,10 @@ def process_header(version, header):
     # ie. struct Foo { int a; Foo* b; int c; } becomes struct Foo { int a; struct Foo* b; int c; }
     # Primarily for Il2CppVariant and Il2CppStringBuilder
     header = re.sub(r'(?ms)^(?:typedef )?struct (\w+)(\s+\{[^\}]+)(?<!struct )\1(\*.*?\}.*?;\s*$)', r'typedef struct \1\2struct \1\3', header)
+
+    # Ensure all structs are typedef'd
+    # Primarily for Il2CppWin32Decimal, Il2CppDecimal, and Il2CppVariant
+    header = re.sub(r'(?m)^(typedef )?struct (\w+)\s*\{([\s\S]*?)^\}([\s\S]*?);', r'typedef struct \2\n{\3} \2;', header)
 
     # Split the Il2CppClass structure into substructures so we can specialize certain fields
     # for e.g. vtable slot naming/typing

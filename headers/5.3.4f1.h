@@ -1227,7 +1227,6 @@ typedef struct Il2CppReflectionPointer
 typedef struct Il2CppIntPtr
 {
  void* m_value;
- static Il2CppIntPtr Zero;
 } Il2CppIntPtr;
 typedef struct Il2CppThread
 {
@@ -1556,7 +1555,6 @@ typedef struct Il2CppGuid
 } Il2CppGuid;
 typedef struct Il2CppIUnknown
 {
- static const Il2CppGuid IID;
 } Il2CppIUnknown;
 typedef struct Il2CppRCW
 {
