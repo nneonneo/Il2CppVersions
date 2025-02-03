@@ -1351,7 +1351,6 @@ typedef struct Il2CppReflectionPointer
 typedef struct Il2CppIntPtr
 {
     void* m_value;
-    static Il2CppIntPtr Zero;
 } Il2CppIntPtr;
 typedef struct Il2CppInternalThread
 {
@@ -1812,7 +1811,7 @@ typedef struct Il2CppAppContext
     int32_t context_id;
     void* static_data;
 } Il2CppAppContext;
-struct Il2CppDecimal
+typedef struct Il2CppDecimal
 {
     uint16_t reserved;
     union
@@ -1834,7 +1833,7 @@ struct Il2CppDecimal
         } v;
         uint64_t Lo64;
     } v;
-};
+} Il2CppDecimal;
 typedef struct Il2CppDouble
 {
     uint32_t mantLo : 32;
@@ -1885,7 +1884,7 @@ typedef struct Il2CppSafeArray
     void* data;
     Il2CppSafeArrayBound bounds[1];
 } Il2CppSafeArray;
-struct Il2CppWin32Decimal
+typedef struct Il2CppWin32Decimal
 {
     uint16_t reserved;
     union
@@ -1907,7 +1906,7 @@ struct Il2CppWin32Decimal
         } s2;
         uint64_t lo64;
     } u2;
-};
+} Il2CppWin32Decimal;
 typedef int16_t IL2CPP_VARIANT_BOOL;
 typedef enum Il2CppVarType
 {
@@ -2028,7 +2027,7 @@ typedef struct Il2CppVariant
         } n2;
         Il2CppWin32Decimal decVal;
     } n1;
-};
+} Il2CppVariant;
 typedef struct Il2CppFileTime
 {
     uint32_t low;
@@ -2063,40 +2062,32 @@ typedef struct Il2CppHStringHeader
 } Il2CppHStringHeader;
 typedef struct Il2CppIUnknown
 {
-    static const Il2CppGuid IID;
 } Il2CppIUnknown;
 typedef struct Il2CppISequentialStream
 {
  Il2CppIUnknown IUnknown;
-    static const Il2CppGuid IID;
 } Il2CppISequentialStream;
 typedef struct Il2CppIStream
 {
  Il2CppISequentialStream ISequentialStream;
-    static const Il2CppGuid IID;
 } Il2CppIStream;
 typedef struct Il2CppIMarshal
 {
  Il2CppIUnknown IUnknown;
-    static const Il2CppGuid IID;
 } Il2CppIMarshal;
 typedef struct Il2CppIManagedObject
 {
  Il2CppIUnknown IUnknown;
-    static const Il2CppGuid IID;
 } Il2CppIManagedObject;
 typedef struct Il2CppIManagedObjectHolder
 {
  Il2CppIUnknown IUnknown;
-    static const Il2CppGuid IID;
 } Il2CppIManagedObjectHolder;
 typedef struct Il2CppIInspectable
 {
  Il2CppIUnknown IUnknown;
-    static const Il2CppGuid IID;
 } Il2CppIInspectable;
 typedef struct Il2CppIActivationFactory
 {
  Il2CppIInspectable IInspectable;
-    static const Il2CppGuid IID;
 } Il2CppIActivationFactory;

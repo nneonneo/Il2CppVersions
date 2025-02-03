@@ -1169,7 +1169,6 @@ typedef struct Il2CppReflectionPointer
 typedef struct Il2CppIntPtr
 {
  void* m_value;
- static Il2CppIntPtr Zero;
 } Il2CppIntPtr;
 typedef struct Il2CppThread
 {

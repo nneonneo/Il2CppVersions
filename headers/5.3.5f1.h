@@ -1256,7 +1256,6 @@ typedef struct Il2CppReflectionPointer
 typedef struct Il2CppIntPtr
 {
  void* m_value;
- static Il2CppIntPtr Zero;
 } Il2CppIntPtr;
 typedef struct Il2CppThread
 {
@@ -1607,7 +1606,7 @@ typedef struct Il2CppSafeArray
  void* data;
  Il2CppSafeArrayBound bounds[1];
 } Il2CppSafeArray;
-struct Il2CppDecimal
+typedef struct Il2CppDecimal
 {
  uint16_t reserved;
  union
@@ -1629,7 +1628,7 @@ struct Il2CppDecimal
   } s2;
   uint64_t lo64;
  } u2;
-};
+} Il2CppDecimal;
 typedef int16_t IL2CPP_VARIANT_BOOL;
 typedef enum Il2CppVarType
 {
@@ -1750,7 +1749,7 @@ typedef struct Il2CppVariant
   } n2;
   Il2CppDecimal decVal;
  } n1;
-};
+} Il2CppVariant;
 typedef struct Il2CppFileTime
 {
  uint32_t low;
@@ -1772,25 +1771,20 @@ typedef struct Il2CppStatStg
 } Il2CppStatStg;
 typedef struct Il2CppIUnknown
 {
- static const Il2CppGuid IID;
 } Il2CppIUnknown;
 typedef struct Il2CppISequentialStream
 {
  Il2CppIUnknown IUnknown;
- static const Il2CppGuid IID;
 } Il2CppISequentialStream;
 typedef struct Il2CppIStream
 {
  Il2CppISequentialStream ISequentialStream;
- static const Il2CppGuid IID;
 } Il2CppIStream;
 typedef struct Il2CppIMarshal
 {
  Il2CppIUnknown IUnknown;
- static const Il2CppGuid IID;
 } Il2CppIMarshal;
 typedef struct Il2CppIManagedObject
 {
  Il2CppIUnknown IUnknown;
- static const Il2CppGuid IID;
 } Il2CppIManagedObject;
