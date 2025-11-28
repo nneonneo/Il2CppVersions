@@ -1,0 +1,57 @@
+--additional-cpp=<path,path,..>                 Additional C++ files to include
+--additional-defines=<value,value,..>           Defines for generated C++ code compilation
+--additional-include-directories=<path,path,..> One or more additional include directories
+--additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+--additional-link-directories=<path,path,..>    One or more additional link directories
+--assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+--assembly=<path,path,..>                       One or more paths to assemblies to convert
+--build-package-for-testing                     Instruct to build an application package that can be used for testing
+--cachedirectory=<path>                         A directory to use for caching compilation related files
+--code-generation-option=<value>                Specify an option related to code generation
+--compile-cpp                                   Compile generated C++ code
+--compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+--configuration=<value>                         The build configuration.  Debug|Release
+--convert-in-graph                              Use this to run the conversion in a bee graph for fast 0 change builds
+--convert-to-cpp                                Convert the provided assemblies to C++
+--data-folder=<path>                            The directory where non-source code data will be written
+--debug-assembly-name=<value,value,..>          The name of an assembly (including .dll) to emit debug information for.  If this is provided, debug information from all others will be ignored.
+--diagnostic-option=<value>                     Enable a diagnostic ability
+--directory=<path,path,..>                      One or more directories containing assemblies to convert
+--disable-bee-builder                           Disable bee builder and use old buildcode
+--disable-generic-sharing                       Disables generic sharing
+--disable-runtime-lumping                       Disable lumping for the runtime library
+--dont-deploy-baselib                           il2cpp will not use it's own baselib
+--emit-comments                                 Annotations to the generated code will be emitted as comments
+--emit-null-checks                              Enables generation of null checks
+--enable-analytics                              Enables collection of analytics
+--enable-array-bounds-check                     Enables generation of array bounds checks
+--enable-divide-by-zero-check                   Enables generation of divide by zero checks
+--enable-reload                                 Enable code to allow the runtime to be shutdown and reloaded (this has code size and runtime performance impact).
+--enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+--enable-stats                                  Enables conversion statistics
+--enable-tiny-diagnostics                       Adds features for helping to debug dots-runtime generated code, such as type IDs
+--extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+--feature=<value>                               Enable a feature of il2cpp
+--file-generation-option=<value>                Specify an option related to file output
+--forcerebuild                                  Forces a rebuild
+--generate-usym-file                            Generate a symbol file for stacktrace line numbers
+--generatedcppdir=<path>                        The directory where generated C++ code is written
+--generic-virtual-method-iterations=<value>     Set the maximum number of times to iterate looking for generic virtual methods. The default value is 1.
+--generics-option=<value>                       Specify an option related to generics
+--incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximum time slice of n ms.
+--jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
+--libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+--libil2cpp-static                              Links il2cpp as library to the executable
+--linker-flags-file=<value>                     Additional file that contains flags to pass to the linker
+--linker-flags=<value>                          Additional flags to pass to the linker
+--maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+--outputpath=<value>                            Path to output the compiled binary
+--plugin=<value>                                Path to an il2cpp plugin assembly
+--profiler-output-file=<value>                  The location where to write the profiler output
+--profiler-report                               Enable generation of a profiler report
+--relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
+--stats-output-dir=<path>                       The directory where statistics information will be written
+--symbols-folder=<path>                         The directory where symbol information will be written
+--tiny-explain-static-constructors              Enables additional comments in StaticConstructors.cpp with extra information about dependencies. Tiny only
+--treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+--verbose                                       Enables verbose output from tools involved in building

@@ -1,0 +1,41 @@
+--additional-cpp=<path,path,..>                 Additional C++ files to include
+--additional-defines=<value,value,..>           Defines for generated C++ code compilation
+--additional-include-directories=<path,path,..> One or more additional include directories
+--additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+--additional-link-directories=<path,path,..>    One or more additional link directories
+--assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+--assembly-output                               Enables assembly code output from the C++ compiler
+--assembly=<path,path,..>                       One or more paths to assemblies to convert
+--cachedirectory=<path>                         A directory to use for caching compilation related files
+--compile-cpp                                   Compile generated C++ code
+--compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+--configuration=<value>                         The build configuration.  Debug|Release
+--convert-to-cpp                                Convert the provided assemblies to C++
+--data-folder=<path>                            The directory where non-source code data will be written
+--directory=<path,path,..>                      One or more directories containing assemblies to convert
+--disable-cpp-chunks                            Disable splitting of cpp files into chunks
+--disable-generic-sharing                       Disables generic sharing
+--emit-null-checks                              Enables generation of null checks
+--enable-array-bounds-check                     Enables generation of array bounds checks
+--enable-divide-by-zero-check                   Enables generation of divide by zero checks
+--enable-predictable-output                     Enable predictable output, the same set of files are always emitted for the same set of input files
+--enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+--enable-stats                                  Enables conversion statistics
+--enable-tiny-debugging                         Adds features for helping to debug tiny generated code, such as type IDs
+--extra-types-file=<path,path,..>               One or more files containing a list of additonal generic instance types that should be included in the generated code
+--forcerebuild                                  Forces a rebuild
+--generatedcppdir=<path>                        The directory where generated C++ code is written
+--incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
+--libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+--libil2cpp-static                              Links il2cpp as static library to the executable
+--linker-flags=<value>                          Additional flags to pass to the linker
+--lump-runtime-library                          Enable lumping for the runtime library
+--map-file-parser=<value>                       Path to MapFileParser binary
+--maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+--outputpath=<value>                            Path to output the compiled binary
+--plugin=<value,value,..>                       Path to an il2cpp plugin assembly
+--profiler-report                               Enable generation of a profiler report
+--stats-output-dir=<path>                       The directory where statistics information will be written
+--symbols-folder=<path>                         The directory where symbol information will be written
+--treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+--verbose                                       Enables verbose output from tools involved in building

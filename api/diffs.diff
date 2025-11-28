@@ -855,7 +855,7 @@
 +++ 2021.3.42f1.h
 @@ -39,0 +40 @@
 +DO_API(bool, il2cpp_class_is_inited, (const Il2CppClass * klass));
---- 2021.3.51f1.h
+--- 2021.3.58f1.h
 +++ 2022.1.0a7.h
 @@ -40 +39,0 @@
 -DO_API(bool, il2cpp_class_is_inited, (const Il2CppClass * klass));
@@ -894,7 +894,7 @@
 @@ -16,0 +17,2 @@
 +DO_API(void, il2cpp_memory_pool_set_region_size, (size_t size));
 +DO_API(size_t, il2cpp_memory_pool_get_region_size, ());
---- 2022.3.61f1.h
+--- 2022.3.69f1.h
 +++ 2023.1.0a1.h
 @@ -17,2 +16,0 @@
 -DO_API(void, il2cpp_memory_pool_set_region_size, (size_t size));
@@ -958,7 +958,7 @@
 -DO_API(bool, il2cpp_debug_get_method_info, (const MethodInfo*, Il2CppMethodDebugInfo * methodDebugInfo));
 +DO_API(void, il2cpp_debug_foreach_method, (void(*func)(const MethodInfo* method, Il2CppMethodDebugInfo * methodDebugInfo, void* userData), void* userData));
 +DO_API(bool, il2cpp_debug_get_method_info, (const MethodInfo * method, Il2CppMethodDebugInfo * methodDebugInfo));
---- 6000.0.48f1.h
+--- 6000.0.62f1.h
 +++ 6000.1.0a2.h
 @@ -17,2 +16,0 @@
 -DO_API(void, il2cpp_memory_pool_set_region_size, (size_t size));
@@ -978,7 +978,7 @@
 -DO_API(bool, il2cpp_debug_get_method_info, (const MethodInfo*, Il2CppMethodDebugInfo * methodDebugInfo));
 +DO_API(void, il2cpp_debug_foreach_method, (void(*func)(const MethodInfo* method, Il2CppMethodDebugInfo * methodDebugInfo, void* userData), void* userData));
 +DO_API(bool, il2cpp_debug_get_method_info, (const MethodInfo * method, Il2CppMethodDebugInfo * methodDebugInfo));
---- 6000.1.1f1.h
+--- 6000.1.17f1.h
 +++ 6000.2.0a1.h
 @@ -294,2 +294 @@
 -DO_API(void, il2cpp_debug_foreach_method, (void(*func)(const MethodInfo* method, Il2CppMethodDebugInfo * methodDebugInfo, void* userData), void* userData));

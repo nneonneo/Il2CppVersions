@@ -1,5 +1,5 @@
---- 5.4.3f1.txt
-+++ 5.4.4f1.txt
+--- 5.4.3p1.txt
++++ 5.4.3p2.txt
 @@ -19,6 +19,7 @@
  --forcerebuild                                  Forces a rebuild
  --generatedcppdir=<path>                        The directory where generated C++ code is written
@@ -26,7 +26,7 @@
  --verbose                                       Enables verbose output from tools involved in building
 \ No newline at end of file
 --- 5.5.0f3.txt
-+++ 5.5.1f1.txt
++++ 5.5.0p1.txt
 @@ -21,6 +21,7 @@
  --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
  --libil2cpp-static                              Links il2cpp as static library to the executable
@@ -117,8 +117,8 @@
  --outputpath=<value>                            Path to output the compiled binary
  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
  --profiler-report                               Enable generation of a profiler report
---- 2019.1.14f1.txt
-+++ 2019.2.0a6.txt
+--- 2019.1.15f1.txt
++++ 2019.2.0a4.txt
 @@ -31,7 +31,6 @@
  --linker-flags=<value>                          Additional flags to pass to the linker
  --lump-runtime-library                          Enable lumping for the runtime library
@@ -151,7 +151,7 @@
  --outputpath=<value>                            Path to output the compiled binary
  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
  --profiler-report                               Enable generation of a profiler report
---- 2019.2.21f1.txt
+--- 2019.2.23f1.txt
 +++ 2019.3.0a2.txt
 @@ -31,7 +31,6 @@
  --linker-flags=<value>                          Additional flags to pass to the linker
@@ -213,7 +213,7 @@
  --stats-output-dir=<path>                       The directory where statistics information will be written
  --symbols-folder=<path>                         The directory where symbol information will be written
  --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
---- 2019.4.40f1.txt
+--- 2019.4.41f2.txt
 +++ 2020.1.0a3.txt
 @@ -35,7 +35,6 @@
  --outputpath=<value>                            Path to output the compiled binary
@@ -271,7 +271,7 @@
  --stats-output-dir=<path>                       The directory where statistics information will be written
  --symbols-folder=<path>                         The directory where symbol information will be written
  --treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
---- 2020.1.17f1.txt
+--- 2020.1.18f1.txt
 +++ 2020.2.0a7.txt
 @@ -46,3 +46,4 @@
  --symbols-folder=<path>                         The directory where symbol information will be written
@@ -332,7 +332,7 @@
  --generics-option=<value>                       Specify an option related to generics
  --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximimum time slice of n ms.
  --jobs=<value>                                  The number of cores to use during code conversion.  Defaults to processor count
---- 2021.1.28f1.txt
+--- 2021.1.29f1.txt
 +++ 2021.2.0a5.txt
 @@ -30,7 +30,6 @@
  --file-generation-option=<value>                Specify an option related to file output
@@ -461,7 +461,7 @@
  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
  --outputpath=<value>                            Path to output the compiled binary
  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
---- 2021.3.40f1.txt
+--- 2021.3.58f1.txt
 +++ 2022.1.0a7.txt
 @@ -9,7 +9,7 @@
  --cachedirectory=<path>                         A directory to use for caching compilation related files
@@ -499,7 +499,7 @@
  --cachedirectory=<path>                         A directory to use for caching compilation related files
  --code-generation-option=<value>                Specify an option related to code generation
  --compile-cpp                                   Compile generated C++ code
---- 2022.1.24f1.txt
+--- 2022.1.25f1.txt
 +++ 2022.2.0a9.txt
 @@ -22,6 +22,7 @@
  --disable-generic-sharing                       Disables generic sharing
@@ -561,7 +561,7 @@
  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
  --outputpath=<value>                            Path to output the compiled binary
  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
---- 2022.3.38f1.txt
+--- 2022.3.69f1.txt
 +++ 2023.1.0a1.txt
 @@ -10,7 +10,7 @@
  --cachedirectory=<path>                         A directory to use for caching compilation related files
@@ -665,7 +665,7 @@
  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
  --outputpath=<value>                            Path to output the compiled binary
  --plugin=<value>                                Path to an il2cpp plugin assembly
---- 2023.2.20f1.txt
+--- 2023.2.22f1.txt
 +++ 2023.3.0a3.txt
 @@ -9,7 +9,7 @@
  --cachedirectory=<path>                         A directory to use for caching compilation related files
@@ -731,3 +731,33 @@
  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
  --outputpath=<value>                            Path to output the compiled binary
  --plugin=<value>                                Path to an il2cpp plugin assembly
+--- 6000.0.35f1.txt
++++ 6000.0.36f1.txt
+@@ -5,6 +5,7 @@
+ --additional-link-directories=<path,path,..>    One or more additional link directories
+ --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+ --assembly=<path,path,..>                       One or more paths to assemblies to convert
++--bee-jobs=<value>                              The number of jobs bee should use.  Defaults to the same as --jobs
+ --build-package-for-testing                     Instruct to build an application package that can be used for testing
+ --cachedirectory=<path>                         A directory to use for caching compilation related files
+ --code-generation-option=<value>                Specify an option related to code generation
+--- 6000.0.62f1.txt
++++ 6000.1.0a2.txt
+@@ -5,7 +5,6 @@
+ --additional-link-directories=<path,path,..>    One or more additional link directories
+ --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+ --assembly=<path,path,..>                       One or more paths to assemblies to convert
+---bee-jobs=<value>                              The number of jobs bee should use.  Defaults to the same as --jobs
+ --build-package-for-testing                     Instruct to build an application package that can be used for testing
+ --cachedirectory=<path>                         A directory to use for caching compilation related files
+ --code-generation-option=<value>                Specify an option related to code generation
+--- 6000.1.0b3.txt
++++ 6000.1.0b4.txt
+@@ -5,6 +5,7 @@
+ --additional-link-directories=<path,path,..>    One or more additional link directories
+ --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+ --assembly=<path,path,..>                       One or more paths to assemblies to convert
++--bee-jobs=<value>                              The number of jobs bee should use.  Defaults to the same as --jobs
+ --build-package-for-testing                     Instruct to build an application package that can be used for testing
+ --cachedirectory=<path>                         A directory to use for caching compilation related files
+ --code-generation-option=<value>                Specify an option related to code generation

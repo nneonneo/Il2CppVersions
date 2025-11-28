@@ -1,0 +1,30 @@
+--additional-cpp=<path,path,..>                 Additional C++ files to include
+--additional-defines=<value,value,..>           Defines for generated C++ code compilation
+--additional-include-directories=<path,path,..> One or more additional include directories
+--additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+--additional-link-directories=<path,path,..>    One or more additional link directories
+--assembly=<path,path,..>                       One or more paths to assemblies to convert
+--cachedirectory=<path>                         A directory to use for caching compilation related files
+--compile-cpp                                   Compile generated C++ code
+--compiler-flags=<value>                        Additional flags to pass to the C++ compiler
+--configuration=<value>                         The build configuration.  Debug|Release
+--convert-to-cpp                                Convert the provided assemblies to C++
+--data-folder=<path>                            The directory where non-source code data will be written
+--directory=<path,path,..>                      One or more directories containing assemblies to convert
+--emit-null-checks                              Enables generation of null checks
+--enable-array-bounds-check                     Enables generation of array bounds checks
+--enable-divide-by-zero-check                   Enables generation of divide by zero checks
+--enable-stacktrace                             Enables generation of stacktrace sentries in C++ code at the start of every managed method. This enables support for stacktraces for platforms that do not have system APIs to walk the stack (for example, one such platform is WebGL)
+--enable-stats                                  Enables conversion statistics
+--forcerebuild                                  Forces a rebuild
+--generatedcppdir=<path>                        The directory where generated C++ code is written
+--libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+--libil2cpp-static                              Links il2cpp as static library to the executable
+--linker-flags=<value>                          Additional flags to pass to the linker
+--map-file-parser=<value>                       Path to MapFileParser binary
+--outputpath=<value>                            Path to output the compiled binary
+--plugin=<value,value,..>                       Path to an il2cpp plugin assembly
+--profiler-report                               Enable generation of a profiler report
+--stats-output-dir=<path>                       The directory where statistics information will be written
+--treat-warnings-as-errors                      Enables warnings as errors for compiling generated C++ code
+--verbose                                       Enables verbose output from tools involved in building
