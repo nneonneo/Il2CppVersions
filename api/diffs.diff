@@ -894,7 +894,7 @@
 @@ -16,0 +17,2 @@
 +DO_API(void, il2cpp_memory_pool_set_region_size, (size_t size));
 +DO_API(size_t, il2cpp_memory_pool_get_region_size, ());
---- 2022.3.69f1.h
+--- 2022.3.71f1.h
 +++ 2023.1.0a1.h
 @@ -17,2 +16,0 @@
 -DO_API(void, il2cpp_memory_pool_set_region_size, (size_t size));
@@ -958,7 +958,7 @@
 -DO_API(bool, il2cpp_debug_get_method_info, (const MethodInfo*, Il2CppMethodDebugInfo * methodDebugInfo));
 +DO_API(void, il2cpp_debug_foreach_method, (void(*func)(const MethodInfo* method, Il2CppMethodDebugInfo * methodDebugInfo, void* userData), void* userData));
 +DO_API(bool, il2cpp_debug_get_method_info, (const MethodInfo * method, Il2CppMethodDebugInfo * methodDebugInfo));
---- 6000.0.62f1.h
+--- 6000.0.67f1.h
 +++ 6000.1.0a2.h
 @@ -17,2 +16,0 @@
 -DO_API(void, il2cpp_memory_pool_set_region_size, (size_t size));
@@ -990,3 +990,10 @@
 -DO_API(bool, il2cpp_debug_get_method_info, (const MethodInfo*, Il2CppMethodDebugInfo * methodDebugInfo));
 +DO_API(void, il2cpp_debug_foreach_method, (void(*func)(const MethodInfo* method, Il2CppMethodDebugInfo * methodDebugInfo, void* userData), void* userData));
 +DO_API(bool, il2cpp_debug_get_method_info, (const MethodInfo * method, Il2CppMethodDebugInfo * methodDebugInfo));
+--- 6000.4.0b7.h
++++ 6000.5.0a3.h
+@@ -142,0 +143 @@
++DO_API(bool, il2cpp_gc_is_heap_ptr, (const void* address));
+@@ -307 +308 @@
+-DO_API(Il2CppArray*,  il2cpp_custom_attrs_construct, (Il2CppCustomAttrInfo * cinfo));
++DO_API(Il2CppArray*,  il2cpp_custom_attrs_construct, (Il2CppCustomAttrInfo * cinfo, Il2CppException** exc));

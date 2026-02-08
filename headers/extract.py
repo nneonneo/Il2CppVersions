@@ -43,7 +43,9 @@ def split_class_structure(version, contents):
             else:
                 cctor_thread_padding = False
             break
-        if '*' in ftype or ftype in ('size_t', 'Il2CppMetadataTypeHandle', 'Il2CppGCHandle'): #Il2CppGCHandle is just void*
+        if '*' in ftype or ftype in ('size_t', 'Il2CppMetadataTypeHandle', 'Il2CppGCHandle', 'Il2CppClass_InitDataUnion'):
+            # Il2CppGCHandle is just void*
+            # Il2CppClass_InitDataUnion only contains pointers
             size32 += 4
         elif ftype in ('uint32_t', 'int32_t', 'GenericContainerIndex', 'CustomAttributeIndex'):
             size32 += 4
@@ -173,6 +175,12 @@ def process_header(version, header):
     # Ensure all structs are typedef'd
     # Primarily for Il2CppWin32Decimal, Il2CppDecimal, and Il2CppVariant
     header = re.sub(r'(?m)^(typedef )?struct (\w+)\s*\{([\s\S]*?)^\}([\s\S]*?);', r'typedef struct \2\n{\3} \2;', header)
+
+    # 6000.3.3f1 introduced a union field in Il2CppClass which causes some issues for specialization.
+    # We extract the union into a separate substructure to avoid this.
+    m = re.search(r'(typedef struct Il2CppClass\n{[^{}]+    )union\n    {\n    (.+rgctx_data;\n)    (.+genericParameterFlags;\n)    };', header)
+    if m:
+        header = header.replace(m.group(0), 'typedef union\n{\n' + m.group(2) + m.group(3) + '} Il2CppClass_InitDataUnion;\n' + m.group(1) + 'Il2CppClass_InitDataUnion init_data;')
 
     # Split the Il2CppClass structure into substructures so we can specialize certain fields
     # for e.g. vtable slot naming/typing
