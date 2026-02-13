@@ -11514,7 +11514,7 @@
      ParameterIndex parameterStart;
      GenericContainerIndex genericContainerIndex;
      uint32_t token;
---- 2022.3.71f1.h
+--- 2022.3.72f1.h
 +++ 2023.1.0a1.h
 @@ -136,7 +136,6 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
@@ -11971,7 +11971,7 @@
      struct Il2CppClass_1 _1;
      VirtualInvokeData vtable[32];
  } Il2CppClass_Merged;
---- 6000.3.7f1.h
+--- 6000.3.8f1.h
 +++ 6000.4.0a2.h
 @@ -1256,16 +1256,6 @@ typedef struct Il2CppRuntimeInterfaceOff
      Il2CppClass* interfaceType;
@@ -12428,3 +12428,16 @@
      struct Il2CppClass_1 _1;
      VirtualInvokeData vtable[32];
  } Il2CppClass_Merged;
+--- 6000.5.0a5.h
++++ 6000.5.0a6.h
+@@ -453,8 +453,8 @@ typedef struct Il2CppMetadataRange
+ typedef struct Il2CppGenericContainer
+ {
+     int32_t ownerIndex;
+-    int32_t type_argc;
+-    int32_t is_method;
++    uint16_t type_argc;
++    uint8_t is_method;
+     GenericParameterIndex genericParameterStart;
+ } Il2CppGenericContainer;
+ typedef struct Il2CppGenericParameter

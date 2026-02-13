@@ -561,7 +561,7 @@
  --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
  --outputpath=<value>                            Path to output the compiled binary
  --plugin=<value,value,..>                       Path to an il2cpp plugin assembly
---- 2022.3.69f1.txt
+--- 2022.3.72f1.txt
 +++ 2023.1.0a1.txt
 @@ -10,7 +10,7 @@
  --cachedirectory=<path>                         A directory to use for caching compilation related files
@@ -741,7 +741,7 @@
  --build-package-for-testing                     Instruct to build an application package that can be used for testing
  --cachedirectory=<path>                         A directory to use for caching compilation related files
  --code-generation-option=<value>                Specify an option related to code generation
---- 6000.0.62f1.txt
+--- 6000.0.67f1.txt
 +++ 6000.1.0a2.txt
 @@ -5,7 +5,6 @@
  --additional-link-directories=<path,path,..>    One or more additional link directories
@@ -761,3 +761,54 @@
  --build-package-for-testing                     Instruct to build an application package that can be used for testing
  --cachedirectory=<path>                         A directory to use for caching compilation related files
  --code-generation-option=<value>                Specify an option related to code generation
+--- 6000.4.0b7.txt
++++ 6000.5.0a3.txt
+@@ -1,15 +1,19 @@
+ --additional-cpp=<path,path,..>                 Additional C++ files to include
+ --additional-defines=<value,value,..>           Defines for generated C++ code compilation
++--additional-deployed-files=<value,value,..>    One or more additional files to deploy to the output directory
+ --additional-include-directories=<path,path,..> One or more additional include directories
+ --additional-libraries=<value,value,..>         One or more additional libraries to link to generated code
+ --additional-link-directories=<path,path,..>    One or more additional link directories
++--architecture=<value>                          The architecture to target
+ --assembly-method=<value>                       String to match the name of method(s) to show the assembly output for
+ --assembly=<path,path,..>                       One or more paths to assemblies to convert
++--bcl-distribution-directory=<value>            The path to the root of the unityaot profile
+ --bee-jobs=<value>                              The number of jobs bee should use.  Defaults to the same as --jobs
+ --build-package-for-testing                     Instruct to build an application package that can be used for testing
+ --cachedirectory=<path>                         A directory to use for caching compilation related files
+ --code-generation-option=<value>                Specify an option related to code generation
+ --compile-cpp                                   Compile generated C++ code
++--compile-stdout-mode=<value>                   How much output to show related to compilation.  Valid values are 'Full', 'OnlyErrors'
+ --compiler-flags=<value,value,..>               Additional flags to pass to the C++ compiler
+ --configuration=<value>                         The build configuration.  Debug|Release
+ --convert-in-graph                              Use this to run the conversion in a bee graph for fast 0 change builds
+@@ -22,6 +26,7 @@
+ --disable-generic-sharing                       Disables generic sharing
+ --disable-runtime-lumping                       Disable lumping for the runtime library
+ --dont-deploy-baselib                           il2cpp will not use it's own baselib
++--dotnet-runtime-feature=<value>                Controls .NET Runtime features
+ --emit-comments                                 Annotations to the generated code will be emitted as comments
+ --emit-null-checks                              Enables generation of null checks
+ --enable-analytics                              Enables collection of analytics
+@@ -39,6 +44,7 @@
+ --generic-virtual-method-iterations=<value>     Set the maximum number of times to iterate looking for generic virtual methods. The default value is 1.
+ --generics-option=<value>                       Specify an option related to generics
+ --incremental-g-c-time-slice=<value>            Enable incremental GC if n > 0, with a maximum time slice of n ms.
++--intrinsics-features=<value,value,..>          List of intrinsics to enable
+ --jobs=<value>                                  The number of cores to use during conversion and compilation.  Defaults to processor count
+ --libil2cpp-cache-directory=<value>             Cache directory to use when building libil2cpp as dynamic link library
+ --libil2cpp-static                              Links il2cpp as library to the executable
+@@ -46,10 +52,12 @@
+ --linker-flags=<value,value,..>                 Additional flags to pass to the linker
+ --maximum-recursive-generic-depth=<value>       Set the maximum depth to implement recursive generic methods. The default value is 7.
+ --outputpath=<value>                            Path to output the compiled binary
++--platform=<value>                              The platform to target
+ --plugin=<value>                                Path to an il2cpp plugin assembly
+ --profiler-output-file=<value>                  The location where to write the profiler output
+ --profiler-report                               Enable generation of a profiler report
+ --relative-data-path=<value>                    Optional. Specifies path of IL2CPP data directory relative to deployed application working directory.
++--skip-native-dependencies                      Skip copying native IL2CPP dependencies into the output folder
+ --stats-output-dir=<path>                       The directory where statistics information will be written
+ --symbols-folder=<path>                         The directory where symbol information will be written
+ --target-is-simulator                           Flag denoting if the compilation target is a simulator.

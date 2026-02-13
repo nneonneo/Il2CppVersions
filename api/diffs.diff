@@ -894,7 +894,7 @@
 @@ -16,0 +17,2 @@
 +DO_API(void, il2cpp_memory_pool_set_region_size, (size_t size));
 +DO_API(size_t, il2cpp_memory_pool_get_region_size, ());
---- 2022.3.71f1.h
+--- 2022.3.72f1.h
 +++ 2023.1.0a1.h
 @@ -17,2 +16,0 @@
 -DO_API(void, il2cpp_memory_pool_set_region_size, (size_t size));
