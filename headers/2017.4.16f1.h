@@ -1,3 +1,4 @@
+const int METADATA_VERSION = 24;
 typedef uint32_t Il2CppMethodSlot;
 const uint32_t kInvalidIl2CppMethodSlot = 65535;
 const int ipv6AddressSize = 16;

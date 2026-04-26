@@ -115,7 +115,7 @@ typedef struct __attribute__((aligned(8))) Il2CppClass_Merged {
 ''' + classstruct + '''} Il2CppClass_Merged;
 '''
 
-def process_header(version, header):
+def process_header(version, header, metadata_version):
     # force UNIX line endings for consistency
     header = header.replace('\r\n', '\n')
     # remove some unused static const variables
@@ -188,11 +188,37 @@ def process_header(version, header):
     if not m:
         raise Exception("struct Il2CppClass not found in %s" % version)
     header = header.replace(m.group(0), m.group(0) + '\n' + split_class_structure(version, m.group(1)))
+
+    # Add line at the beginning of the file with the metadata version
+    header = 'const int METADATA_VERSION = %s;\n' % metadata_version + header
     return header
+
+def get_metadata_version(version, dir):
+    # 5.3.0b1 doesn't have cpp files, but it's 16
+    if version == '5.3.0b1':
+        return 16
+
+    # Find the file containing the metadata version
+    global_metadata_cpp = os.path.join(dir, 'vm', 'GlobalMetadata.cpp')
+    if not os.path.exists(global_metadata_cpp):
+        global_metadata_cpp = os.path.join(dir, 'vm', 'MetadataCache.cpp')
+    if not os.path.exists(global_metadata_cpp):
+        raise Exception("GlobalMetadata.cpp/MetadataCache.cpp not found in %s" % dir)
+
+    # Read the file and extract the metadata version
+    with open(global_metadata_cpp, 'r') as f:
+        contents = f.read()
+        m = re.search(r'\(s_GlobalMetadataHeader->version == ([0-9]+)\);', contents)
+        if not m:
+            raise Exception("Metadata version not found in %s" % global_metadata_cpp)
+        return int(m.group(1))
 
 for dir in glob.glob('../group*/il2cpp-*'):
     version = dir.split('il2cpp-')[1]
     dir = os.path.join(dir, 'libil2cpp')
+
+    metadata_version = get_metadata_version(version, dir)
+
     fn = os.path.join(dir, 'object-internals.h')
     if not os.path.exists(fn):
         fn = os.path.join(dir, 'il2cpp-object-internals.h')
@@ -211,7 +237,7 @@ for dir in glob.glob('../group*/il2cpp-*'):
     # We preprocess the file using dummy (empty) standard library headers
     # so that we only see the Il2Cpp-specific stuff.
     header = subprocess.check_output(args, stderr=subprocess.DEVNULL).decode()
-    header = process_header(version, header)
+    header = process_header(version, header, metadata_version)
     open('%s.h' % version, 'w').write(header)
 
     # Copy API function exports header

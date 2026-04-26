@@ -1,3 +1,4 @@
+const int METADATA_VERSION = 22;
 typedef uint32_t Il2CppMethodSlot;
 const int ipv6AddressSize = 16;
 typedef int32_t il2cpp_hresult_t;

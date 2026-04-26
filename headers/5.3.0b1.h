@@ -1,3 +1,4 @@
+const int METADATA_VERSION = 16;
 typedef void (*methodPointerType)();
 typedef int32_t il2cpp_array_size_t;
 typedef uint32_t Il2CppMethodSlot;

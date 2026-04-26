@@ -1,3 +1,4 @@
+const int METADATA_VERSION = 38;
 typedef struct Il2CppClass Il2CppClass;
 typedef struct Il2CppType Il2CppType;
 typedef struct EventInfo EventInfo;
