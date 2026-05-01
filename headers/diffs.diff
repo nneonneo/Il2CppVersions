@@ -1,3 +1,99 @@
+--- 5.2.2p1.h
++++ 5.2.2p2.h
+@@ -763,11 +763,11 @@ typedef struct Il2CppCodeRegistration
+ typedef struct Il2CppMetadataRegistration
+ {
+  int32_t genericClassesCount;
+- Il2CppGenericClass** genericClasses;
++ Il2CppGenericClass* const * genericClasses;
+  int32_t genericInstsCount;
+- const Il2CppGenericInst** genericInsts;
++ const Il2CppGenericInst* const * genericInsts;
+  int32_t genericMethodTableCount;
+- Il2CppGenericMethodFunctionsDefinitions* genericMethodTable;
++ const Il2CppGenericMethodFunctionsDefinitions* genericMethodTable;
+  int32_t typesCount;
+  const Il2CppType* const * types;
+  int32_t methodSpecsCount;
+--- 5.2.3f1.h
++++ 5.2.3p1.h
+@@ -1004,16 +1004,16 @@ typedef struct Il2CppArray
+  il2cpp_array_size_t max_length;
+  double vector[32];
+ } Il2CppArray;
+-typedef struct Il2CppDataSegmentString
+-{
+- Il2CppObject object;
+-} Il2CppDataSegmentString;
+ typedef struct Il2CppString
+ {
+  Il2CppObject object;
+  int32_t length;
+  uint16_t chars[32];
+ } Il2CppString;
++typedef struct Il2CppDataSegmentString
++{
++ Il2CppObject object;
++} Il2CppDataSegmentString;
+ typedef struct Il2CppReflectionType
+ {
+  Il2CppObject object;
+--- 5.2.3p2.h
++++ 5.2.3p3.h
+@@ -889,6 +889,7 @@ typedef void (*Il2CppProfileMethodFunc)
+ typedef void (*Il2CppProfileAllocFunc) (Il2CppProfiler* prof, Il2CppObject *obj, Il2CppClass *klass);
+ typedef void (*Il2CppProfileGCFunc) (Il2CppProfiler* prof, Il2CppGCEvent event, int generation);
+ typedef void (*Il2CppProfileGCResizeFunc) (Il2CppProfiler* prof, int64_t new_size);
++typedef const char* (*Il2CppSetFindPlugInCallback)(const char*);
+ typedef struct Il2CppMetadataField
+ {
+  uint32_t offset;
+--- 5.2.5f1.h
++++ 5.3.0b1.h
+@@ -763,11 +763,11 @@ typedef struct Il2CppCodeRegistration
+ typedef struct Il2CppMetadataRegistration
+ {
+  int32_t genericClassesCount;
+- Il2CppGenericClass* const * genericClasses;
++ Il2CppGenericClass** genericClasses;
+  int32_t genericInstsCount;
+- const Il2CppGenericInst* const * genericInsts;
++ const Il2CppGenericInst** genericInsts;
+  int32_t genericMethodTableCount;
+- const Il2CppGenericMethodFunctionsDefinitions* genericMethodTable;
++ Il2CppGenericMethodFunctionsDefinitions* genericMethodTable;
+  int32_t typesCount;
+  const Il2CppType* const * types;
+  int32_t methodSpecsCount;
+@@ -889,7 +889,6 @@ typedef void (*Il2CppProfileMethodFunc)
+ typedef void (*Il2CppProfileAllocFunc) (Il2CppProfiler* prof, Il2CppObject *obj, Il2CppClass *klass);
+ typedef void (*Il2CppProfileGCFunc) (Il2CppProfiler* prof, Il2CppGCEvent event, int generation);
+ typedef void (*Il2CppProfileGCResizeFunc) (Il2CppProfiler* prof, int64_t new_size);
+-typedef const char* (*Il2CppSetFindPlugInCallback)(const char*);
+ typedef struct Il2CppMetadataField
+ {
+  uint32_t offset;
+@@ -1005,16 +1004,16 @@ typedef struct Il2CppArray
+  il2cpp_array_size_t max_length;
+  double vector[32];
+ } Il2CppArray;
++typedef struct Il2CppDataSegmentString
++{
++ Il2CppObject object;
++} Il2CppDataSegmentString;
+ typedef struct Il2CppString
+ {
+  Il2CppObject object;
+  int32_t length;
+  uint16_t chars[32];
+ } Il2CppString;
+-typedef struct Il2CppDataSegmentString
+-{
+- Il2CppObject object;
+-} Il2CppDataSegmentString;
+ typedef struct Il2CppReflectionType
+ {
+  Il2CppObject object;
 --- 5.3.0b5.h
 +++ 5.3.0b6.h
 @@ -763,11 +763,11 @@ typedef struct Il2CppCodeRegistration
